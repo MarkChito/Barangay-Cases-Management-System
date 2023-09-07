@@ -54,6 +54,7 @@ Partial Class Main
         LinkLabel1 = New LinkLabel()
         Label1 = New Label()
         pnl_body = New Panel()
+        Dashboard = New Dashboard()
         pnl_notification = New Panel()
         Label7 = New Label()
         pnl_account_details = New Panel()
@@ -65,6 +66,7 @@ Partial Class Main
         lbl_account_name = New Button()
         img_loading = New PictureBox()
         Timer1 = New Timer(components)
+        Barangay_Cases = New Barangay_Cases()
         pnl_sidebar.SuspendLayout()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -473,14 +475,28 @@ Partial Class Main
         ' 
         ' pnl_body
         ' 
+        pnl_body.Controls.Add(Dashboard)
         pnl_body.Controls.Add(pnl_notification)
         pnl_body.Controls.Add(pnl_account_details)
         pnl_body.Controls.Add(img_loading)
+        pnl_body.Controls.Add(Barangay_Cases)
         pnl_body.Dock = DockStyle.Fill
         pnl_body.Location = New Point(288, 33)
         pnl_body.Name = "pnl_body"
         pnl_body.Size = New Size(1046, 671)
         pnl_body.TabIndex = 3
+        ' 
+        ' Dashboard
+        ' 
+        Dashboard.AutoScroll = True
+        Dashboard.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Dashboard.Dock = DockStyle.Fill
+        Dashboard.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Dashboard.Location = New Point(0, 0)
+        Dashboard.MinimumSize = New Size(1046, 671)
+        Dashboard.Name = "Dashboard"
+        Dashboard.Size = New Size(1046, 671)
+        Dashboard.TabIndex = 3
         ' 
         ' pnl_notification
         ' 
@@ -646,6 +662,17 @@ Partial Class Main
         ' 
         Timer1.Interval = 500
         ' 
+        ' Barangay_Cases
+        ' 
+        Barangay_Cases.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Barangay_Cases.Dock = DockStyle.Fill
+        Barangay_Cases.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Barangay_Cases.Location = New Point(0, 0)
+        Barangay_Cases.MinimumSize = New Size(1046, 671)
+        Barangay_Cases.Name = "Barangay_Cases"
+        Barangay_Cases.Size = New Size(1046, 671)
+        Barangay_Cases.TabIndex = 4
+        ' 
         ' Main
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -731,4 +758,6 @@ Partial Class Main
     Friend WithEvents Label7 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents img_loading As PictureBox
+    Friend WithEvents Dashboard As Dashboard
+    Friend WithEvents Barangay_Cases As Barangay_Cases
 End Class

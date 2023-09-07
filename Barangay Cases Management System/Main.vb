@@ -15,7 +15,7 @@ Public Class Main
         image.Region = New Region(path)
     End Sub
 
-    Private Sub Mouse_Click(button As Button)
+    Public Sub Mouse_Click(button As Button)
         current_tab = button.Name
 
         btn_announcements.BackColor = Color.Transparent
@@ -40,12 +40,12 @@ Public Class Main
         Timer1.Start()
     End Sub
 
-    Private Sub Hide_Account_Details()
+    Public Sub Hide_Account_Details()
         pnl_account_details_visible = False
         pnl_account_details.Visible = False
     End Sub
 
-    Private Sub Hide_Notification()
+    Public Sub Hide_Notification()
         pnl_account_notification_visible = False
         pnl_notification.Visible = False
     End Sub
@@ -196,13 +196,13 @@ Public Class Main
 
             loading_timer = 0
 
-            'If current_tab = "btn_dashboard" Then
-            '    Dashboard.BringToFront()
-            'End If
+            If current_tab = "btn_dashboard" Then
+                Dashboard.BringToFront()
+            End If
 
-            'If current_tab = "btn_barangay_cases" Then
-            '    Barangay_Cases.BringToFront()
-            'End If
+            If current_tab = "btn_barangay_cases" Then
+                Barangay_Cases.BringToFront()
+            End If
 
             'If current_tab = "btn_employees" Then
             '    Employees.BringToFront()

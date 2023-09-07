@@ -1,5 +1,40 @@
-﻿Public Class Login
+﻿Imports System.IO
+
+Public Class Login
     Private password_hidden As Boolean = True
+    Private file_path = "session/login/Session.txt"
+
+    Private Sub Open_File()
+        If Not File.Exists(file_path) Then
+            Try
+                Dim fileStream As FileStream = File.Open(file_path, FileMode.Create, FileAccess.Write)
+
+                Dim writer As New StreamWriter(fileStream)
+
+                writer.Close()
+                fileStream.Close()
+            Catch ex As Exception
+                ' Ignore Error
+            End Try
+        End If
+    End Sub
+
+    Public Sub Write_File(data As String)
+        If File.Exists(file_path) Then
+            Try
+                Dim fileStream As FileStream = File.Open(file_path, FileMode.Open, FileAccess.ReadWrite)
+
+                Dim writer As New StreamWriter(fileStream)
+
+                writer.WriteLine(data)
+
+                writer.Close()
+                fileStream.Close()
+            Catch ex As Exception
+                ' Ignore Error
+            End Try
+        End If
+    End Sub
 
     Private Sub CenterPanel()
         Dim centerX As Integer = Me.ClientSize.Width \ 2 - pnl_login.Width \ 2
@@ -10,8 +45,8 @@
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterPanel()
-
         Database_Open()
+        Open_File()
     End Sub
 
     Private Sub Login_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize

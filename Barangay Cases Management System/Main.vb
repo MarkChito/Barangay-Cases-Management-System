@@ -18,6 +18,7 @@ Public Class Main
     Public Sub Mouse_Click(button As Button)
         current_tab = button.Name
 
+        btn_pending_cases.BackColor = Color.Transparent
         btn_announcements.BackColor = Color.Transparent
         btn_barangay_cases.BackColor = Color.Transparent
         btn_barangay_news.BackColor = Color.Transparent
@@ -200,25 +201,29 @@ Public Class Main
                 Dashboard.BringToFront()
             End If
 
+            If current_tab = "btn_pending_cases" Then
+                Pending_Cases.BringToFront()
+            End If
+
             If current_tab = "btn_barangay_cases" Then
                 Barangay_Cases.BringToFront()
             End If
 
-            'If current_tab = "btn_employees" Then
-            '    Employees.BringToFront()
-            'End If
+            If current_tab = "btn_employees" Then
+                Employees.BringToFront()
+            End If
 
-            'If current_tab = "btn_announcements" Then
-            '    Announcements.BringToFront()
-            'End If
+            If current_tab = "btn_announcements" Then
+                Announcements.BringToFront()
+            End If
 
-            'If current_tab = "btn_barangay_news" Then
-            '    Barangay_News.BringToFront()
-            'End If
+            If current_tab = "btn_barangay_news" Then
+                Barangay_News.BringToFront()
+            End If
 
-            'If current_tab = "btn_my_profile" Then
-            '    My_Profile.BringToFront()
-            'End If
+            If current_tab = "btn_my_profile" Then
+                My_Profile.BringToFront()
+            End If
         End If
 
         loading_timer = loading_timer + 1
@@ -313,5 +318,11 @@ Public Class Main
         MsgBox("You've been successfully signed out", MsgBoxStyle.Information, "Success!")
 
         Login.Show()
+    End Sub
+
+    Private Sub btn_pending_cases_Click(sender As Object, e As EventArgs) Handles btn_pending_cases.Click
+        Mouse_Click(btn_pending_cases)
+        Hide_Account_Details()
+        Hide_Notification()
     End Sub
 End Class

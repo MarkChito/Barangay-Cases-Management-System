@@ -61,6 +61,11 @@
                         End With
                     End With
 
+                    With img_rfid
+                        .SizeMode = PictureBoxSizeMode.StretchImage
+                        .Image = Image.FromFile("dist/img/scan_rfid_gif.gif")
+                    End With
+
                     Me.Close()
                 Else
                     With img_rfid

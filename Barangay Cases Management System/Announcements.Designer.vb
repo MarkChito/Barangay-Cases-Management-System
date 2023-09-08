@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Barangay_Cases
+Partial Class Announcements
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -36,7 +36,7 @@ Partial Class Barangay_Cases
         Panel2.Location = New Point(0, 100)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1046, 571)
-        Panel2.TabIndex = 3
+        Panel2.TabIndex = 7
         ' 
         ' Panel1
         ' 
@@ -47,7 +47,7 @@ Partial Class Barangay_Cases
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1046, 100)
-        Panel1.TabIndex = 2
+        Panel1.TabIndex = 6
         ' 
         ' Label3
         ' 
@@ -56,9 +56,9 @@ Partial Class Barangay_Cases
         Label3.ForeColor = Color.FromArgb(CByte(81), CByte(103), CByte(172))
         Label3.Location = New Point(110, 57)
         Label3.Name = "Label3"
-        Label3.Size = New Size(131, 16)
+        Label3.Size = New Size(125, 16)
         Label3.TabIndex = 2
-        Label3.Text = "/ Barangay Cases"
+        Label3.Text = "/ Announcements"
         ' 
         ' Label2
         ' 
@@ -79,20 +79,20 @@ Partial Class Barangay_Cases
         Label1.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
         Label1.Location = New Point(25, 28)
         Label1.Name = "Label1"
-        Label1.Size = New Size(202, 29)
+        Label1.Size = New Size(198, 29)
         Label1.TabIndex = 0
-        Label1.Text = "Barangay Cases"
+        Label1.Text = "Announcements"
         ' 
-        ' Barangay_Cases
+        ' Announcements
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoScroll = True
         BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
         Controls.Add(Panel2)
         Controls.Add(Panel1)
-        Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
         MinimumSize = New Size(1046, 671)
-        Name = "Barangay_Cases"
+        Name = "Announcements"
         Size = New Size(1046, 671)
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
@@ -101,7 +101,7 @@ Partial Class Barangay_Cases
 
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
 End Class

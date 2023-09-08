@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Account Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Announcements.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Barangay News.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Barangay_Cases.vb">
       <SubType>UserControl</SubType>
     </Compile>
@@ -10,11 +19,20 @@
     <Compile Update="Developers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Employees.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Main.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="My Profile.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Pending Cases.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="RFID_Login.vb">
       <SubType>Form</SubType>

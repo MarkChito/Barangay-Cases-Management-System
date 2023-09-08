@@ -43,7 +43,7 @@ Partial Class RFID_Login
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(436, 45)
+        Panel1.Size = New Size(424, 45)
         Panel1.TabIndex = 0
         ' 
         ' img_close
@@ -51,7 +51,7 @@ Partial Class RFID_Login
         img_close.BackColor = Color.Transparent
         img_close.Cursor = Cursors.Hand
         img_close.Image = CType(resources.GetObject("img_close.Image"), Image)
-        img_close.Location = New Point(401, 6)
+        img_close.Location = New Point(389, 6)
         img_close.Name = "img_close"
         img_close.Size = New Size(32, 32)
         img_close.SizeMode = PictureBoxSizeMode.CenterImage
@@ -74,7 +74,7 @@ Partial Class RFID_Login
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(0, 45)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(436, 505)
+        Panel2.Size = New Size(424, 493)
         Panel2.TabIndex = 1
         ' 
         ' img_rfid
@@ -83,7 +83,7 @@ Partial Class RFID_Login
         img_rfid.Image = CType(resources.GetObject("img_rfid.Image"), Image)
         img_rfid.Location = New Point(0, 0)
         img_rfid.Name = "img_rfid"
-        img_rfid.Size = New Size(436, 505)
+        img_rfid.Size = New Size(424, 493)
         img_rfid.SizeMode = PictureBoxSizeMode.StretchImage
         img_rfid.TabIndex = 0
         img_rfid.TabStop = False
@@ -99,7 +99,7 @@ Partial Class RFID_Login
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(436, 550)
+        ClientSize = New Size(424, 538)
         ControlBox = False
         Controls.Add(txt_rfid_number)
         Controls.Add(Panel2)

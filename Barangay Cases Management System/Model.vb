@@ -7,6 +7,7 @@ Imports MySql.Data.MySqlClient
 Imports MongoDB.Driver.Core.Configuration
 
 Module Model
+    ' Hello Changes
     Public connection As New MySqlConnection
     Public command As New MySqlCommand
     Public adapter As New MySqlDataAdapter

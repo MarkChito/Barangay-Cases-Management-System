@@ -81,6 +81,8 @@ Public Class Main
         End If
 
         img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
+
+        btn_temp.Focus()
     End Sub
 
     Private Sub txt_search_GotFocus(sender As Object, e As EventArgs) Handles txt_search.GotFocus
@@ -230,6 +232,8 @@ Public Class Main
     End Sub
 
     Private Sub btn_logout_2_Click(sender As Object, e As EventArgs) Handles btn_logout_2.Click
+        btn_temp.Focus()
+
         Hide_Account_Details()
         Hide_Notification()
 
@@ -237,7 +241,10 @@ Public Class Main
 
         MsgBox("You've been successfully signed out", MsgBoxStyle.Information, "Success!")
 
-        Login.Show()
+        With Login
+            .Show()
+            .txt_username.Focus()
+        End With
     End Sub
 
     Private Sub btn_developers_Click(sender As Object, e As EventArgs) Handles btn_developers.Click
@@ -250,6 +257,8 @@ Public Class Main
     Private Sub btn_account_settings_Click(sender As Object, e As EventArgs) Handles btn_account_settings.Click
         Hide_Account_Details()
         Hide_Notification()
+
+        Account_Settings.ShowDialog()
     End Sub
 
     Private Sub btn_my_profile_Click(sender As Object, e As EventArgs) Handles btn_my_profile.Click
@@ -313,11 +322,16 @@ Public Class Main
     End Sub
 
     Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
+        btn_temp.Focus()
+
         Me.Hide()
 
         MsgBox("You've been successfully signed out", MsgBoxStyle.Information, "Success!")
 
-        Login.Show()
+        With Login
+            .Show()
+            .txt_username.Focus()
+        End With
     End Sub
 
     Private Sub btn_pending_cases_Click(sender As Object, e As EventArgs) Handles btn_pending_cases.Click

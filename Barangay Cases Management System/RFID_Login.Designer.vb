@@ -24,58 +24,38 @@ Partial Class RFID_Login
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(RFID_Login))
         Panel1 = New Panel()
-        img_close = New PictureBox()
         lbl_title = New Label()
-        Panel2 = New Panel()
         img_rfid = New PictureBox()
         txt_rfid_number = New TextBox()
+        Panel4 = New Panel()
+        btn_close = New Button()
+        Panel2 = New Panel()
         Panel1.SuspendLayout()
-        CType(img_close, ComponentModel.ISupportInitialize).BeginInit()
-        Panel2.SuspendLayout()
         CType(img_rfid, ComponentModel.ISupportInitialize).BeginInit()
+        Panel4.SuspendLayout()
+        Panel2.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.White
-        Panel1.Controls.Add(img_close)
+        Panel1.BorderStyle = BorderStyle.FixedSingle
         Panel1.Controls.Add(lbl_title)
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(424, 45)
+        Panel1.Size = New Size(400, 45)
         Panel1.TabIndex = 0
-        ' 
-        ' img_close
-        ' 
-        img_close.BackColor = Color.Transparent
-        img_close.Cursor = Cursors.Hand
-        img_close.Image = CType(resources.GetObject("img_close.Image"), Image)
-        img_close.Location = New Point(389, 6)
-        img_close.Name = "img_close"
-        img_close.Size = New Size(32, 32)
-        img_close.SizeMode = PictureBoxSizeMode.CenterImage
-        img_close.TabIndex = 1
-        img_close.TabStop = False
         ' 
         ' lbl_title
         ' 
         lbl_title.AutoSize = True
-        lbl_title.Font = New Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        lbl_title.Location = New Point(84, 7)
+        lbl_title.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        lbl_title.Location = New Point(102, 9)
         lbl_title.Name = "lbl_title"
-        lbl_title.Size = New Size(277, 31)
+        lbl_title.Size = New Size(195, 24)
         lbl_title.TabIndex = 0
         lbl_title.Text = "Tap your RFID Card"
-        ' 
-        ' Panel2
-        ' 
-        Panel2.Controls.Add(img_rfid)
-        Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(0, 45)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(424, 493)
-        Panel2.TabIndex = 1
         ' 
         ' img_rfid
         ' 
@@ -83,8 +63,8 @@ Partial Class RFID_Login
         img_rfid.Image = CType(resources.GetObject("img_rfid.Image"), Image)
         img_rfid.Location = New Point(0, 0)
         img_rfid.Name = "img_rfid"
-        img_rfid.Size = New Size(424, 493)
-        img_rfid.SizeMode = PictureBoxSizeMode.StretchImage
+        img_rfid.Size = New Size(398, 408)
+        img_rfid.SizeMode = PictureBoxSizeMode.CenterImage
         img_rfid.TabIndex = 0
         img_rfid.TabStop = False
         ' 
@@ -93,35 +73,72 @@ Partial Class RFID_Login
         txt_rfid_number.Location = New Point(176, 602)
         txt_rfid_number.Name = "txt_rfid_number"
         txt_rfid_number.Size = New Size(100, 23)
-        txt_rfid_number.TabIndex = 2
+        txt_rfid_number.TabIndex = 0
+        ' 
+        ' Panel4
+        ' 
+        Panel4.BackColor = Color.White
+        Panel4.BorderStyle = BorderStyle.FixedSingle
+        Panel4.Controls.Add(btn_close)
+        Panel4.Dock = DockStyle.Bottom
+        Panel4.Location = New Point(0, 455)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(400, 45)
+        Panel4.TabIndex = 3
+        ' 
+        ' btn_close
+        ' 
+        btn_close.BackColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
+        btn_close.Cursor = Cursors.Hand
+        btn_close.FlatStyle = FlatStyle.Flat
+        btn_close.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_close.ForeColor = Color.White
+        btn_close.Location = New Point(304, 4)
+        btn_close.Name = "btn_close"
+        btn_close.Size = New Size(83, 34)
+        btn_close.TabIndex = 99
+        btn_close.Text = "Close"
+        btn_close.UseVisualStyleBackColor = False
+        ' 
+        ' Panel2
+        ' 
+        Panel2.BorderStyle = BorderStyle.FixedSingle
+        Panel2.Controls.Add(img_rfid)
+        Panel2.Dock = DockStyle.Fill
+        Panel2.Location = New Point(0, 45)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(400, 410)
+        Panel2.TabIndex = 4
         ' 
         ' RFID_Login
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(424, 538)
+        ClientSize = New Size(400, 500)
         ControlBox = False
-        Controls.Add(txt_rfid_number)
         Controls.Add(Panel2)
+        Controls.Add(Panel4)
+        Controls.Add(txt_rfid_number)
         Controls.Add(Panel1)
-        FormBorderStyle = FormBorderStyle.FixedSingle
+        FormBorderStyle = FormBorderStyle.None
         Name = "RFID_Login"
         ShowIcon = False
         ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterParent
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
-        CType(img_close, ComponentModel.ISupportInitialize).EndInit()
-        Panel2.ResumeLayout(False)
         CType(img_rfid, ComponentModel.ISupportInitialize).EndInit()
+        Panel4.ResumeLayout(False)
+        Panel2.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lbl_title As Label
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents img_rfid As PictureBox
-    Friend WithEvents img_close As PictureBox
     Friend WithEvents txt_rfid_number As TextBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents btn_close As Button
+    Friend WithEvents Panel2 As Panel
 End Class

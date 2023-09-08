@@ -71,8 +71,9 @@ Partial Class Main
         Announcements = New Announcements()
         Barangay_News = New Barangay_News()
         Pending_Cases = New Pending_Cases()
-        Timer1 = New Timer(components)
         My_Profile = New My_Profile()
+        Timer1 = New Timer(components)
+        btn_temp = New Button()
         pnl_sidebar.SuspendLayout()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +96,7 @@ Partial Class Main
         ' pnl_sidebar
         ' 
         pnl_sidebar.BackColor = Color.White
+        pnl_sidebar.Controls.Add(btn_temp)
         pnl_sidebar.Controls.Add(btn_pending_cases)
         pnl_sidebar.Controls.Add(btn_logout)
         pnl_sidebar.Controls.Add(Label6)
@@ -745,10 +747,6 @@ Partial Class Main
         Pending_Cases.Size = New Size(1046, 671)
         Pending_Cases.TabIndex = 8
         ' 
-        ' Timer1
-        ' 
-        Timer1.Interval = 500
-        ' 
         ' My_Profile
         ' 
         My_Profile.AutoScroll = True
@@ -760,6 +758,19 @@ Partial Class Main
         My_Profile.Name = "My_Profile"
         My_Profile.Size = New Size(1046, 671)
         My_Profile.TabIndex = 9
+        ' 
+        ' Timer1
+        ' 
+        Timer1.Interval = 500
+        ' 
+        ' btn_temp
+        ' 
+        btn_temp.Location = New Point(-94, 484)
+        btn_temp.Name = "btn_temp"
+        btn_temp.Size = New Size(75, 23)
+        btn_temp.TabIndex = 12
+        btn_temp.Text = "Button1"
+        btn_temp.UseVisualStyleBackColor = True
         ' 
         ' Main
         ' 
@@ -854,4 +865,5 @@ Partial Class Main
     Friend WithEvents btn_pending_cases As Button
     Friend WithEvents Pending_Cases As Pending_Cases
     Friend WithEvents My_Profile As My_Profile
+    Friend WithEvents btn_temp As Button
 End Class

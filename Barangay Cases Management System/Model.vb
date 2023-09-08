@@ -171,7 +171,10 @@ Module Model
         End If
 
         If response_ok = 4 Then
-            Main.Show()
+            With Main
+                .Show()
+                .btn_dashboard.PerformClick()
+            End With
         End If
     End Sub
 

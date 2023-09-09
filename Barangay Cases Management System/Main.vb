@@ -7,6 +7,17 @@ Public Class Main
     Private loading_timer As Integer = 0
     Private current_tab As String = ""
 
+    Private Function Format_Name(ByVal first_name As String) As String
+        Dim nameParts() As String = first_name.Split(" "c)
+        Dim firstNameInitials As String = ""
+
+        For Each namePart As String In nameParts
+            firstNameInitials &= namePart(0).ToString().ToUpper() & ". "
+        Next
+
+        Return firstNameInitials
+    End Function
+
     Private Sub Rounded_Image(image As PictureBox)
         Dim path As New GraphicsPath()
 
@@ -55,7 +66,7 @@ Public Class Main
         Dim result = Get_User_Data(primary_key)
         Dim user_image As String = ""
 
-        btn_account.Text = result("first_name")(0) & ". " & result("last_name")
+        btn_account.Text = Format_Name(result("first_name")) & result("last_name")
 
         If String.IsNullOrWhiteSpace(result("middle_name")) Then
             lbl_account_name.Text = result("first_name") & " " & result("last_name")
@@ -255,10 +266,27 @@ Public Class Main
     End Sub
 
     Private Sub btn_account_settings_Click(sender As Object, e As EventArgs) Handles btn_account_settings.Click
+        Dim result = Get_User_Data(primary_key)
+
         Hide_Account_Details()
         Hide_Notification()
 
-        Account_Settings.ShowDialog()
+        Dim fullname As String = ""
+
+        If String.IsNullOrWhiteSpace(result("middle_name")) Then
+            fullname = result("first_name") & " " & result("last_name")
+        Else
+            fullname = result("first_name") & " " & result("middle_name")(0) & ". " & result("last_name")
+        End If
+
+        With Account_Settings
+            .txt_fullname.Text = fullname
+            .txt_rfid_number.Text = result("rfid_number")
+            .txt_username.Text = result("username")
+            .old_password = result("password")
+
+            .ShowDialog()
+        End With
     End Sub
 
     Private Sub btn_my_profile_Click(sender As Object, e As EventArgs) Handles btn_my_profile.Click

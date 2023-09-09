@@ -7,7 +7,6 @@ Imports MySql.Data.MySqlClient
 Imports MongoDB.Driver.Core.Configuration
 
 Module Model
-    ' Hello Changes
     Public connection As New MySqlConnection
     Public command As New MySqlCommand
     Public adapter As New MySqlDataAdapter
@@ -373,6 +372,13 @@ Module Model
         Return Net.BCrypt.Verify(plainTextPassword, fixedHashedPassword)
     End Function
 
+    Public Function Password_Hash(password As String)
+        Dim salt As String = Net.BCrypt.GenerateSalt()
+        Dim hashedPassword As String = Net.BCrypt.HashPassword(password, salt)
+
+        Return hashedPassword
+    End Function
+
     Public Function Get_User_Data(primary_key As String)
         Dim results As New Dictionary(Of String, String)()
 
@@ -406,4 +412,12 @@ Module Model
 
         Return results
     End Function
+
+    Public Sub Update_Account(username As String, password As String, primary_key As String)
+        With command
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `username`='" & username & "', `password`='" & password & "' WHERE `primary_key`='" & primary_key & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+    End Sub
 End Module

@@ -25,6 +25,7 @@ Partial Class Main
         components = New ComponentModel.Container()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Main))
         pnl_sidebar = New Panel()
+        btn_temp = New Button()
         btn_pending_cases = New Button()
         btn_logout = New Button()
         Label6 = New Label()
@@ -73,7 +74,6 @@ Partial Class Main
         Pending_Cases = New Pending_Cases()
         My_Profile = New My_Profile()
         Timer1 = New Timer(components)
-        btn_temp = New Button()
         pnl_sidebar.SuspendLayout()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -112,6 +112,15 @@ Partial Class Main
         pnl_sidebar.Name = "pnl_sidebar"
         pnl_sidebar.Size = New Size(288, 761)
         pnl_sidebar.TabIndex = 0
+        ' 
+        ' btn_temp
+        ' 
+        btn_temp.Location = New Point(-94, 484)
+        btn_temp.Name = "btn_temp"
+        btn_temp.Size = New Size(75, 23)
+        btn_temp.TabIndex = 12
+        btn_temp.Text = "Button1"
+        btn_temp.UseVisualStyleBackColor = True
         ' 
         ' btn_pending_cases
         ' 
@@ -327,7 +336,7 @@ Partial Class Main
         img_notification.Cursor = Cursors.Hand
         img_notification.Dock = DockStyle.Right
         img_notification.Image = CType(resources.GetObject("img_notification.Image"), Image)
-        img_notification.Location = New Point(817, 0)
+        img_notification.Location = New Point(819, 0)
         img_notification.Name = "img_notification"
         img_notification.Size = New Size(33, 33)
         img_notification.SizeMode = PictureBoxSizeMode.CenterImage
@@ -337,7 +346,7 @@ Partial Class Main
         ' Panel3
         ' 
         Panel3.Dock = DockStyle.Right
-        Panel3.Location = New Point(850, 0)
+        Panel3.Location = New Point(852, 0)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(13, 33)
         Panel3.TabIndex = 0
@@ -348,7 +357,7 @@ Partial Class Main
         img_user.Cursor = Cursors.Hand
         img_user.Dock = DockStyle.Right
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)
-        img_user.Location = New Point(863, 0)
+        img_user.Location = New Point(865, 0)
         img_user.Name = "img_user"
         img_user.Size = New Size(33, 33)
         img_user.SizeMode = PictureBoxSizeMode.StretchImage
@@ -358,6 +367,7 @@ Partial Class Main
         ' btn_account
         ' 
         btn_account.AutoSize = True
+        btn_account.AutoSizeMode = AutoSizeMode.GrowAndShrink
         btn_account.BackColor = Color.Transparent
         btn_account.Cursor = Cursors.Hand
         btn_account.Dock = DockStyle.Right
@@ -367,9 +377,9 @@ Partial Class Main
         btn_account.FlatStyle = FlatStyle.Flat
         btn_account.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         btn_account.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_account.Location = New Point(896, 0)
+        btn_account.Location = New Point(898, 0)
         btn_account.Name = "btn_account"
-        btn_account.Size = New Size(150, 33)
+        btn_account.Size = New Size(148, 33)
         btn_account.TabIndex = 2
         btn_account.Text = "S. Administrator"
         btn_account.UseVisualStyleBackColor = False
@@ -762,15 +772,6 @@ Partial Class Main
         ' Timer1
         ' 
         Timer1.Interval = 500
-        ' 
-        ' btn_temp
-        ' 
-        btn_temp.Location = New Point(-94, 484)
-        btn_temp.Name = "btn_temp"
-        btn_temp.Size = New Size(75, 23)
-        btn_temp.TabIndex = 12
-        btn_temp.Text = "Button1"
-        btn_temp.UseVisualStyleBackColor = True
         ' 
         ' Main
         ' 

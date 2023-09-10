@@ -26,6 +26,53 @@ Public Class Main
         image.Region = New Region(path)
     End Sub
 
+    Public Sub Load_My_Profile_Data()
+        Dim result = Get_User_Data(primary_key)
+        Dim fullname As String = ""
+
+        If String.IsNullOrWhiteSpace(result("middle_name")) Then
+            fullname = result("first_name") & " " & result("last_name")
+        Else
+            fullname = result("first_name") & " " & result("middle_name")(0) & ". " & result("last_name")
+        End If
+
+        With My_Profile
+            .img_user.Image = Image.FromFile("dist/img/user_upload/" & result("image"))
+            .lbl_user_details_full_name.Text = fullname
+            .lbl_user_details_position.Text = result("position")
+
+            With .Overview
+                .lbl_full_name.Text = fullname
+
+                If Not result("position") = "" Then
+                    .lbl_position.Text = result("position")
+                End If
+
+                If Not result("mobile_number") = "" Then
+                    .lbl_mobile_number.Text = result("mobile_number")
+                End If
+
+                If Not result("email") = "" Then
+                    .lbl_email.Text = result("email")
+                End If
+
+                If Not result("address") = "" Then
+                    .lbl_address.Text = result("address")
+                End If
+            End With
+
+            With .Update_Profile
+                .txt_first_name.Text = result("first_name")
+                .txt_middle_name.Text = result("middle_name")
+                .txt_last_name.Text = result("last_name")
+                .txt_position.Text = result("position")
+                .txt_mobile_number.Text = result("mobile_number")
+                .txt_email.Text = result("email")
+                .txt_address.Text = result("address")
+            End With
+        End With
+    End Sub
+
     Public Sub Mouse_Click(button As Button)
         current_tab = button.Name
 
@@ -62,7 +109,7 @@ Public Class Main
         pnl_notification.Visible = False
     End Sub
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub Load_User_Data()
         Dim result = Get_User_Data(primary_key)
         Dim user_image As String = ""
 
@@ -92,6 +139,10 @@ Public Class Main
         End If
 
         img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
+    End Sub
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Load_User_Data()
 
         btn_temp.Focus()
     End Sub
@@ -168,6 +219,8 @@ Public Class Main
 
             pnl_account_details_visible = False
         End If
+
+        btn_temp.Focus()
     End Sub
 
     Private Sub Main_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
@@ -206,40 +259,61 @@ Public Class Main
         If loading_timer = 1 Then
             img_loading.Visible = False
 
-            Timer1.Stop()
-
-            loading_timer = 0
-
             If current_tab = "btn_dashboard" Then
+                Timer1.Stop()
+
+                loading_timer = 0
+
                 Dashboard.BringToFront()
             End If
 
             If current_tab = "btn_pending_cases" Then
+                Timer1.Stop()
+
+                loading_timer = 0
+
                 Pending_Cases.BringToFront()
             End If
 
             If current_tab = "btn_barangay_cases" Then
+                Timer1.Stop()
+
+                loading_timer = 0
+
                 Barangay_Cases.BringToFront()
             End If
 
             If current_tab = "btn_employees" Then
+                Timer1.Stop()
+
+                loading_timer = 0
                 Employees.BringToFront()
             End If
 
             If current_tab = "btn_announcements" Then
+                Timer1.Stop()
+
+                loading_timer = 0
                 Announcements.BringToFront()
             End If
 
             If current_tab = "btn_barangay_news" Then
+                Timer1.Stop()
+
+                loading_timer = 0
                 Barangay_News.BringToFront()
             End If
 
             If current_tab = "btn_my_profile" Then
+                Load_My_Profile_Data()
+
                 My_Profile.BringToFront()
+                Timer1.Stop()
+                loading_timer = 0
             End If
         End If
 
-        loading_timer = loading_timer + 1
+        loading_timer += 1
     End Sub
 
     Private Sub btn_logout_2_Click(sender As Object, e As EventArgs) Handles btn_logout_2.Click
@@ -305,7 +379,7 @@ Public Class Main
         If Not pnl_account_notification_visible Then
             With pnl_notification
                 .Visible = True
-                .Location = New Point(pnl_body.Width - pnl_notification.Width - 5, pnl_header.Location.Y + 5)
+                .Location = New Point(img_notification.Location.X - pnl_notification.Width + (5 * 5), pnl_header.Location.Y + 5)
                 .BringToFront()
             End With
 
@@ -354,7 +428,7 @@ Public Class Main
 
         Me.Hide()
 
-        MsgBox("You've been successfully signed out", MsgBoxStyle.Information, "Success!")
+        MsgBox("You have successfully signed out!", MsgBoxStyle.Information, "Success")
 
         With Login
             .Show()

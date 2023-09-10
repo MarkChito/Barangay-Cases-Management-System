@@ -69,7 +69,13 @@ Public Class Account_Settings
     End Sub
 
     Private Sub btn_submit_Click(sender As Object, e As EventArgs) Handles btn_submit.Click
+        Main.btn_temp.Focus()
+
         Dim password As String
+
+        btn_close.Visible = False
+        btn_submit.Text = "Processing..."
+        btn_submit.Enabled = False
 
         If String.IsNullOrWhiteSpace(txt_password.Text) Or txt_password.Text = "Password is hidden for security" Then
             password = old_password
@@ -77,9 +83,9 @@ Public Class Account_Settings
             password = Password_Hash(txt_password.Text)
         End If
 
-        If Not String.IsNullOrWhiteSpace(txt_username.Text) Then
+        If Not String.IsNullOrWhiteSpace(txt_username.Text) And Not String.IsNullOrWhiteSpace(txt_rfid_number.Text) Then
             If Verify_Password(txt_password.Text, txt_confirm_password.Text) Then
-                Update_Account(txt_username.Text, password, primary_key)
+                Update_Account(txt_rfid_number.Text, txt_username.Text, password, primary_key)
 
                 Me.Hide()
 
@@ -88,10 +94,14 @@ Public Class Account_Settings
                 Me.Close()
             End If
         Else
-            MsgBox("Username must not be empty!", MsgBoxStyle.Critical, "Error")
-
-            txt_username.Focus()
+            MsgBox("Please complete all the required details!", MsgBoxStyle.Critical, "Error")
         End If
+
+        btn_close.Visible = True
+        btn_submit.Enabled = True
+        btn_submit.Text = "&Submit Changes"
+
+        Main.btn_temp.Focus()
     End Sub
 
     Private Function Verify_Password(password As String, confirm_password As String)

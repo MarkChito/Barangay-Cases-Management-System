@@ -31,11 +31,17 @@
     <Compile Update="My Profile.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Overview.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Pending Cases.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="RFID_Login.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Update Profile.vb">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 </Project>

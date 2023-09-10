@@ -40,9 +40,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "BCrypt.Net": {
+            "BCrypt.Net-Core": {
               "target": "Package",
-              "version": "[0.1.0, )"
+              "version": "[1.6.0, )"
             },
             "MongoDB.Driver": {
               "target": "Package",

@@ -124,9 +124,9 @@ Partial Class Login
         img_show_hide_password.BackColor = Color.Transparent
         img_show_hide_password.Cursor = Cursors.Hand
         img_show_hide_password.Image = CType(resources.GetObject("img_show_hide_password.Image"), Image)
-        img_show_hide_password.Location = New Point(347, 214)
+        img_show_hide_password.Location = New Point(348, 215)
         img_show_hide_password.Name = "img_show_hide_password"
-        img_show_hide_password.Size = New Size(20, 20)
+        img_show_hide_password.Size = New Size(18, 18)
         img_show_hide_password.SizeMode = PictureBoxSizeMode.StretchImage
         img_show_hide_password.TabIndex = 13
         img_show_hide_password.TabStop = False
@@ -134,6 +134,7 @@ Partial Class Login
         ' btn_rfid_login
         ' 
         btn_rfid_login.AutoSize = True
+        btn_rfid_login.BackColor = Color.Transparent
         btn_rfid_login.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         btn_rfid_login.LinkBehavior = LinkBehavior.NeverUnderline
         btn_rfid_login.Location = New Point(169, 348)
@@ -146,6 +147,7 @@ Partial Class Login
         ' Label6
         ' 
         Label6.AutoSize = True
+        Label6.BackColor = Color.Transparent
         Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label6.Location = New Point(20, 348)
         Label6.Name = "Label6"
@@ -252,7 +254,6 @@ Partial Class Login
         Name = "Login"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Administrator Login"
-        WindowState = FormWindowState.Maximized
         CType(img_loading, ComponentModel.ISupportInitialize).EndInit()
         pnl_login.ResumeLayout(False)
         pnl_login.PerformLayout()

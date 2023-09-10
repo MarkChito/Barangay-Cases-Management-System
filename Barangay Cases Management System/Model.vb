@@ -1,10 +1,10 @@
 ﻿Imports System.IO
-Imports System.Net
 Imports MongoDB.Driver
 Imports MongoDB.Bson
 Imports BCrypt
 Imports MySql.Data.MySqlClient
-Imports MongoDB.Driver.Core.Configuration
+Imports System.Net.Http
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Module Model
     Public connection As New MySqlConnection
@@ -21,20 +21,49 @@ Module Model
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""
 
-    Private Function MongoDB_Database_Name()
+    Public Function MongoDB_Database_Name()
         Dim connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
         Dim client As New MongoClient(connectionString)
-
         Dim database_name As IMongoDatabase = client.GetDatabase("barangaycasesmanagement")
 
         Return database_name
     End Function
 
+    Public Sub Insert_Admin_Data()
+        Dim database_name As IMongoDatabase = MongoDB_Database_Name()
+        Dim tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = database_name.GetCollection(Of BsonDocument)("tbl_barangaycasesmanagement_useraccounts")
+        Dim filter = Builders(Of BsonDocument).Filter.And(Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", "1"))
+        Dim existingDocument = tbl_barangaycasesmanagement_useraccounts.Find(filter).FirstOrDefault()
+
+        If existingDocument Is Nothing Then
+            Dim password = Password_Hash("admin123")
+
+            Dim admin_data As New BsonDocument From {
+                    {"_id", ObjectId.GenerateNewId()},
+                    {"primary_key", "1"},
+                    {"rfid_number", "12345"},
+                    {"first_name", "Super"},
+                    {"middle_name", ""},
+                    {"last_name", "Administrator"},
+                    {"position", "Barangay Captain"},
+                    {"mobile_number", ""},
+                    {"email", ""},
+                    {"address", ""},
+                    {"username", "admin"},
+                    {"password", password.ToString},
+                    {"image", "64fc5e92a2bf4_1694260882.jpg"},
+                    {"user_type", "admin"}
+                }
+
+            tbl_barangaycasesmanagement_useraccounts.InsertOne(admin_data)
+        End If
+    End Sub
+
     Public Sub Database_Open()
         ' Database Configuration
         Dim localhost_server = "localhost"
         Dim online_server = "184.168.101.160"
-        Dim server = ""
+        Dim server As String
 
         If connection_type = online_connection Then
             server = online_server
@@ -70,11 +99,17 @@ Module Model
         End Try
     End Sub
 
+    Public Sub Database_Close()
+        connection.Close()
+    End Sub
+
     Public Function Authenticate(username As String, password As String)
         Dim results As New Dictionary(Of String, String)()
 
         Dim db_username = ""
         Dim db_password = ""
+
+        Database_Open()
 
         table.Clear()
 
@@ -109,6 +144,8 @@ Module Model
             results.Add("response_code", 404)
         End If
 
+        Database_Close()
+
         Return results
     End Function
 
@@ -116,6 +153,8 @@ Module Model
         Dim results As New Dictionary(Of String, String)()
 
         Dim db_rfid_number = ""
+
+        Database_Open()
 
         table.Clear()
 
@@ -143,14 +182,16 @@ Module Model
             results.Add("response_code", 404)
         End If
 
+        Database_Close()
+
         Return results
     End Function
 
-    Public Sub Load_All_Images()
-        Dim result = Get_All_User_Data()
-        Dim result_2 = Get_All_Citizen_Data()
-        Dim result_3 = Get_All_News_Data()
-        Dim result_4 = Get_All_Cases_Data()
+    Public Async Sub Load_All_Images()
+        Dim result = Await Get_All_User_Data()
+        Dim result_2 = Await Get_All_Citizen_Data()
+        Dim result_3 = Await Get_All_News_Data()
+        Dim result_4 = Await Get_All_Cases_Data()
 
         Dim response_ok As Integer = 0
 
@@ -178,9 +219,11 @@ Module Model
         End If
     End Sub
 
-    Private Function Get_All_User_Data()
+    Private Async Function Get_All_User_Data() As Task(Of Dictionary(Of String, String))
         Dim results As New Dictionary(Of String, String)()
-        Dim webClient As New WebClient()
+        Dim httpClient As New HttpClient()
+
+        Database_Open()
 
         table.Clear()
 
@@ -200,8 +243,6 @@ Module Model
 
             If String.IsNullOrWhiteSpace(user_image) Then
                 user_image = "default_user_image.png"
-            Else
-                user_image = row("image")
             End If
 
             Dim imageUrl As String = connection_type & "barangaycasesmanagement.ssystem.online/dist/img/user_upload/" & user_image
@@ -209,12 +250,10 @@ Module Model
 
             If Not File.Exists(localImagePath) Then
                 Try
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-
-                    webClient.DownloadFile(imageUrl, localImagePath)
+                    Dim imageBytes As Byte() = Await httpClient.GetByteArrayAsync(imageUrl)
+                    File.WriteAllBytes(localImagePath, imageBytes)
                 Catch ex As Exception
                     MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
-
                     Application.Exit()
                 End Try
             End If
@@ -222,12 +261,16 @@ Module Model
 
         results.Add("response_code", 200)
 
+        Database_Close()
+
         Return results
     End Function
 
-    Private Function Get_All_Citizen_Data()
+    Private Async Function Get_All_Citizen_Data() As Task(Of Dictionary(Of String, String))
         Dim results As New Dictionary(Of String, String)()
-        Dim webClient As New WebClient()
+        Dim httpClient As New HttpClient()
+
+        Database_Open()
 
         table.Clear()
 
@@ -247,8 +290,6 @@ Module Model
 
             If String.IsNullOrWhiteSpace(user_image) Then
                 user_image = "default_user_image.png"
-            Else
-                user_image = row("image")
             End If
 
             Dim imageUrl As String = connection_type & "barangaycasesmanagement.ssystem.online/dist/img/user_upload/" & user_image
@@ -256,12 +297,10 @@ Module Model
 
             If Not File.Exists(localImagePath) Then
                 Try
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-
-                    webClient.DownloadFile(imageUrl, localImagePath)
+                    Dim imageBytes As Byte() = Await httpClient.GetByteArrayAsync(imageUrl)
+                    File.WriteAllBytes(localImagePath, imageBytes)
                 Catch ex As Exception
                     MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
-
                     Application.Exit()
                 End Try
             End If
@@ -269,12 +308,16 @@ Module Model
 
         results.Add("response_code", 200)
 
+        Database_Close()
+
         Return results
     End Function
 
-    Private Function Get_All_News_Data()
+    Private Async Function Get_All_News_Data() As Task(Of Dictionary(Of String, String))
         Dim results As New Dictionary(Of String, String)()
-        Dim webClient As New WebClient()
+        Dim httpClient As New HttpClient()
+
+        Database_Open()
 
         table.Clear()
 
@@ -294,8 +337,6 @@ Module Model
 
             If String.IsNullOrWhiteSpace(user_image) Then
                 user_image = "default_user_image.png"
-            Else
-                user_image = row("image")
             End If
 
             Dim imageUrl As String = connection_type & "barangaycasesmanagement.ssystem.online/dist/img/user_upload/" & user_image
@@ -303,12 +344,10 @@ Module Model
 
             If Not File.Exists(localImagePath) Then
                 Try
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-
-                    webClient.DownloadFile(imageUrl, localImagePath)
+                    Dim imageBytes As Byte() = Await httpClient.GetByteArrayAsync(imageUrl)
+                    File.WriteAllBytes(localImagePath, imageBytes)
                 Catch ex As Exception
                     MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
-
                     Application.Exit()
                 End Try
             End If
@@ -316,12 +355,16 @@ Module Model
 
         results.Add("response_code", 200)
 
+        Database_Close()
+
         Return results
     End Function
 
-    Private Function Get_All_Cases_Data()
+    Private Async Function Get_All_Cases_Data() As Task(Of Dictionary(Of String, String))
         Dim results As New Dictionary(Of String, String)()
-        Dim webClient As New WebClient()
+        Dim httpClient As New HttpClient()
+
+        Database_Open()
 
         table.Clear()
 
@@ -341,8 +384,6 @@ Module Model
 
             If String.IsNullOrWhiteSpace(user_image) Then
                 user_image = "default_user_image.png"
-            Else
-                user_image = row("image")
             End If
 
             Dim imageUrl As String = connection_type & "barangaycasesmanagement.ssystem.online/dist/img/user_upload/" & user_image
@@ -350,18 +391,18 @@ Module Model
 
             If Not File.Exists(localImagePath) Then
                 Try
-                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-
-                    webClient.DownloadFile(imageUrl, localImagePath)
+                    Dim imageBytes As Byte() = Await httpClient.GetByteArrayAsync(imageUrl)
+                    File.WriteAllBytes(localImagePath, imageBytes)
                 Catch ex As Exception
                     MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
-
                     Application.Exit()
                 End Try
             End If
         Next
 
         results.Add("response_code", 200)
+
+        Database_Close()
 
         Return results
     End Function
@@ -382,6 +423,8 @@ Module Model
     Public Function Get_User_Data(primary_key As String)
         Dim results As New Dictionary(Of String, String)()
 
+        Database_Open()
+
         table.Clear()
 
         With command
@@ -396,6 +439,7 @@ Module Model
         End With
 
         For Each row As DataRow In table.Rows
+            results.Add("primary_key", row("primary_key").ToString())
             results.Add("rfid_number", row("rfid_number").ToString())
             results.Add("first_name", row("first_name").ToString())
             results.Add("middle_name", row("middle_name").ToString())
@@ -410,14 +454,46 @@ Module Model
             results.Add("user_type", row("user_type").ToString())
         Next
 
+        Database_Close()
+
         Return results
     End Function
 
-    Public Sub Update_Account(username As String, password As String, primary_key As String)
+    Public Sub Update_Account(rfid_number As String, username As String, password As String, primary_key As String)
+        Database_Open()
+
         With command
-            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `username`='" & username & "', `password`='" & password & "' WHERE `primary_key`='" & primary_key & "'"
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `rfid_number`='" & rfid_number & "', `username`='" & username & "', `password`='" & password & "' WHERE `primary_key`='" & primary_key & "'"
             .Connection = connection
             .ExecuteNonQuery()
         End With
+
+        Dim database As IMongoDatabase = MongoDB_Database_Name()
+        Dim tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("tbl_barangaycasesmanagement_useraccounts")
+        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
+        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("rfid_number", rfid_number).Set(Of String)("username", username).Set(Of String)("password", password)
+
+        tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
+
+        Database_Close()
+    End Sub
+
+    Public Sub Update_Profile_Information(first_name As String, middle_name As String, last_name As String, position As String, mobile_number As String, email As String, address As String, primary_key As String)
+        Database_Open()
+
+        With command
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `first_name`='" & first_name & "', `middle_name`='" & middle_name & "', `last_name`='" & last_name & "', `position`='" & position & "', `mobile_number`='" & mobile_number & "', `email`='" & email & "', `address`='" & address & "' WHERE `primary_key`='" & primary_key & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Dim database As IMongoDatabase = MongoDB_Database_Name()
+        Dim tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("tbl_barangaycasesmanagement_useraccounts")
+        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
+        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("first_name", first_name).Set(Of String)("middle_name", middle_name).Set(Of String)("last_name", last_name).Set(Of String)("position", position).Set(Of String)("mobile_number", mobile_number).Set(Of String)("email", email).Set(Of String)("address", address)
+
+        tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
+
+        Database_Close()
     End Sub
 End Module

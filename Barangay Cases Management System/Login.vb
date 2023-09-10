@@ -44,9 +44,11 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CenterPanel()
+        Insert_Admin_Data()
         Database_Open()
+        CenterPanel()
         Open_File()
+        Database_Close()
     End Sub
 
     Private Sub Login_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
@@ -114,6 +116,7 @@ Public Class Login
                 primary_key = results("primary_key")
 
                 Load_All_Images()
+
                 Me.Hide()
 
                 txt_username.Enabled = True

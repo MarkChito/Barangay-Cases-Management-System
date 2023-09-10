@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Barangay Cases Management System/1.0.0": {
         "dependencies": {
-          "BCrypt.Net": "0.1.0",
+          "BCrypt.Net-Core": "1.6.0",
           "MongoDB.Driver": "2.21.0",
           "MySql.Data": "8.1.0"
         },
@@ -35,11 +35,11 @@
           }
         }
       },
-      "BCrypt.Net/0.1.0": {
+      "BCrypt.Net-Core/1.6.0": {
         "runtime": {
-          "lib/net35/BCrypt.Net.dll": {
-            "assemblyVersion": "0.1.4141.31969",
-            "fileVersion": "0.1.0.0"
+          "lib/netstandard2.0/BCrypt.Net-Core.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
           }
         }
       },
@@ -427,12 +427,12 @@
       "path": "awssdk.securitytoken/3.7.100.14",
       "hashPath": "awssdk.securitytoken.3.7.100.14.nupkg.sha512"
     },
-    "BCrypt.Net/0.1.0": {
+    "BCrypt.Net-Core/1.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sST2w361Dxt9GGMfpOTiK50wXGV64Ybb1hiX3xjEWnhVYZNF43NuySGwADJa7X1R+bA53NsFR+tuDxcYiJeIOA==",
-      "path": "bcrypt.net/0.1.0",
-      "hashPath": "bcrypt.net.0.1.0.nupkg.sha512"
+      "sha512": "sha512-hsKiHGjrnlDW05MzuzzlD9gNP8YOW2KbZ+FbvISrilsKJJ76tXKhWey6psZX5sd7DczNpSU2U6ldjPoblk8BLw==",
+      "path": "bcrypt.net-core/1.6.0",
+      "hashPath": "bcrypt.net-core.1.6.0.nupkg.sha512"
     },
     "DnsClient/1.6.1": {
       "type": "package",

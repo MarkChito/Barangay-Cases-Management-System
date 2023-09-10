@@ -5,7 +5,6 @@ C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management S
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\Barangay Cases Management System.pdb
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\AWSSDK.Core.dll
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\AWSSDK.SecurityToken.dll
-C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\BCrypt.Net.dll
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\DnsClient.dll
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\Google.Protobuf.dll
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
@@ -59,3 +58,6 @@ C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management S
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Account_Settings.resources
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Pending_Cases.resources
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.My_Profile.resources
+C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\BCrypt.Net-Core.dll
+C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Overview.resources
+C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Update_Profile.resources

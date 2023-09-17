@@ -117,8 +117,6 @@ Public Class Login
 
                 Load_All_Images()
 
-                Me.Hide()
-
                 txt_username.Enabled = True
                 txt_password.Enabled = True
                 img_show_hide_password.Enabled = True

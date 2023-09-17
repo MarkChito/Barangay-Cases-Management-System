@@ -42,6 +42,7 @@ Partial Class Overview
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(135))
         Label1.Location = New Point(23, 20)
@@ -53,6 +54,7 @@ Partial Class Overview
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label2.Location = New Point(23, 69)
@@ -64,6 +66,7 @@ Partial Class Overview
         ' lbl_full_name
         ' 
         lbl_full_name.AutoSize = True
+        lbl_full_name.BackColor = Color.Transparent
         lbl_full_name.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         lbl_full_name.ForeColor = Color.Black
         lbl_full_name.Location = New Point(0, 69)
@@ -75,6 +78,7 @@ Partial Class Overview
         ' lbl_position
         ' 
         lbl_position.AutoSize = True
+        lbl_position.BackColor = Color.Transparent
         lbl_position.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         lbl_position.ForeColor = Color.Black
         lbl_position.Location = New Point(0, 109)
@@ -86,6 +90,7 @@ Partial Class Overview
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label5.Location = New Point(23, 109)
@@ -97,6 +102,7 @@ Partial Class Overview
         ' lbl_mobile_number
         ' 
         lbl_mobile_number.AutoSize = True
+        lbl_mobile_number.BackColor = Color.Transparent
         lbl_mobile_number.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         lbl_mobile_number.ForeColor = Color.Black
         lbl_mobile_number.Location = New Point(0, 149)
@@ -108,6 +114,7 @@ Partial Class Overview
         ' Label7
         ' 
         Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
         Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label7.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label7.Location = New Point(23, 149)
@@ -119,6 +126,7 @@ Partial Class Overview
         ' lbl_email
         ' 
         lbl_email.AutoSize = True
+        lbl_email.BackColor = Color.Transparent
         lbl_email.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         lbl_email.ForeColor = Color.Black
         lbl_email.Location = New Point(0, 189)
@@ -130,6 +138,7 @@ Partial Class Overview
         ' Label9
         ' 
         Label9.AutoSize = True
+        Label9.BackColor = Color.Transparent
         Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label9.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label9.Location = New Point(23, 189)
@@ -141,6 +150,7 @@ Partial Class Overview
         ' lbl_address
         ' 
         lbl_address.AutoSize = True
+        lbl_address.BackColor = Color.Transparent
         lbl_address.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         lbl_address.ForeColor = Color.Black
         lbl_address.Location = New Point(0, 229)
@@ -152,6 +162,7 @@ Partial Class Overview
         ' Label11
         ' 
         Label11.AutoSize = True
+        Label11.BackColor = Color.Transparent
         Label11.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label11.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label11.Location = New Point(23, 229)

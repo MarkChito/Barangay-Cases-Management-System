@@ -4,6 +4,9 @@
     <Compile Update="Account Settings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Add Employee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Announcements.vb">
       <SubType>UserControl</SubType>
     </Compile>
@@ -22,6 +25,9 @@
     <Compile Update="Employees.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Employee_Account_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -35,6 +41,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Pending Cases.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Profile.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="RFID_Login.vb">

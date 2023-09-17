@@ -56,6 +56,7 @@ Partial Class Account_Settings
         ' lbl_title
         ' 
         lbl_title.AutoSize = True
+        lbl_title.BackColor = Color.Transparent
         lbl_title.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
         lbl_title.Location = New Point(83, 9)
         lbl_title.Name = "lbl_title"
@@ -135,6 +136,7 @@ Partial Class Account_Settings
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label5.Location = New Point(24, 274)
         Label5.Name = "Label5"
@@ -156,6 +158,7 @@ Partial Class Account_Settings
         ' Label4
         ' 
         Label4.AutoSize = True
+        Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label4.Location = New Point(24, 212)
         Label4.Name = "Label4"
@@ -175,6 +178,7 @@ Partial Class Account_Settings
         ' Label3
         ' 
         Label3.AutoSize = True
+        Label3.BackColor = Color.Transparent
         Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label3.Location = New Point(24, 150)
         Label3.Name = "Label3"
@@ -194,6 +198,7 @@ Partial Class Account_Settings
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.Location = New Point(24, 88)
         Label2.Name = "Label2"
@@ -214,6 +219,7 @@ Partial Class Account_Settings
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.Location = New Point(24, 26)
         Label1.Name = "Label1"

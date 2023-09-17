@@ -22,17 +22,28 @@
             .Enabled = False
         End With
 
-        Update_Profile_Information(txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_position.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, primary_key)
+        Update_Profile_Information(txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_position.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, lbl_primary_key.Text)
 
         With Main
-            .Load_User_Data()
-            .Load_My_Profile_Data()
+            If lbl_primary_key.Text = "1" Then
+                .Load_User_Data()
+                .Load_My_Profile_Data()
 
-            With .My_Profile
-                .Center_Object(.lbl_user_details_full_name)
-                .Center_Object(.lbl_user_details_position)
-                .Center_Object(.img_user)
-            End With
+                With .My_Profile
+                    .Center_Object(.lbl_user_details_full_name)
+                    .Center_Object(.lbl_user_details_position)
+                    .Center_Object(.img_user)
+                End With
+            Else
+                .Load_Employees_Data()
+                .Load_Employee_Data()
+
+                With .Profile
+                    .Center_Object(.lbl_user_details_full_name)
+                    .Center_Object(.lbl_user_details_position)
+                    .Center_Object(.img_user)
+                End With
+            End If
         End With
 
         With btn_submit

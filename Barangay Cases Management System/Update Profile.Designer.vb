@@ -30,6 +30,7 @@ Partial Class Update_Profile
         Label6 = New Label()
         Label7 = New Label()
         Panel1 = New Panel()
+        lbl_primary_key = New Label()
         Panel10 = New Panel()
         Panel2 = New Panel()
         btn_submit = New Button()
@@ -55,6 +56,7 @@ Partial Class Update_Profile
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label2.Location = New Point(23, 23)
@@ -66,6 +68,7 @@ Partial Class Update_Profile
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label1.Location = New Point(23, 69)
@@ -77,6 +80,7 @@ Partial Class Update_Profile
         ' Label3
         ' 
         Label3.AutoSize = True
+        Label3.BackColor = Color.Transparent
         Label3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label3.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label3.Location = New Point(23, 115)
@@ -88,6 +92,7 @@ Partial Class Update_Profile
         ' Label4
         ' 
         Label4.AutoSize = True
+        Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label4.Location = New Point(23, 161)
@@ -99,6 +104,7 @@ Partial Class Update_Profile
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label5.Location = New Point(23, 209)
@@ -110,6 +116,7 @@ Partial Class Update_Profile
         ' Label6
         ' 
         Label6.AutoSize = True
+        Label6.BackColor = Color.Transparent
         Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label6.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label6.Location = New Point(23, 255)
@@ -121,6 +128,7 @@ Partial Class Update_Profile
         ' Label7
         ' 
         Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
         Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label7.ForeColor = Color.FromArgb(CByte(103), CByte(127), CByte(169))
         Label7.Location = New Point(23, 301)
@@ -144,6 +152,16 @@ Partial Class Update_Profile
         Panel1.Size = New Size(250, 521)
         Panel1.TabIndex = 18
         ' 
+        ' lbl_primary_key
+        ' 
+        lbl_primary_key.AutoSize = True
+        lbl_primary_key.Location = New Point(120, 444)
+        lbl_primary_key.Name = "lbl_primary_key"
+        lbl_primary_key.Size = New Size(110, 15)
+        lbl_primary_key.TabIndex = 16
+        lbl_primary_key.Text = "Do Not Delete This"
+        lbl_primary_key.Visible = False
+        ' 
         ' Panel10
         ' 
         Panel10.Dock = DockStyle.Right
@@ -154,6 +172,7 @@ Partial Class Update_Profile
         ' 
         ' Panel2
         ' 
+        Panel2.Controls.Add(lbl_primary_key)
         Panel2.Controls.Add(btn_submit)
         Panel2.Controls.Add(Panel11)
         Panel2.Controls.Add(txt_address)
@@ -365,4 +384,5 @@ Partial Class Update_Profile
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel11 As Panel
     Friend WithEvents btn_submit As Button
+    Friend WithEvents lbl_primary_key As Label
 End Class

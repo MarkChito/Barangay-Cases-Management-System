@@ -81,6 +81,7 @@ Partial Class Login
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
         Label1.Location = New Point(82, 137)
@@ -142,7 +143,7 @@ Partial Class Login
         btn_rfid_login.Size = New Size(133, 20)
         btn_rfid_login.TabIndex = 4
         btn_rfid_login.TabStop = True
-        btn_rfid_login.Text = "Login using RFID"
+        btn_rfid_login.Text = "Login using &RFID"
         ' 
         ' Label6
         ' 
@@ -166,19 +167,20 @@ Partial Class Login
         btn_login.Name = "btn_login"
         btn_login.Size = New Size(350, 42)
         btn_login.TabIndex = 3
-        btn_login.Text = "Login"
+        btn_login.Text = "&Login"
         btn_login.UseVisualStyleBackColor = False
         ' 
         ' check_remember_me
         ' 
         check_remember_me.AutoSize = True
+        check_remember_me.BackColor = Color.Transparent
         check_remember_me.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         check_remember_me.Location = New Point(20, 243)
         check_remember_me.Name = "check_remember_me"
         check_remember_me.Size = New Size(133, 24)
         check_remember_me.TabIndex = 2
-        check_remember_me.Text = "Remember Me"
-        check_remember_me.UseVisualStyleBackColor = True
+        check_remember_me.Text = "R&emember Me"
+        check_remember_me.UseVisualStyleBackColor = False
         ' 
         ' txt_password
         ' 
@@ -192,6 +194,7 @@ Partial Class Login
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label5.Location = New Point(20, 188)
         Label5.Name = "Label5"
@@ -210,6 +213,7 @@ Partial Class Login
         ' Label4
         ' 
         Label4.AutoSize = True
+        Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label4.Location = New Point(20, 122)
         Label4.Name = "Label4"
@@ -220,6 +224,7 @@ Partial Class Login
         ' Label3
         ' 
         Label3.AutoSize = True
+        Label3.BackColor = Color.Transparent
         Label3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         Label3.ForeColor = SystemColors.ControlText
         Label3.Location = New Point(65, 77)
@@ -232,6 +237,7 @@ Partial Class Login
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
         Label2.Location = New Point(67, 38)

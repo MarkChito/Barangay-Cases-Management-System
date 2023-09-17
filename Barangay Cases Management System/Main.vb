@@ -6,6 +6,34 @@ Public Class Main
     Private pnl_account_notification_visible = False
     Private loading_timer As Integer = 0
     Private current_tab As String = ""
+    Private employee_primary_key As String = ""
+
+    Public Sub Load_Employees_Data()
+        Dim results As DataTable = Get_Employee_Data(primary_key)
+
+        Employees.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+            Dim fullname As String = ""
+
+            If String.IsNullOrWhiteSpace(row("middle_name")) Then
+                fullname = row("first_name") & " " & row("last_name")
+            Else
+                fullname = row("first_name") & " " & row("middle_name")(0) & ". " & row("last_name")
+            End If
+
+            With Employees
+                Dim lvi As ListViewItem
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(fullname)
+                lvi.SubItems.Add(row("position").ToString())
+                lvi.SubItems.Add(row("mobile_number").ToString())
+                lvi.SubItems.Add(row("email").ToString())
+                lvi.SubItems.Add(row("address").ToString())
+            End With
+        Next
+    End Sub
 
     Private Function Format_Name(ByVal first_name As String) As String
         Dim nameParts() As String = first_name.Split(" "c)
@@ -27,7 +55,7 @@ Public Class Main
     End Sub
 
     Public Sub Load_My_Profile_Data()
-        Dim result = Get_User_Data(primary_key)
+        Dim result = Get_User_Data(employee_primary_key)
         Dim fullname As String = ""
 
         If String.IsNullOrWhiteSpace(result("middle_name")) Then
@@ -62,6 +90,7 @@ Public Class Main
             End With
 
             With .Update_Profile
+                .lbl_primary_key.Text = result("primary_key")
                 .txt_first_name.Text = result("first_name")
                 .txt_middle_name.Text = result("middle_name")
                 .txt_last_name.Text = result("last_name")
@@ -70,11 +99,77 @@ Public Class Main
                 .txt_email.Text = result("email")
                 .txt_address.Text = result("address")
             End With
+
+            .Center_Object(.lbl_user_details_full_name)
+            .Center_Object(.lbl_user_details_position)
+            .Center_Object(.img_user)
         End With
     End Sub
 
-    Public Sub Mouse_Click(button As Button)
-        current_tab = button.Name
+    Public Sub Load_Employee_Data()
+        Dim result = Get_User_Data(employee_primary_key)
+        Dim fullname As String = ""
+
+        If String.IsNullOrWhiteSpace(result("middle_name")) Then
+            fullname = result("first_name") & " " & result("last_name")
+        Else
+            fullname = result("first_name") & " " & result("middle_name")(0) & ". " & result("last_name")
+        End If
+
+        With Profile
+            .img_user.Image = Image.FromFile("dist/img/user_upload/" & result("image"))
+            .lbl_user_details_full_name.Text = fullname
+            .lbl_user_details_position.Text = result("position")
+
+            With .Overview
+                .lbl_full_name.Text = fullname
+
+                If Not result("position") = "" Then
+                    .lbl_position.Text = result("position")
+                End If
+
+                If Not result("mobile_number") = "" Then
+                    .lbl_mobile_number.Text = result("mobile_number")
+                End If
+
+                If Not result("email") = "" Then
+                    .lbl_email.Text = result("email")
+                End If
+
+                If Not result("address") = "" Then
+                    .lbl_address.Text = result("address")
+                End If
+            End With
+
+            With .Update_Profile
+                .lbl_primary_key.Text = result("primary_key")
+                .txt_first_name.Text = result("first_name")
+                .txt_middle_name.Text = result("middle_name")
+                .txt_last_name.Text = result("last_name")
+                .txt_position.Text = result("position")
+                .txt_mobile_number.Text = result("mobile_number")
+                .txt_email.Text = result("email")
+                .txt_address.Text = result("address")
+            End With
+
+            With .Employee_Account_Settings
+                .lbl_primary_key.Text = result("primary_key")
+                .txt_rfid_number.Text = result("rfid_number")
+                .txt_username.Text = result("username")
+
+                .old_rfid_number = result("rfid_number")
+                .old_username = result("username")
+                .old_password = result("password")
+            End With
+
+            .Center_Object(.lbl_user_details_full_name)
+            .Center_Object(.lbl_user_details_position)
+            .Center_Object(.img_user)
+        End With
+    End Sub
+
+    Public Sub Mouse_Click(btn_name As Object, Optional initial_data As String = "")
+        current_tab = btn_name.Name
 
         btn_pending_cases.BackColor = Color.Transparent
         btn_announcements.BackColor = Color.Transparent
@@ -89,12 +184,14 @@ Public Class Main
         btn_developers.BackColor = Color.Transparent
         btn_logout_2.BackColor = Color.Transparent
 
-        button.BackColor = Color.FromArgb(246, 249, 255)
+        btn_name.BackColor = Color.FromArgb(246, 249, 255)
 
         With img_loading
             .Visible = True
             .BringToFront()
         End With
+
+        employee_primary_key = initial_data
 
         Timer1.Start()
     End Sub
@@ -112,6 +209,14 @@ Public Class Main
     Public Sub Load_User_Data()
         Dim result = Get_User_Data(primary_key)
         Dim user_image As String = ""
+
+        If Not result("user_type") = "admin" Then
+            pnl_spacer_btn_employees.Visible = False
+            btn_employees.Visible = False
+        Else
+            pnl_spacer_btn_employees.Visible = True
+            btn_employees.Visible = True
+        End If
 
         btn_account.Text = Format_Name(result("first_name")) & result("last_name")
 
@@ -142,8 +247,6 @@ Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Load_User_Data()
-
         btn_temp.Focus()
     End Sub
 
@@ -175,22 +278,18 @@ Public Class Main
     End Sub
 
     Private Sub btn_toggle_sidebar_Click(sender As Object, e As EventArgs) Handles btn_toggle_sidebar.Click
-        Hide_Account_Details()
-        Hide_Notification()
-
         If sidebar_visible Then
             pnl_sidebar.Visible = False
-
             sidebar_visible = False
-
             pnl_banner.Visible = True
         Else
             pnl_sidebar.Visible = True
-
             sidebar_visible = True
-
             pnl_banner.Visible = False
         End If
+
+        Hide_Account_Details()
+        Hide_Notification()
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -224,26 +323,6 @@ Public Class Main
     End Sub
 
     Private Sub Main_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        Hide_Account_Details()
-        Hide_Notification()
-    End Sub
-
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        Hide_Account_Details()
-        Hide_Notification()
-    End Sub
-
-    Private Sub pnl_sidebar_Click(sender As Object, e As EventArgs) Handles pnl_sidebar.Click
-        Hide_Account_Details()
-        Hide_Notification()
-    End Sub
-
-    Private Sub Panel1_Click(sender As Object, e As EventArgs) Handles pnl_footer_outer.Click
-        Hide_Account_Details()
-        Hide_Notification()
-    End Sub
-
-    Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click, LinkLabel1.Click, Label5.Click, Label4.Click, Label2.Click
         Hide_Account_Details()
         Hide_Notification()
     End Sub
@@ -284,6 +363,9 @@ Public Class Main
             End If
 
             If current_tab = "btn_employees" Then
+                Load_Employee_Images()
+                Load_Employees_Data()
+
                 Timer1.Stop()
 
                 loading_timer = 0
@@ -308,6 +390,14 @@ Public Class Main
                 Load_My_Profile_Data()
 
                 My_Profile.BringToFront()
+                Timer1.Stop()
+                loading_timer = 0
+            End If
+
+            If current_tab = "listview_employees" Then
+                Load_Employee_Data()
+
+                Profile.BringToFront()
                 Timer1.Stop()
                 loading_timer = 0
             End If
@@ -357,6 +447,9 @@ Public Class Main
             .txt_fullname.Text = fullname
             .txt_rfid_number.Text = result("rfid_number")
             .txt_username.Text = result("username")
+
+            .old_rfid_number = result("rfid_number")
+            .old_username = result("username")
             .old_password = result("password")
 
             .ShowDialog()
@@ -364,7 +457,7 @@ Public Class Main
     End Sub
 
     Private Sub btn_my_profile_Click(sender As Object, e As EventArgs) Handles btn_my_profile.Click
-        Mouse_Click(btn_my_profile)
+        Mouse_Click(btn_my_profile, primary_key)
         Hide_Account_Details()
         Hide_Notification()
     End Sub
@@ -405,6 +498,12 @@ Public Class Main
         Hide_Notification()
     End Sub
 
+    Private Sub btn_pending_cases_Click(sender As Object, e As EventArgs) Handles btn_pending_cases.Click
+        Mouse_Click(btn_pending_cases)
+        Hide_Account_Details()
+        Hide_Notification()
+    End Sub
+
     Private Sub btn_employees_Click(sender As Object, e As EventArgs) Handles btn_employees.Click
         Mouse_Click(btn_employees)
         Hide_Account_Details()
@@ -426,6 +525,8 @@ Public Class Main
     Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
         btn_temp.Focus()
 
+        primary_key = Nothing
+
         Me.Hide()
 
         MsgBox("You have successfully signed out!", MsgBoxStyle.Information, "Success")
@@ -434,11 +535,5 @@ Public Class Main
             .Show()
             .txt_username.Focus()
         End With
-    End Sub
-
-    Private Sub btn_pending_cases_Click(sender As Object, e As EventArgs) Handles btn_pending_cases.Click
-        Mouse_Click(btn_pending_cases)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 End Class

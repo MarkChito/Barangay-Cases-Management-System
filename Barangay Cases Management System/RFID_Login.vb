@@ -106,7 +106,7 @@
         Design_Button(btn_close)
     End Sub
 
-    Private Sub RFID_Login_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub RFID_Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With txt_rfid_number
             .Clear()
             .Focus()

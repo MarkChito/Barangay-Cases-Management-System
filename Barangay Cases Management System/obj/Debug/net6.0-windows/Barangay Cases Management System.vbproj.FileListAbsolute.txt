@@ -61,3 +61,6 @@ C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management S
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\BCrypt.Net-Core.dll
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Overview.resources
 C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Update_Profile.resources
+C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Profile.resources
+C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Employee_Account_Settings.resources
+C:\Users\Admin\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Employee.resources

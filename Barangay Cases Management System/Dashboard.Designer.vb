@@ -23,9 +23,9 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Panel1 = New Panel()
-        Panel2 = New Panel()
-        Label1 = New Label()
         Label2 = New Label()
+        Label1 = New Label()
+        Panel2 = New Panel()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -39,17 +39,22 @@ Partial Class Dashboard
         Panel1.Size = New Size(1046, 100)
         Panel1.TabIndex = 0
         ' 
-        ' Panel2
+        ' Label2
         ' 
-        Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(0, 100)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1046, 571)
-        Panel2.TabIndex = 1
+        Label2.AutoSize = True
+        Label2.BackColor = Color.Transparent
+        Label2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.ForeColor = Color.FromArgb(CByte(81), CByte(103), CByte(172))
+        Label2.Location = New Point(28, 57)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(84, 16)
+        Label2.TabIndex = 1
+        Label2.Text = "Dashboard"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
         Label1.Location = New Point(25, 28)
@@ -58,16 +63,13 @@ Partial Class Dashboard
         Label1.TabIndex = 0
         Label1.Text = "Dashboard"
         ' 
-        ' Label2
+        ' Panel2
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.ForeColor = Color.FromArgb(CByte(81), CByte(103), CByte(172))
-        Label2.Location = New Point(28, 57)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(84, 16)
-        Label2.TabIndex = 1
-        Label2.Text = "Dashboard"
+        Panel2.Dock = DockStyle.Fill
+        Panel2.Location = New Point(0, 100)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(1046, 571)
+        Panel2.TabIndex = 1
         ' 
         ' Dashboard
         ' 

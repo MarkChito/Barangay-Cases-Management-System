@@ -50,6 +50,7 @@ Partial Class RFID_Login
         ' lbl_title
         ' 
         lbl_title.AutoSize = True
+        lbl_title.BackColor = Color.Transparent
         lbl_title.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
         lbl_title.Location = New Point(102, 9)
         lbl_title.Name = "lbl_title"
@@ -97,7 +98,7 @@ Partial Class RFID_Login
         btn_close.Name = "btn_close"
         btn_close.Size = New Size(83, 34)
         btn_close.TabIndex = 99
-        btn_close.Text = "Close"
+        btn_close.Text = "&Close"
         btn_close.UseVisualStyleBackColor = False
         ' 
         ' Panel2

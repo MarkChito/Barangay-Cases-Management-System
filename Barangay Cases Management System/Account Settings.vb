@@ -1,6 +1,8 @@
 ﻿Imports System.Text.RegularExpressions
 
 Public Class Account_Settings
+    Public old_rfid_number As String
+    Public old_username As String
     Public old_password As String
 
     Private Sub Design_Button(button_name As Object)
@@ -84,7 +86,23 @@ Public Class Account_Settings
         End If
 
         If Not String.IsNullOrWhiteSpace(txt_username.Text) And Not String.IsNullOrWhiteSpace(txt_rfid_number.Text) Then
-            If Verify_Password(txt_password.Text, txt_confirm_password.Text) Then
+            Dim errors As Integer = 0
+
+            If Not Check_Username(txt_username.Text, old_username) Then
+                MsgBox("Username already exists!", MsgBoxStyle.Critical, "Error")
+                txt_username.Focus()
+
+                errors += 1
+            End If
+
+            If Not Check_RFID_Number(txt_rfid_number.Text, old_rfid_number) Then
+                MsgBox("RFID Number already exists!", MsgBoxStyle.Critical, "Error")
+                txt_rfid_number.Focus()
+
+                errors += 1
+            End If
+
+            If Verify_Password(txt_password.Text, txt_confirm_password.Text) And errors = 0 Then
                 Update_Account(txt_rfid_number.Text, txt_username.Text, password, primary_key)
 
                 Me.Hide()

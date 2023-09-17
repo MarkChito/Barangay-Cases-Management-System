@@ -16,13 +16,14 @@ Module Model
     Public ReadOnly localhost_connection = "http://localhost/"
 
     ' Change this when connecting online
-    Public ReadOnly connection_type = online_connection
+    Public ReadOnly connection_type = localhost_connection
 
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""
 
     Public Function MongoDB_Database_Name()
         Dim connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
+        'Dim connectionString As String = "mongodb+srv://barangaycasesmanagement:admin123@cluster0.iuqdmuj.mongodb.net/?retryWrites=true&w=majority"
         Dim client As New MongoClient(connectionString)
         Dim database_name As IMongoDatabase = client.GetDatabase("barangaycasesmanagement")
 
@@ -41,7 +42,7 @@ Module Model
             Dim admin_data As New BsonDocument From {
                     {"_id", ObjectId.GenerateNewId()},
                     {"primary_key", "1"},
-                    {"rfid_number", "12345"},
+                    {"rfid_number", ""},
                     {"first_name", "Super"},
                     {"middle_name", ""},
                     {"last_name", "Administrator"},
@@ -51,7 +52,7 @@ Module Model
                     {"address", ""},
                     {"username", "admin"},
                     {"password", password.ToString},
-                    {"image", "64fc5e92a2bf4_1694260882.jpg"},
+                    {"image", "default_user_image.png"},
                     {"user_type", "admin"}
                 }
 
@@ -212,11 +213,18 @@ Module Model
         End If
 
         If response_ok = 4 Then
+            Login.Hide()
+
             With Main
                 .Show()
+                .Load_User_Data()
                 .btn_dashboard.PerformClick()
             End With
         End If
+    End Sub
+
+    Public Async Sub Load_Employee_Images()
+        Dim result = Await Get_All_User_Data()
     End Sub
 
     Private Async Function Get_All_User_Data() As Task(Of Dictionary(Of String, String))
@@ -459,6 +467,31 @@ Module Model
         Return results
     End Function
 
+    Public Function Get_Employee_Data(primary_key As String)
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `primary_key`!='" & primary_key & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
     Public Sub Update_Account(rfid_number As String, username As String, password As String, primary_key As String)
         Database_Open()
 
@@ -496,4 +529,70 @@ Module Model
 
         Database_Close()
     End Sub
+
+    Public Function Check_Username(username As String, old_username As String)
+        Dim results As New Dictionary(Of String, String)()
+
+        Dim db_username = ""
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `username`='" & username & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        For Each row As DataRow In table.Rows
+            db_username = row("username").ToString()
+        Next
+
+        Database_Close()
+
+        If Not old_username = username And db_username = username Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Public Function Check_RFID_Number(rfid_number As String, old_rfid_number As String)
+        Dim results As New Dictionary(Of String, String)()
+
+        Dim db_rfid_number = ""
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `rfid_number`='" & rfid_number & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        For Each row As DataRow In table.Rows
+            db_rfid_number = row("rfid_number").ToString()
+        Next
+
+        Database_Close()
+
+        If Not old_rfid_number = rfid_number And db_rfid_number = rfid_number Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
 End Module

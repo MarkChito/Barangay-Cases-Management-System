@@ -397,11 +397,9 @@ Public Class Main
         If sidebar_visible Then
             pnl_sidebar.Visible = False
             sidebar_visible = False
-            pnl_banner.Visible = True
         Else
             pnl_sidebar.Visible = True
             sidebar_visible = True
-            pnl_banner.Visible = False
         End If
 
         Hide_Account_Details()
@@ -422,7 +420,7 @@ Public Class Main
         If Not pnl_account_details_visible Then
             With pnl_account_details
                 .Visible = True
-                .Location = New Point(pnl_body.Width - pnl_account_details.Width - 5, btn_account.Location.Y + 5)
+                .Location = New Point(pnl_body.Width - pnl_account_details.Width - 5, btn_account.Location.Y + 35)
                 .BringToFront()
             End With
 
@@ -459,7 +457,10 @@ Public Class Main
 
                 loading_timer = 0
 
-                Dashboard.BringToFront()
+                With Dashboard
+                    .btn_announcements.PerformClick()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "btn_pending_cases" Then
@@ -599,7 +600,7 @@ Public Class Main
         If Not pnl_account_notification_visible Then
             With pnl_notification
                 .Visible = True
-                .Location = New Point(img_notification.Location.X - pnl_notification.Width + (5 * 5), pnl_header.Location.Y + 5)
+                .Location = New Point(img_notification.Location.X - pnl_notification.Width + (5 * 5), pnl_header.Location.Y + 35)
                 .BringToFront()
             End With
 

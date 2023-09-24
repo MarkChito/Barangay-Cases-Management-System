@@ -24,6 +24,19 @@ Partial Class Main
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Main))
+        pnl_header = New Panel()
+        img_notification = New PictureBox()
+        Panel3 = New Panel()
+        img_user = New PictureBox()
+        btn_account = New Button()
+        Panel2 = New Panel()
+        PictureBox3 = New PictureBox()
+        txt_search = New TextBox()
+        btn_toggle_sidebar = New PictureBox()
+        pnl_banner = New Panel()
+        Label4 = New Label()
+        PictureBox2 = New PictureBox()
+        Timer1 = New Timer(components)
         pnl_sidebar = New Panel()
         btn_logout = New Button()
         Panel11 = New Panel()
@@ -43,27 +56,20 @@ Partial Class Main
         Label8 = New Label()
         Panel4 = New Panel()
         btn_temp = New Button()
-        Panel1 = New Panel()
-        Label3 = New Label()
-        PictureBox1 = New PictureBox()
-        pnl_header = New Panel()
-        img_notification = New PictureBox()
-        Panel3 = New Panel()
-        img_user = New PictureBox()
-        btn_account = New Button()
-        Panel2 = New Panel()
-        PictureBox3 = New PictureBox()
-        txt_search = New TextBox()
-        btn_toggle_sidebar = New PictureBox()
-        pnl_banner = New Panel()
-        Label4 = New Label()
-        PictureBox2 = New PictureBox()
         pnl_footer_outer = New Panel()
         pnl_footer_inner = New Panel()
         Label2 = New Label()
         LinkLabel1 = New LinkLabel()
         Label1 = New Label()
-        pnl_body = New Panel()
+        Announcements = New Announcements()
+        Barangay_Cases = New Barangay_Cases()
+        Barangay_News = New Barangay_News()
+        Employees = New Employees()
+        Pending_Cases = New Pending_Cases()
+        Profile = New Profile()
+        My_Profile = New My_Profile()
+        img_loading = New PictureBox()
+        Dashboard = New Dashboard()
         pnl_notification = New Panel()
         Label7 = New Label()
         pnl_account_details = New Panel()
@@ -73,21 +79,7 @@ Partial Class Main
         btn_my_profile = New Button()
         lbl_account_position = New Button()
         lbl_account_name = New Button()
-        Dashboard = New Dashboard()
-        img_loading = New PictureBox()
-        Barangay_Cases = New Barangay_Cases()
-        Employees = New Employees()
-        Announcements = New Announcements()
-        Barangay_News = New Barangay_News()
-        Pending_Cases = New Pending_Cases()
-        My_Profile = New My_Profile()
-        Profile = New Profile()
-        Timer1 = New Timer(components)
-        pnl_sidebar.SuspendLayout()
-        Panel11.SuspendLayout()
-        Panel5.SuspendLayout()
-        Panel1.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        pnl_body = New Panel()
         pnl_header.SuspendLayout()
         CType(img_notification, ComponentModel.ISupportInitialize).BeginInit()
         CType(img_user, ComponentModel.ISupportInitialize).BeginInit()
@@ -96,317 +88,15 @@ Partial Class Main
         CType(btn_toggle_sidebar, ComponentModel.ISupportInitialize).BeginInit()
         pnl_banner.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        pnl_sidebar.SuspendLayout()
+        Panel11.SuspendLayout()
+        Panel5.SuspendLayout()
         pnl_footer_outer.SuspendLayout()
         pnl_footer_inner.SuspendLayout()
-        pnl_body.SuspendLayout()
+        CType(img_loading, ComponentModel.ISupportInitialize).BeginInit()
         pnl_notification.SuspendLayout()
         pnl_account_details.SuspendLayout()
-        CType(img_loading, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' pnl_sidebar
-        ' 
-        pnl_sidebar.BackColor = Color.White
-        pnl_sidebar.Controls.Add(btn_logout)
-        pnl_sidebar.Controls.Add(Panel11)
-        pnl_sidebar.Controls.Add(btn_barangay_news)
-        pnl_sidebar.Controls.Add(Panel10)
-        pnl_sidebar.Controls.Add(btn_announcements)
-        pnl_sidebar.Controls.Add(Panel9)
-        pnl_sidebar.Controls.Add(btn_employees)
-        pnl_sidebar.Controls.Add(pnl_spacer_btn_employees)
-        pnl_sidebar.Controls.Add(btn_pending_cases)
-        pnl_sidebar.Controls.Add(Panel6)
-        pnl_sidebar.Controls.Add(btn_barangay_cases)
-        pnl_sidebar.Controls.Add(Panel7)
-        pnl_sidebar.Controls.Add(btn_dashboard)
-        pnl_sidebar.Controls.Add(Panel5)
-        pnl_sidebar.Controls.Add(Panel4)
-        pnl_sidebar.Controls.Add(btn_temp)
-        pnl_sidebar.Controls.Add(Panel1)
-        pnl_sidebar.Dock = DockStyle.Left
-        pnl_sidebar.Location = New Point(0, 0)
-        pnl_sidebar.Name = "pnl_sidebar"
-        pnl_sidebar.Size = New Size(288, 761)
-        pnl_sidebar.TabIndex = 0
-        ' 
-        ' btn_logout
-        ' 
-        btn_logout.BackColor = Color.Transparent
-        btn_logout.Cursor = Cursors.Hand
-        btn_logout.Dock = DockStyle.Top
-        btn_logout.FlatAppearance.BorderSize = 0
-        btn_logout.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_logout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_logout.FlatStyle = FlatStyle.Flat
-        btn_logout.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_logout.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_logout.Image = CType(resources.GetObject("btn_logout.Image"), Image)
-        btn_logout.ImageAlign = ContentAlignment.MiddleLeft
-        btn_logout.Location = New Point(21, 422)
-        btn_logout.Name = "btn_logout"
-        btn_logout.Size = New Size(267, 44)
-        btn_logout.TabIndex = 34
-        btn_logout.Text = "      Logout"
-        btn_logout.TextAlign = ContentAlignment.MiddleLeft
-        btn_logout.UseVisualStyleBackColor = False
-        ' 
-        ' Panel11
-        ' 
-        Panel11.Controls.Add(Label6)
-        Panel11.Dock = DockStyle.Top
-        Panel11.Location = New Point(21, 387)
-        Panel11.Name = "Panel11"
-        Panel11.Size = New Size(267, 35)
-        Panel11.TabIndex = 33
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.BackColor = Color.Transparent
-        Label6.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.ForeColor = SystemColors.ControlDark
-        Label6.Location = New Point(6, 16)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(62, 16)
-        Label6.TabIndex = 9
-        Label6.Text = "Account"
-        ' 
-        ' btn_barangay_news
-        ' 
-        btn_barangay_news.BackColor = Color.Transparent
-        btn_barangay_news.Cursor = Cursors.Hand
-        btn_barangay_news.Dock = DockStyle.Top
-        btn_barangay_news.FlatAppearance.BorderSize = 0
-        btn_barangay_news.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_news.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_news.FlatStyle = FlatStyle.Flat
-        btn_barangay_news.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_barangay_news.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_barangay_news.Image = CType(resources.GetObject("btn_barangay_news.Image"), Image)
-        btn_barangay_news.ImageAlign = ContentAlignment.MiddleLeft
-        btn_barangay_news.Location = New Point(21, 343)
-        btn_barangay_news.Name = "btn_barangay_news"
-        btn_barangay_news.Size = New Size(267, 44)
-        btn_barangay_news.TabIndex = 32
-        btn_barangay_news.Text = "      Barangay News"
-        btn_barangay_news.TextAlign = ContentAlignment.MiddleLeft
-        btn_barangay_news.UseVisualStyleBackColor = False
-        ' 
-        ' Panel10
-        ' 
-        Panel10.Dock = DockStyle.Top
-        Panel10.Location = New Point(21, 333)
-        Panel10.Name = "Panel10"
-        Panel10.Size = New Size(267, 10)
-        Panel10.TabIndex = 31
-        ' 
-        ' btn_announcements
-        ' 
-        btn_announcements.BackColor = Color.Transparent
-        btn_announcements.Cursor = Cursors.Hand
-        btn_announcements.Dock = DockStyle.Top
-        btn_announcements.FlatAppearance.BorderSize = 0
-        btn_announcements.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_announcements.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_announcements.FlatStyle = FlatStyle.Flat
-        btn_announcements.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_announcements.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_announcements.Image = CType(resources.GetObject("btn_announcements.Image"), Image)
-        btn_announcements.ImageAlign = ContentAlignment.MiddleLeft
-        btn_announcements.Location = New Point(21, 289)
-        btn_announcements.Name = "btn_announcements"
-        btn_announcements.Size = New Size(267, 44)
-        btn_announcements.TabIndex = 30
-        btn_announcements.Text = "      Announcements"
-        btn_announcements.TextAlign = ContentAlignment.MiddleLeft
-        btn_announcements.UseVisualStyleBackColor = False
-        ' 
-        ' Panel9
-        ' 
-        Panel9.Dock = DockStyle.Top
-        Panel9.Location = New Point(21, 279)
-        Panel9.Name = "Panel9"
-        Panel9.Size = New Size(267, 10)
-        Panel9.TabIndex = 29
-        ' 
-        ' btn_employees
-        ' 
-        btn_employees.BackColor = Color.Transparent
-        btn_employees.Cursor = Cursors.Hand
-        btn_employees.Dock = DockStyle.Top
-        btn_employees.FlatAppearance.BorderSize = 0
-        btn_employees.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_employees.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_employees.FlatStyle = FlatStyle.Flat
-        btn_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_employees.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_employees.Image = CType(resources.GetObject("btn_employees.Image"), Image)
-        btn_employees.ImageAlign = ContentAlignment.MiddleLeft
-        btn_employees.Location = New Point(21, 235)
-        btn_employees.Name = "btn_employees"
-        btn_employees.Size = New Size(267, 44)
-        btn_employees.TabIndex = 28
-        btn_employees.Text = "      Employees"
-        btn_employees.TextAlign = ContentAlignment.MiddleLeft
-        btn_employees.UseVisualStyleBackColor = False
-        ' 
-        ' pnl_spacer_btn_employees
-        ' 
-        pnl_spacer_btn_employees.Dock = DockStyle.Top
-        pnl_spacer_btn_employees.Location = New Point(21, 225)
-        pnl_spacer_btn_employees.Name = "pnl_spacer_btn_employees"
-        pnl_spacer_btn_employees.Size = New Size(267, 10)
-        pnl_spacer_btn_employees.TabIndex = 27
-        ' 
-        ' btn_pending_cases
-        ' 
-        btn_pending_cases.BackColor = Color.Transparent
-        btn_pending_cases.Cursor = Cursors.Hand
-        btn_pending_cases.Dock = DockStyle.Top
-        btn_pending_cases.FlatAppearance.BorderSize = 0
-        btn_pending_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_pending_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_pending_cases.FlatStyle = FlatStyle.Flat
-        btn_pending_cases.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_pending_cases.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_pending_cases.Image = CType(resources.GetObject("btn_pending_cases.Image"), Image)
-        btn_pending_cases.ImageAlign = ContentAlignment.MiddleLeft
-        btn_pending_cases.Location = New Point(21, 181)
-        btn_pending_cases.Name = "btn_pending_cases"
-        btn_pending_cases.Size = New Size(267, 44)
-        btn_pending_cases.TabIndex = 26
-        btn_pending_cases.Text = "      Pending Cases"
-        btn_pending_cases.TextAlign = ContentAlignment.MiddleLeft
-        btn_pending_cases.UseVisualStyleBackColor = False
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Dock = DockStyle.Top
-        Panel6.Location = New Point(21, 171)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(267, 10)
-        Panel6.TabIndex = 25
-        ' 
-        ' btn_barangay_cases
-        ' 
-        btn_barangay_cases.BackColor = Color.Transparent
-        btn_barangay_cases.Cursor = Cursors.Hand
-        btn_barangay_cases.Dock = DockStyle.Top
-        btn_barangay_cases.FlatAppearance.BorderSize = 0
-        btn_barangay_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_cases.FlatStyle = FlatStyle.Flat
-        btn_barangay_cases.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_barangay_cases.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_barangay_cases.Image = CType(resources.GetObject("btn_barangay_cases.Image"), Image)
-        btn_barangay_cases.ImageAlign = ContentAlignment.MiddleLeft
-        btn_barangay_cases.Location = New Point(21, 127)
-        btn_barangay_cases.Name = "btn_barangay_cases"
-        btn_barangay_cases.Size = New Size(267, 44)
-        btn_barangay_cases.TabIndex = 24
-        btn_barangay_cases.Text = "      Barangay Cases"
-        btn_barangay_cases.TextAlign = ContentAlignment.MiddleLeft
-        btn_barangay_cases.UseVisualStyleBackColor = False
-        ' 
-        ' Panel7
-        ' 
-        Panel7.Dock = DockStyle.Top
-        Panel7.Location = New Point(21, 117)
-        Panel7.Name = "Panel7"
-        Panel7.Size = New Size(267, 10)
-        Panel7.TabIndex = 23
-        ' 
-        ' btn_dashboard
-        ' 
-        btn_dashboard.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_dashboard.Cursor = Cursors.Hand
-        btn_dashboard.Dock = DockStyle.Top
-        btn_dashboard.FlatAppearance.BorderSize = 0
-        btn_dashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_dashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_dashboard.FlatStyle = FlatStyle.Flat
-        btn_dashboard.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_dashboard.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_dashboard.Image = CType(resources.GetObject("btn_dashboard.Image"), Image)
-        btn_dashboard.ImageAlign = ContentAlignment.MiddleLeft
-        btn_dashboard.Location = New Point(21, 73)
-        btn_dashboard.Name = "btn_dashboard"
-        btn_dashboard.Size = New Size(267, 44)
-        btn_dashboard.TabIndex = 15
-        btn_dashboard.Text = "      Dashboard"
-        btn_dashboard.TextAlign = ContentAlignment.MiddleLeft
-        btn_dashboard.UseVisualStyleBackColor = False
-        ' 
-        ' Panel5
-        ' 
-        Panel5.Controls.Add(Label8)
-        Panel5.Dock = DockStyle.Top
-        Panel5.Location = New Point(21, 33)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(267, 40)
-        Panel5.TabIndex = 14
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.BackColor = Color.Transparent
-        Label8.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.ForeColor = SystemColors.ControlDark
-        Label8.Location = New Point(6, 21)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(40, 16)
-        Label8.TabIndex = 3
-        Label8.Text = "Main"
-        ' 
-        ' Panel4
-        ' 
-        Panel4.Dock = DockStyle.Left
-        Panel4.Location = New Point(0, 33)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(21, 728)
-        Panel4.TabIndex = 13
-        ' 
-        ' btn_temp
-        ' 
-        btn_temp.Location = New Point(-94, 484)
-        btn_temp.Name = "btn_temp"
-        btn_temp.Size = New Size(75, 23)
-        btn_temp.TabIndex = 12
-        btn_temp.Text = "Button1"
-        btn_temp.UseVisualStyleBackColor = True
-        ' 
-        ' Panel1
-        ' 
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(PictureBox1)
-        Panel1.Dock = DockStyle.Top
-        Panel1.Location = New Point(0, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(288, 33)
-        Panel1.TabIndex = 0
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.BackColor = Color.Transparent
-        Label3.Font = New Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        Label3.Location = New Point(54, 1)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(209, 31)
-        Label3.TabIndex = 2
-        Label3.Text = "Barangay CMS"
-        ' 
-        ' PictureBox1
-        ' 
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(18, 1)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(30, 30)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 1
-        PictureBox1.TabStop = False
         ' 
         ' pnl_header
         ' 
@@ -418,9 +108,9 @@ Partial Class Main
         pnl_header.Controls.Add(Panel2)
         pnl_header.Controls.Add(pnl_banner)
         pnl_header.Dock = DockStyle.Top
-        pnl_header.Location = New Point(288, 0)
+        pnl_header.Location = New Point(0, 0)
         pnl_header.Name = "pnl_header"
-        pnl_header.Size = New Size(1046, 33)
+        pnl_header.Size = New Size(1334, 33)
         pnl_header.TabIndex = 1
         ' 
         ' img_notification
@@ -429,7 +119,7 @@ Partial Class Main
         img_notification.Cursor = Cursors.Hand
         img_notification.Dock = DockStyle.Right
         img_notification.Image = CType(resources.GetObject("img_notification.Image"), Image)
-        img_notification.Location = New Point(819, 0)
+        img_notification.Location = New Point(1107, 0)
         img_notification.Name = "img_notification"
         img_notification.Size = New Size(33, 33)
         img_notification.SizeMode = PictureBoxSizeMode.CenterImage
@@ -439,7 +129,7 @@ Partial Class Main
         ' Panel3
         ' 
         Panel3.Dock = DockStyle.Right
-        Panel3.Location = New Point(852, 0)
+        Panel3.Location = New Point(1140, 0)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(13, 33)
         Panel3.TabIndex = 0
@@ -450,7 +140,7 @@ Partial Class Main
         img_user.Cursor = Cursors.Hand
         img_user.Dock = DockStyle.Right
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)
-        img_user.Location = New Point(865, 0)
+        img_user.Location = New Point(1153, 0)
         img_user.Name = "img_user"
         img_user.Size = New Size(33, 33)
         img_user.SizeMode = PictureBoxSizeMode.StretchImage
@@ -470,7 +160,7 @@ Partial Class Main
         btn_account.FlatStyle = FlatStyle.Flat
         btn_account.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         btn_account.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_account.Location = New Point(898, 0)
+        btn_account.Location = New Point(1186, 0)
         btn_account.Name = "btn_account"
         btn_account.Size = New Size(148, 33)
         btn_account.TabIndex = 2
@@ -530,7 +220,6 @@ Partial Class Main
         pnl_banner.Name = "pnl_banner"
         pnl_banner.Size = New Size(288, 33)
         pnl_banner.TabIndex = 1
-        pnl_banner.Visible = False
         ' 
         ' Label4
         ' 
@@ -554,15 +243,290 @@ Partial Class Main
         PictureBox2.TabIndex = 1
         PictureBox2.TabStop = False
         ' 
+        ' Timer1
+        ' 
+        Timer1.Interval = 500
+        ' 
+        ' pnl_sidebar
+        ' 
+        pnl_sidebar.BackColor = Color.White
+        pnl_sidebar.Controls.Add(btn_logout)
+        pnl_sidebar.Controls.Add(Panel11)
+        pnl_sidebar.Controls.Add(btn_barangay_news)
+        pnl_sidebar.Controls.Add(Panel10)
+        pnl_sidebar.Controls.Add(btn_announcements)
+        pnl_sidebar.Controls.Add(Panel9)
+        pnl_sidebar.Controls.Add(btn_employees)
+        pnl_sidebar.Controls.Add(pnl_spacer_btn_employees)
+        pnl_sidebar.Controls.Add(btn_pending_cases)
+        pnl_sidebar.Controls.Add(Panel6)
+        pnl_sidebar.Controls.Add(btn_barangay_cases)
+        pnl_sidebar.Controls.Add(Panel7)
+        pnl_sidebar.Controls.Add(btn_dashboard)
+        pnl_sidebar.Controls.Add(Panel5)
+        pnl_sidebar.Controls.Add(Panel4)
+        pnl_sidebar.Controls.Add(btn_temp)
+        pnl_sidebar.Dock = DockStyle.Left
+        pnl_sidebar.Location = New Point(0, 33)
+        pnl_sidebar.Name = "pnl_sidebar"
+        pnl_sidebar.Size = New Size(288, 728)
+        pnl_sidebar.TabIndex = 11
+        ' 
+        ' btn_logout
+        ' 
+        btn_logout.BackColor = Color.Transparent
+        btn_logout.Cursor = Cursors.Hand
+        btn_logout.Dock = DockStyle.Top
+        btn_logout.FlatAppearance.BorderSize = 0
+        btn_logout.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_logout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_logout.FlatStyle = FlatStyle.Flat
+        btn_logout.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_logout.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_logout.Image = CType(resources.GetObject("btn_logout.Image"), Image)
+        btn_logout.ImageAlign = ContentAlignment.MiddleLeft
+        btn_logout.Location = New Point(21, 389)
+        btn_logout.Name = "btn_logout"
+        btn_logout.Size = New Size(267, 44)
+        btn_logout.TabIndex = 34
+        btn_logout.Text = "      Logout"
+        btn_logout.TextAlign = ContentAlignment.MiddleLeft
+        btn_logout.UseVisualStyleBackColor = False
+        ' 
+        ' Panel11
+        ' 
+        Panel11.Controls.Add(Label6)
+        Panel11.Dock = DockStyle.Top
+        Panel11.Location = New Point(21, 354)
+        Panel11.Name = "Panel11"
+        Panel11.Size = New Size(267, 35)
+        Panel11.TabIndex = 33
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.BackColor = Color.Transparent
+        Label6.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.ForeColor = SystemColors.ControlDark
+        Label6.Location = New Point(6, 16)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(62, 16)
+        Label6.TabIndex = 9
+        Label6.Text = "Account"
+        ' 
+        ' btn_barangay_news
+        ' 
+        btn_barangay_news.BackColor = Color.Transparent
+        btn_barangay_news.Cursor = Cursors.Hand
+        btn_barangay_news.Dock = DockStyle.Top
+        btn_barangay_news.FlatAppearance.BorderSize = 0
+        btn_barangay_news.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_barangay_news.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_barangay_news.FlatStyle = FlatStyle.Flat
+        btn_barangay_news.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_barangay_news.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_barangay_news.Image = CType(resources.GetObject("btn_barangay_news.Image"), Image)
+        btn_barangay_news.ImageAlign = ContentAlignment.MiddleLeft
+        btn_barangay_news.Location = New Point(21, 310)
+        btn_barangay_news.Name = "btn_barangay_news"
+        btn_barangay_news.Size = New Size(267, 44)
+        btn_barangay_news.TabIndex = 32
+        btn_barangay_news.Text = "      Barangay News"
+        btn_barangay_news.TextAlign = ContentAlignment.MiddleLeft
+        btn_barangay_news.UseVisualStyleBackColor = False
+        ' 
+        ' Panel10
+        ' 
+        Panel10.Dock = DockStyle.Top
+        Panel10.Location = New Point(21, 300)
+        Panel10.Name = "Panel10"
+        Panel10.Size = New Size(267, 10)
+        Panel10.TabIndex = 31
+        ' 
+        ' btn_announcements
+        ' 
+        btn_announcements.BackColor = Color.Transparent
+        btn_announcements.Cursor = Cursors.Hand
+        btn_announcements.Dock = DockStyle.Top
+        btn_announcements.FlatAppearance.BorderSize = 0
+        btn_announcements.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_announcements.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_announcements.FlatStyle = FlatStyle.Flat
+        btn_announcements.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_announcements.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_announcements.Image = CType(resources.GetObject("btn_announcements.Image"), Image)
+        btn_announcements.ImageAlign = ContentAlignment.MiddleLeft
+        btn_announcements.Location = New Point(21, 256)
+        btn_announcements.Name = "btn_announcements"
+        btn_announcements.Size = New Size(267, 44)
+        btn_announcements.TabIndex = 30
+        btn_announcements.Text = "      Announcements"
+        btn_announcements.TextAlign = ContentAlignment.MiddleLeft
+        btn_announcements.UseVisualStyleBackColor = False
+        ' 
+        ' Panel9
+        ' 
+        Panel9.Dock = DockStyle.Top
+        Panel9.Location = New Point(21, 246)
+        Panel9.Name = "Panel9"
+        Panel9.Size = New Size(267, 10)
+        Panel9.TabIndex = 29
+        ' 
+        ' btn_employees
+        ' 
+        btn_employees.BackColor = Color.Transparent
+        btn_employees.Cursor = Cursors.Hand
+        btn_employees.Dock = DockStyle.Top
+        btn_employees.FlatAppearance.BorderSize = 0
+        btn_employees.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_employees.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_employees.FlatStyle = FlatStyle.Flat
+        btn_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_employees.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_employees.Image = CType(resources.GetObject("btn_employees.Image"), Image)
+        btn_employees.ImageAlign = ContentAlignment.MiddleLeft
+        btn_employees.Location = New Point(21, 202)
+        btn_employees.Name = "btn_employees"
+        btn_employees.Size = New Size(267, 44)
+        btn_employees.TabIndex = 28
+        btn_employees.Text = "      Employees"
+        btn_employees.TextAlign = ContentAlignment.MiddleLeft
+        btn_employees.UseVisualStyleBackColor = False
+        ' 
+        ' pnl_spacer_btn_employees
+        ' 
+        pnl_spacer_btn_employees.Dock = DockStyle.Top
+        pnl_spacer_btn_employees.Location = New Point(21, 192)
+        pnl_spacer_btn_employees.Name = "pnl_spacer_btn_employees"
+        pnl_spacer_btn_employees.Size = New Size(267, 10)
+        pnl_spacer_btn_employees.TabIndex = 27
+        ' 
+        ' btn_pending_cases
+        ' 
+        btn_pending_cases.BackColor = Color.Transparent
+        btn_pending_cases.Cursor = Cursors.Hand
+        btn_pending_cases.Dock = DockStyle.Top
+        btn_pending_cases.FlatAppearance.BorderSize = 0
+        btn_pending_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_pending_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_pending_cases.FlatStyle = FlatStyle.Flat
+        btn_pending_cases.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_pending_cases.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_pending_cases.Image = CType(resources.GetObject("btn_pending_cases.Image"), Image)
+        btn_pending_cases.ImageAlign = ContentAlignment.MiddleLeft
+        btn_pending_cases.Location = New Point(21, 148)
+        btn_pending_cases.Name = "btn_pending_cases"
+        btn_pending_cases.Size = New Size(267, 44)
+        btn_pending_cases.TabIndex = 26
+        btn_pending_cases.Text = "      Pending Cases"
+        btn_pending_cases.TextAlign = ContentAlignment.MiddleLeft
+        btn_pending_cases.UseVisualStyleBackColor = False
+        ' 
+        ' Panel6
+        ' 
+        Panel6.Dock = DockStyle.Top
+        Panel6.Location = New Point(21, 138)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(267, 10)
+        Panel6.TabIndex = 25
+        ' 
+        ' btn_barangay_cases
+        ' 
+        btn_barangay_cases.BackColor = Color.Transparent
+        btn_barangay_cases.Cursor = Cursors.Hand
+        btn_barangay_cases.Dock = DockStyle.Top
+        btn_barangay_cases.FlatAppearance.BorderSize = 0
+        btn_barangay_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_barangay_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_barangay_cases.FlatStyle = FlatStyle.Flat
+        btn_barangay_cases.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_barangay_cases.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_barangay_cases.Image = CType(resources.GetObject("btn_barangay_cases.Image"), Image)
+        btn_barangay_cases.ImageAlign = ContentAlignment.MiddleLeft
+        btn_barangay_cases.Location = New Point(21, 94)
+        btn_barangay_cases.Name = "btn_barangay_cases"
+        btn_barangay_cases.Size = New Size(267, 44)
+        btn_barangay_cases.TabIndex = 24
+        btn_barangay_cases.Text = "      Barangay Cases"
+        btn_barangay_cases.TextAlign = ContentAlignment.MiddleLeft
+        btn_barangay_cases.UseVisualStyleBackColor = False
+        ' 
+        ' Panel7
+        ' 
+        Panel7.Dock = DockStyle.Top
+        Panel7.Location = New Point(21, 84)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(267, 10)
+        Panel7.TabIndex = 23
+        ' 
+        ' btn_dashboard
+        ' 
+        btn_dashboard.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_dashboard.Cursor = Cursors.Hand
+        btn_dashboard.Dock = DockStyle.Top
+        btn_dashboard.FlatAppearance.BorderSize = 0
+        btn_dashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_dashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_dashboard.FlatStyle = FlatStyle.Flat
+        btn_dashboard.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_dashboard.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_dashboard.Image = CType(resources.GetObject("btn_dashboard.Image"), Image)
+        btn_dashboard.ImageAlign = ContentAlignment.MiddleLeft
+        btn_dashboard.Location = New Point(21, 40)
+        btn_dashboard.Name = "btn_dashboard"
+        btn_dashboard.Size = New Size(267, 44)
+        btn_dashboard.TabIndex = 15
+        btn_dashboard.Text = "      Dashboard"
+        btn_dashboard.TextAlign = ContentAlignment.MiddleLeft
+        btn_dashboard.UseVisualStyleBackColor = False
+        ' 
+        ' Panel5
+        ' 
+        Panel5.Controls.Add(Label8)
+        Panel5.Dock = DockStyle.Top
+        Panel5.Location = New Point(21, 0)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(267, 40)
+        Panel5.TabIndex = 14
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.BackColor = Color.Transparent
+        Label8.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.ForeColor = SystemColors.ControlDark
+        Label8.Location = New Point(6, 21)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(40, 16)
+        Label8.TabIndex = 3
+        Label8.Text = "Main"
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Dock = DockStyle.Left
+        Panel4.Location = New Point(0, 0)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(21, 728)
+        Panel4.TabIndex = 13
+        ' 
+        ' btn_temp
+        ' 
+        btn_temp.Location = New Point(-94, 484)
+        btn_temp.Name = "btn_temp"
+        btn_temp.Size = New Size(75, 23)
+        btn_temp.TabIndex = 12
+        btn_temp.Text = "Button1"
+        btn_temp.UseVisualStyleBackColor = True
+        ' 
         ' pnl_footer_outer
         ' 
-        pnl_footer_outer.BackColor = Color.White
+        pnl_footer_outer.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
         pnl_footer_outer.Controls.Add(pnl_footer_inner)
         pnl_footer_outer.Dock = DockStyle.Bottom
         pnl_footer_outer.Location = New Point(288, 704)
         pnl_footer_outer.Name = "pnl_footer_outer"
         pnl_footer_outer.Size = New Size(1046, 57)
-        pnl_footer_outer.TabIndex = 2
+        pnl_footer_outer.TabIndex = 12
         ' 
         ' pnl_footer_inner
         ' 
@@ -578,7 +542,7 @@ Partial Class Main
         ' 
         Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(470, 9)
+        Label2.Location = New Point(469, 9)
         Label2.Name = "Label2"
         Label2.Size = New Size(138, 20)
         Label2.TabIndex = 2
@@ -589,7 +553,7 @@ Partial Class Main
         LinkLabel1.BackColor = Color.Transparent
         LinkLabel1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LinkLabel1.LinkBehavior = LinkBehavior.NeverUnderline
-        LinkLabel1.Location = New Point(157, 9)
+        LinkLabel1.Location = New Point(156, 9)
         LinkLabel1.Name = "LinkLabel1"
         LinkLabel1.Size = New Size(318, 20)
         LinkLabel1.TabIndex = 1
@@ -600,39 +564,121 @@ Partial Class Main
         ' 
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(12, 9)
+        Label1.Location = New Point(14, 9)
         Label1.Name = "Label1"
         Label1.Size = New Size(147, 20)
         Label1.TabIndex = 0
         Label1.Text = "Copyright © 2023"
         ' 
-        ' pnl_body
+        ' Announcements
         ' 
-        pnl_body.Controls.Add(pnl_notification)
-        pnl_body.Controls.Add(pnl_account_details)
-        pnl_body.Controls.Add(Dashboard)
-        pnl_body.Controls.Add(img_loading)
-        pnl_body.Controls.Add(Barangay_Cases)
-        pnl_body.Controls.Add(Employees)
-        pnl_body.Controls.Add(Announcements)
-        pnl_body.Controls.Add(Barangay_News)
-        pnl_body.Controls.Add(Pending_Cases)
-        pnl_body.Controls.Add(My_Profile)
-        pnl_body.Controls.Add(Profile)
-        pnl_body.Dock = DockStyle.Fill
-        pnl_body.Location = New Point(288, 33)
-        pnl_body.Name = "pnl_body"
-        pnl_body.Size = New Size(1046, 671)
-        pnl_body.TabIndex = 3
+        Announcements.AutoScroll = True
+        Announcements.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Announcements.Dock = DockStyle.Fill
+        Announcements.Location = New Point(288, 33)
+        Announcements.MinimumSize = New Size(1046, 671)
+        Announcements.Name = "Announcements"
+        Announcements.Size = New Size(1046, 671)
+        Announcements.TabIndex = 13
+        ' 
+        ' Barangay_Cases
+        ' 
+        Barangay_Cases.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Barangay_Cases.Dock = DockStyle.Fill
+        Barangay_Cases.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Barangay_Cases.Location = New Point(288, 33)
+        Barangay_Cases.MinimumSize = New Size(1046, 671)
+        Barangay_Cases.Name = "Barangay_Cases"
+        Barangay_Cases.Size = New Size(1046, 671)
+        Barangay_Cases.TabIndex = 14
+        ' 
+        ' Barangay_News
+        ' 
+        Barangay_News.AutoScroll = True
+        Barangay_News.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Barangay_News.Dock = DockStyle.Fill
+        Barangay_News.Location = New Point(288, 33)
+        Barangay_News.MinimumSize = New Size(1046, 671)
+        Barangay_News.Name = "Barangay_News"
+        Barangay_News.Size = New Size(1046, 671)
+        Barangay_News.TabIndex = 15
+        ' 
+        ' Employees
+        ' 
+        Employees.AutoScroll = True
+        Employees.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Employees.Dock = DockStyle.Fill
+        Employees.Location = New Point(288, 33)
+        Employees.MinimumSize = New Size(1046, 671)
+        Employees.Name = "Employees"
+        Employees.Size = New Size(1046, 671)
+        Employees.TabIndex = 16
+        ' 
+        ' Pending_Cases
+        ' 
+        Pending_Cases.AutoScroll = True
+        Pending_Cases.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Pending_Cases.Dock = DockStyle.Fill
+        Pending_Cases.Location = New Point(288, 33)
+        Pending_Cases.MinimumSize = New Size(1046, 671)
+        Pending_Cases.Name = "Pending_Cases"
+        Pending_Cases.Size = New Size(1046, 671)
+        Pending_Cases.TabIndex = 17
+        ' 
+        ' Profile
+        ' 
+        Profile.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Profile.Dock = DockStyle.Fill
+        Profile.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Profile.Location = New Point(288, 33)
+        Profile.Name = "Profile"
+        Profile.Size = New Size(1046, 671)
+        Profile.TabIndex = 18
+        ' 
+        ' My_Profile
+        ' 
+        My_Profile.AutoScroll = True
+        My_Profile.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        My_Profile.Dock = DockStyle.Fill
+        My_Profile.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        My_Profile.Location = New Point(288, 33)
+        My_Profile.MinimumSize = New Size(1046, 671)
+        My_Profile.Name = "My_Profile"
+        My_Profile.Size = New Size(1046, 671)
+        My_Profile.TabIndex = 19
+        ' 
+        ' img_loading
+        ' 
+        img_loading.Dock = DockStyle.Fill
+        img_loading.Image = CType(resources.GetObject("img_loading.Image"), Image)
+        img_loading.Location = New Point(288, 33)
+        img_loading.Name = "img_loading"
+        img_loading.Size = New Size(1046, 671)
+        img_loading.SizeMode = PictureBoxSizeMode.CenterImage
+        img_loading.TabIndex = 21
+        img_loading.TabStop = False
+        img_loading.Visible = False
+        ' 
+        ' Dashboard
+        ' 
+        Dashboard.AutoScroll = True
+        Dashboard.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Dashboard.Dock = DockStyle.Fill
+        Dashboard.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Dashboard.Location = New Point(288, 33)
+        Dashboard.MinimumSize = New Size(1046, 671)
+        Dashboard.Name = "Dashboard"
+        Dashboard.Size = New Size(1046, 671)
+        Dashboard.TabIndex = 22
         ' 
         ' pnl_notification
         ' 
         pnl_notification.BackColor = Color.White
         pnl_notification.Controls.Add(Label7)
-        pnl_notification.Location = New Point(588, 0)
+        pnl_notification.Location = New Point(879, 33)
         pnl_notification.Name = "pnl_notification"
         pnl_notification.Size = New Size(245, 45)
-        pnl_notification.TabIndex = 1
+        pnl_notification.TabIndex = 24
         ' 
         ' Label7
         ' 
@@ -654,10 +700,10 @@ Partial Class Main
         pnl_account_details.Controls.Add(btn_my_profile)
         pnl_account_details.Controls.Add(lbl_account_position)
         pnl_account_details.Controls.Add(lbl_account_name)
-        pnl_account_details.Location = New Point(836, 0)
+        pnl_account_details.Location = New Point(1127, 33)
         pnl_account_details.Name = "pnl_account_details"
         pnl_account_details.Size = New Size(207, 242)
-        pnl_account_details.TabIndex = 0
+        pnl_account_details.TabIndex = 23
         ' 
         ' btn_logout_2
         ' 
@@ -773,110 +819,13 @@ Partial Class Main
         lbl_account_name.Text = "Super Administrator"
         lbl_account_name.UseVisualStyleBackColor = False
         ' 
-        ' Dashboard
+        ' pnl_body
         ' 
-        Dashboard.AutoScroll = True
-        Dashboard.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Dashboard.Dock = DockStyle.Fill
-        Dashboard.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Dashboard.Location = New Point(0, 0)
-        Dashboard.MinimumSize = New Size(1046, 671)
-        Dashboard.Name = "Dashboard"
-        Dashboard.Size = New Size(1046, 671)
-        Dashboard.TabIndex = 3
-        ' 
-        ' img_loading
-        ' 
-        img_loading.Dock = DockStyle.Fill
-        img_loading.Image = CType(resources.GetObject("img_loading.Image"), Image)
-        img_loading.Location = New Point(0, 0)
-        img_loading.Name = "img_loading"
-        img_loading.Size = New Size(1046, 671)
-        img_loading.SizeMode = PictureBoxSizeMode.CenterImage
-        img_loading.TabIndex = 2
-        img_loading.TabStop = False
-        img_loading.Visible = False
-        ' 
-        ' Barangay_Cases
-        ' 
-        Barangay_Cases.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Barangay_Cases.Dock = DockStyle.Fill
-        Barangay_Cases.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Barangay_Cases.Location = New Point(0, 0)
-        Barangay_Cases.MinimumSize = New Size(1046, 671)
-        Barangay_Cases.Name = "Barangay_Cases"
-        Barangay_Cases.Size = New Size(1046, 671)
-        Barangay_Cases.TabIndex = 4
-        ' 
-        ' Employees
-        ' 
-        Employees.AutoScroll = True
-        Employees.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Employees.Dock = DockStyle.Fill
-        Employees.Location = New Point(0, 0)
-        Employees.MinimumSize = New Size(1046, 671)
-        Employees.Name = "Employees"
-        Employees.Size = New Size(1046, 671)
-        Employees.TabIndex = 5
-        ' 
-        ' Announcements
-        ' 
-        Announcements.AutoScroll = True
-        Announcements.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Announcements.Dock = DockStyle.Fill
-        Announcements.Location = New Point(0, 0)
-        Announcements.MinimumSize = New Size(1046, 671)
-        Announcements.Name = "Announcements"
-        Announcements.Size = New Size(1046, 671)
-        Announcements.TabIndex = 6
-        ' 
-        ' Barangay_News
-        ' 
-        Barangay_News.AutoScroll = True
-        Barangay_News.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Barangay_News.Dock = DockStyle.Fill
-        Barangay_News.Location = New Point(0, 0)
-        Barangay_News.MinimumSize = New Size(1046, 671)
-        Barangay_News.Name = "Barangay_News"
-        Barangay_News.Size = New Size(1046, 671)
-        Barangay_News.TabIndex = 7
-        ' 
-        ' Pending_Cases
-        ' 
-        Pending_Cases.AutoScroll = True
-        Pending_Cases.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Pending_Cases.Dock = DockStyle.Fill
-        Pending_Cases.Location = New Point(0, 0)
-        Pending_Cases.MinimumSize = New Size(1046, 671)
-        Pending_Cases.Name = "Pending_Cases"
-        Pending_Cases.Size = New Size(1046, 671)
-        Pending_Cases.TabIndex = 8
-        ' 
-        ' My_Profile
-        ' 
-        My_Profile.AutoScroll = True
-        My_Profile.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        My_Profile.Dock = DockStyle.Fill
-        My_Profile.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        My_Profile.Location = New Point(0, 0)
-        My_Profile.MinimumSize = New Size(1046, 671)
-        My_Profile.Name = "My_Profile"
-        My_Profile.Size = New Size(1046, 671)
-        My_Profile.TabIndex = 9
-        ' 
-        ' Profile
-        ' 
-        Profile.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Profile.Dock = DockStyle.Fill
-        Profile.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Profile.Location = New Point(0, 0)
-        Profile.Name = "Profile"
-        Profile.Size = New Size(1046, 671)
-        Profile.TabIndex = 10
-        ' 
-        ' Timer1
-        ' 
-        Timer1.Interval = 500
+        pnl_body.Dock = DockStyle.Fill
+        pnl_body.Location = New Point(0, 0)
+        pnl_body.Name = "pnl_body"
+        pnl_body.Size = New Size(1334, 761)
+        pnl_body.TabIndex = 25
         ' 
         ' Main
         ' 
@@ -884,24 +833,27 @@ Partial Class Main
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
         ClientSize = New Size(1334, 761)
-        Controls.Add(pnl_body)
+        Controls.Add(pnl_notification)
+        Controls.Add(pnl_account_details)
+        Controls.Add(Dashboard)
+        Controls.Add(img_loading)
+        Controls.Add(My_Profile)
+        Controls.Add(Profile)
+        Controls.Add(Pending_Cases)
+        Controls.Add(Employees)
+        Controls.Add(Barangay_News)
+        Controls.Add(Barangay_Cases)
+        Controls.Add(Announcements)
         Controls.Add(pnl_footer_outer)
-        Controls.Add(pnl_header)
         Controls.Add(pnl_sidebar)
+        Controls.Add(pnl_header)
+        Controls.Add(pnl_body)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MinimumSize = New Size(1350, 800)
         Name = "Main"
         ShowIcon = False
         StartPosition = FormStartPosition.CenterScreen
         WindowState = FormWindowState.Maximized
-        pnl_sidebar.ResumeLayout(False)
-        Panel11.ResumeLayout(False)
-        Panel11.PerformLayout()
-        Panel5.ResumeLayout(False)
-        Panel5.PerformLayout()
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnl_header.ResumeLayout(False)
         pnl_header.PerformLayout()
         CType(img_notification, ComponentModel.ISupportInitialize).EndInit()
@@ -913,28 +865,21 @@ Partial Class Main
         pnl_banner.ResumeLayout(False)
         pnl_banner.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        pnl_sidebar.ResumeLayout(False)
+        Panel11.ResumeLayout(False)
+        Panel11.PerformLayout()
+        Panel5.ResumeLayout(False)
+        Panel5.PerformLayout()
         pnl_footer_outer.ResumeLayout(False)
         pnl_footer_inner.ResumeLayout(False)
-        pnl_body.ResumeLayout(False)
+        CType(img_loading, ComponentModel.ISupportInitialize).EndInit()
         pnl_notification.ResumeLayout(False)
         pnl_notification.PerformLayout()
         pnl_account_details.ResumeLayout(False)
         pnl_account_details.PerformLayout()
-        CType(img_loading, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents pnl_sidebar As Panel
     Friend WithEvents pnl_header As Panel
-    Friend WithEvents pnl_footer_outer As Panel
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents pnl_body As Panel
-    Friend WithEvents pnl_footer_inner As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents Label2 As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents pnl_banner As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents PictureBox2 As PictureBox
@@ -946,41 +891,48 @@ Partial Class Main
     Friend WithEvents img_user As PictureBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents img_notification As PictureBox
-    Friend WithEvents pnl_account_details As Panel
-    Friend WithEvents lbl_account_name As Button
-    Friend WithEvents lbl_account_position As Button
-    Friend WithEvents btn_my_profile As Button
-    Friend WithEvents btn_account_settings As Button
-    Friend WithEvents btn_logout_2 As Button
-    Friend WithEvents btn_developers As Button
-    Friend WithEvents pnl_notification As Panel
-    Friend WithEvents Label7 As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents img_loading As PictureBox
-    Friend WithEvents Dashboard As Dashboard
-    Friend WithEvents Barangay_Cases As Barangay_Cases
-    Friend WithEvents Employees As Employees
-    Friend WithEvents Announcements As Announcements
-    Friend WithEvents Barangay_News As Barangay_News
-    Friend WithEvents Pending_Cases As Pending_Cases
-    Friend WithEvents My_Profile As My_Profile
-    Friend WithEvents btn_temp As Button
-    Friend WithEvents Profile As Profile
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label8 As Label
-    Friend WithEvents btn_dashboard As Button
-    Friend WithEvents Panel7 As Panel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents btn_barangay_cases As Button
-    Friend WithEvents pnl_spacer_btn_employees As Panel
-    Friend WithEvents btn_pending_cases As Button
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents btn_employees As Button
-    Friend WithEvents Panel10 As Panel
-    Friend WithEvents btn_announcements As Button
-    Friend WithEvents btn_barangay_news As Button
+    Friend WithEvents pnl_sidebar As Panel
+    Friend WithEvents btn_logout As Button
     Friend WithEvents Panel11 As Panel
     Friend WithEvents Label6 As Label
-    Friend WithEvents btn_logout As Button
+    Friend WithEvents btn_barangay_news As Button
+    Friend WithEvents Panel10 As Panel
+    Friend WithEvents btn_announcements As Button
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents btn_employees As Button
+    Friend WithEvents pnl_spacer_btn_employees As Panel
+    Friend WithEvents btn_pending_cases As Button
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents btn_barangay_cases As Button
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents btn_dashboard As Button
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents btn_temp As Button
+    Friend WithEvents pnl_footer_outer As Panel
+    Friend WithEvents pnl_footer_inner As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Announcements As Announcements
+    Friend WithEvents Barangay_Cases As Barangay_Cases
+    Friend WithEvents Barangay_News As Barangay_News
+    Friend WithEvents Employees As Employees
+    Friend WithEvents Pending_Cases As Pending_Cases
+    Friend WithEvents Profile As Profile
+    Friend WithEvents My_Profile As My_Profile
+    Friend WithEvents img_loading As PictureBox
+    Friend WithEvents Dashboard As Dashboard
+    Friend WithEvents pnl_notification As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents pnl_account_details As Panel
+    Friend WithEvents btn_logout_2 As Button
+    Friend WithEvents btn_developers As Button
+    Friend WithEvents btn_account_settings As Button
+    Friend WithEvents btn_my_profile As Button
+    Friend WithEvents lbl_account_position As Button
+    Friend WithEvents lbl_account_name As Button
+    Friend WithEvents pnl_body As Panel
 End Class

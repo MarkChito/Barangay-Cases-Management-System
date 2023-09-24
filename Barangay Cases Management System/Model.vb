@@ -22,7 +22,6 @@ Module Model
 
     Public Function MongoDB_Database_Name()
         Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
-        'Dim connectionString As String = "mongodb+srv://barangaycasesmanagement:admin123@cluster0.iuqdmuj.mongodb.net/?retryWrites=true&w=majority"
         Dim offline_connectionString As String = "mongodb://localhost:27017"
         Dim connectionString As String
 

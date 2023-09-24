@@ -190,6 +190,7 @@ Partial Class Employees
         ' btn_new_employee
         ' 
         btn_new_employee.Anchor = AnchorStyles.Right
+        btn_new_employee.AutoSize = True
         btn_new_employee.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
         btn_new_employee.Cursor = Cursors.Hand
         btn_new_employee.FlatStyle = FlatStyle.Flat
@@ -197,9 +198,9 @@ Partial Class Employees
         btn_new_employee.ForeColor = Color.White
         btn_new_employee.Image = CType(resources.GetObject("btn_new_employee.Image"), Image)
         btn_new_employee.ImageAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.Location = New Point(868, 28)
+        btn_new_employee.Location = New Point(866, 28)
         btn_new_employee.Name = "btn_new_employee"
-        btn_new_employee.Size = New Size(148, 42)
+        btn_new_employee.Size = New Size(150, 42)
         btn_new_employee.TabIndex = 4
         btn_new_employee.Text = "      &New Employee"
         btn_new_employee.TextAlign = ContentAlignment.MiddleLeft

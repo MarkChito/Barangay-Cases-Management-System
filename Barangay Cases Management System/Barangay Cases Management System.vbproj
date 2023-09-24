@@ -9,6 +9,7 @@
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>logo.ico</ApplicationIcon>
     <ImportedNamespaces>System.Data=False,System.Drawing=False,System.Windows.Forms=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,Barangay Cases Management System=True</ImportedNamespaces>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

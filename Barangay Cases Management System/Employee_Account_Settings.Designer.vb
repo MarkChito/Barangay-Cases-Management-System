@@ -90,12 +90,12 @@ Partial Class Employee_Account_Settings
         ' 
         txt_confirm_password.Dock = DockStyle.Top
         txt_confirm_password.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_confirm_password.ForeColor = Color.Gray
+        txt_confirm_password.ForeColor = Color.Black
         txt_confirm_password.Location = New Point(0, 158)
         txt_confirm_password.Name = "txt_confirm_password"
+        txt_confirm_password.PlaceholderText = "Password is hidden for security"
         txt_confirm_password.Size = New Size(346, 26)
         txt_confirm_password.TabIndex = 37
-        txt_confirm_password.Text = "Password is hidden for security"
         ' 
         ' Panel5
         ' 
@@ -109,12 +109,12 @@ Partial Class Employee_Account_Settings
         ' 
         txt_password.Dock = DockStyle.Top
         txt_password.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_password.ForeColor = Color.Gray
+        txt_password.ForeColor = Color.Black
         txt_password.Location = New Point(0, 112)
         txt_password.Name = "txt_password"
+        txt_password.PlaceholderText = "Password is hidden for security"
         txt_password.Size = New Size(346, 26)
         txt_password.TabIndex = 36
-        txt_password.Text = "Password is hidden for security"
         ' 
         ' Panel4
         ' 
@@ -166,7 +166,6 @@ Partial Class Employee_Account_Settings
         lbl_primary_key.Size = New Size(105, 15)
         lbl_primary_key.TabIndex = 16
         lbl_primary_key.Text = "Do Not Delete This"
-        lbl_primary_key.Visible = False
         ' 
         ' Panel10
         ' 

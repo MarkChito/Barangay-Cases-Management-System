@@ -576,7 +576,6 @@ Partial Class Main
         ' 
         ' Label2
         ' 
-        Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.Location = New Point(470, 9)
@@ -587,7 +586,6 @@ Partial Class Main
         ' 
         ' LinkLabel1
         ' 
-        LinkLabel1.AutoSize = True
         LinkLabel1.BackColor = Color.Transparent
         LinkLabel1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         LinkLabel1.LinkBehavior = LinkBehavior.NeverUnderline
@@ -600,7 +598,6 @@ Partial Class Main
         ' 
         ' Label1
         ' 
-        Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.Location = New Point(12, 9)
@@ -879,7 +876,7 @@ Partial Class Main
         ' 
         ' Timer1
         ' 
-        Timer1.Interval = 1000
+        Timer1.Interval = 500
         ' 
         ' Main
         ' 
@@ -918,7 +915,6 @@ Partial Class Main
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         pnl_footer_outer.ResumeLayout(False)
         pnl_footer_inner.ResumeLayout(False)
-        pnl_footer_inner.PerformLayout()
         pnl_body.ResumeLayout(False)
         pnl_notification.ResumeLayout(False)
         pnl_notification.PerformLayout()

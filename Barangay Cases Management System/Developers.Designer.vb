@@ -57,7 +57,7 @@ Partial Class Developers
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(444, 45)
+        Panel1.Size = New Size(436, 45)
         Panel1.TabIndex = 0
         ' 
         ' img_close
@@ -65,7 +65,7 @@ Partial Class Developers
         img_close.BackColor = Color.Transparent
         img_close.Cursor = Cursors.Hand
         img_close.Image = CType(resources.GetObject("img_close.Image"), Image)
-        img_close.Location = New Point(409, 6)
+        img_close.Location = New Point(401, 6)
         img_close.Name = "img_close"
         img_close.Size = New Size(32, 32)
         img_close.SizeMode = PictureBoxSizeMode.CenterImage
@@ -90,9 +90,9 @@ Partial Class Developers
         Panel2.Controls.Add(LinkLabel1)
         Panel2.Controls.Add(Label3)
         Panel2.Dock = DockStyle.Bottom
-        Panel2.Location = New Point(0, 231)
+        Panel2.Location = New Point(0, 223)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(444, 48)
+        Panel2.Size = New Size(436, 48)
         Panel2.TabIndex = 1
         ' 
         ' Label2
@@ -147,7 +147,7 @@ Partial Class Developers
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(0, 45)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(444, 186)
+        Panel3.Size = New Size(436, 178)
         Panel3.TabIndex = 2
         ' 
         ' Label12
@@ -274,7 +274,7 @@ Partial Class Developers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(444, 279)
+        ClientSize = New Size(436, 271)
         ControlBox = False
         Controls.Add(Panel3)
         Controls.Add(Panel2)

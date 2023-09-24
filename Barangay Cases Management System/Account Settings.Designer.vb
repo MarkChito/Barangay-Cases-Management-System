@@ -126,12 +126,12 @@ Partial Class Account_Settings
         ' 
         txt_confirm_password.BackColor = Color.White
         txt_confirm_password.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_confirm_password.ForeColor = Color.Gray
+        txt_confirm_password.ForeColor = Color.Black
         txt_confirm_password.Location = New Point(24, 297)
         txt_confirm_password.Name = "txt_confirm_password"
+        txt_confirm_password.PlaceholderText = "Password is hidden for security"
         txt_confirm_password.Size = New Size(324, 26)
         txt_confirm_password.TabIndex = 4
-        txt_confirm_password.Text = "Password is hidden for security"
         ' 
         ' Label5
         ' 
@@ -148,12 +148,12 @@ Partial Class Account_Settings
         ' 
         txt_password.BackColor = Color.White
         txt_password.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_password.ForeColor = Color.Gray
+        txt_password.ForeColor = Color.Black
         txt_password.Location = New Point(24, 235)
         txt_password.Name = "txt_password"
+        txt_password.PlaceholderText = "Password is hidden for security"
         txt_password.Size = New Size(324, 26)
         txt_password.TabIndex = 3
-        txt_password.Text = "Password is hidden for security"
         ' 
         ' Label4
         ' 

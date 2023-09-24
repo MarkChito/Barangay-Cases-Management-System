@@ -4,7 +4,6 @@ Imports MongoDB.Bson
 Imports BCrypt
 Imports MySql.Data.MySqlClient
 Imports System.Net.Http
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Module Model
     Public connection As New MySqlConnection
@@ -22,8 +21,17 @@ Module Model
     Public primary_key As String = ""
 
     Public Function MongoDB_Database_Name()
-        Dim connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
+        Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
         'Dim connectionString As String = "mongodb+srv://barangaycasesmanagement:admin123@cluster0.iuqdmuj.mongodb.net/?retryWrites=true&w=majority"
+        Dim offline_connectionString As String = "mongodb://localhost:27017"
+        Dim connectionString As String
+
+        If connection_type = online_connection Then
+            connectionString = online_connectionString
+        Else
+            connectionString = offline_connectionString
+        End If
+
         Dim client As New MongoClient(connectionString)
         Dim database_name As IMongoDatabase = client.GetDatabase("barangaycasesmanagement")
 
@@ -225,6 +233,14 @@ Module Model
 
     Public Async Sub Load_Employee_Images()
         Dim result = Await Get_All_User_Data()
+    End Sub
+
+    Public Async Sub Load_Cases_Images()
+        Dim result = Await Get_All_Cases_Data()
+    End Sub
+
+    Public Async Sub Load_News_Images()
+        Dim result = Await Get_All_News_Data()
     End Sub
 
     Private Async Function Get_All_User_Data() As Task(Of Dictionary(Of String, String))
@@ -475,7 +491,107 @@ Module Model
         table.Clear()
 
         With command
-            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `primary_key`!='" & primary_key & "'"
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `primary_key`!='" & primary_key & "' ORDER BY `primary_key` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Pending_Cases_Data()
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaycases` WHERE `status`='1' ORDER BY `date` DESC , `time` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Barangay_Cases_Data()
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaycases` WHERE `status`='0' OR `status`='4' ORDER BY `date` DESC , `time` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Barangay_News_Data()
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaynews` ORDER BY `primary_key` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Announcements_Data()
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_announcements` ORDER BY `primary_key` DESC"
             .Connection = connection
             .ExecuteNonQuery()
         End With
@@ -511,11 +627,11 @@ Module Model
         Database_Close()
     End Sub
 
-    Public Sub Update_Profile_Information(first_name As String, middle_name As String, last_name As String, position As String, mobile_number As String, email As String, address As String, primary_key As String)
+    Public Sub Update_Profile_Information(first_name As String, middle_name As String, last_name As String, position As String, mobile_number As String, email As String, address As String, image_name As String, primary_key As String)
         Database_Open()
 
         With command
-            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `first_name`='" & first_name & "', `middle_name`='" & middle_name & "', `last_name`='" & last_name & "', `position`='" & position & "', `mobile_number`='" & mobile_number & "', `email`='" & email & "', `address`='" & address & "' WHERE `primary_key`='" & primary_key & "'"
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `first_name`='" & first_name & "', `middle_name`='" & middle_name & "', `last_name`='" & last_name & "', `position`='" & position & "', `mobile_number`='" & mobile_number & "', `email`='" & email & "', `address`='" & address & "', `image`='" & image_name & "' WHERE `primary_key`='" & primary_key & "'"
             .Connection = connection
             .ExecuteNonQuery()
         End With
@@ -595,4 +711,80 @@ Module Model
             Return True
         End If
     End Function
+
+    Public Function Add_Employee_Check_Username(username As String)
+        Dim results As New Dictionary(Of String, String)()
+
+        Dim db_username = ""
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `username`='" & username & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        Dim rowCount As Integer = CInt(command.ExecuteScalar())
+
+        Database_Close()
+
+        If rowCount > 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Public Function Add_Employee_Check_RFID_Number(rfid_number As String)
+        Dim results As New Dictionary(Of String, String)()
+
+        Dim db_username = ""
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `rfid_number`='" & rfid_number & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        Dim rowCount As Integer = CInt(command.ExecuteScalar())
+
+        Database_Close()
+
+        If rowCount > 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Public Sub Add_An_Employee(first_name As String, middle_name As String, last_name As String, rfid_number As String, position As String, mobile_number As String, email As String, address As String, username As String, password As String, image As String)
+        Database_Open()
+
+        password = Password_Hash(password)
+
+        With command
+            .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_useraccounts` (`first_name`, `middle_name`, `last_name`, `rfid_number`, `mobile_number`, `email`, `position`, `address`, `username`, `password`, `image`, `user_type`) VALUES ('" & first_name & "', '" & middle_name & "', '" & last_name & "', '" & rfid_number & "', '" & mobile_number & "', '" & email & "', '" & position & "', '" & address & "', '" & username & "', '" & password & "',  '" & image & "',  'user')"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Database_Close()
+    End Sub
 End Module

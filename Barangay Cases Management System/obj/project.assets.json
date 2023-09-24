@@ -2317,11 +2317,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
+      "projectUniqueName": "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
       "projectName": "Barangay Cases Management System",
-      "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
+      "projectPath": "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\obj\\",
+      "outputPath": "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

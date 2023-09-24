@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports System.Globalization
 
 Public Class Main
     Private sidebar_visible = True
@@ -35,6 +36,97 @@ Public Class Main
         Next
     End Sub
 
+    Public Sub Load_Pending_Cases_Data()
+        Dim results As DataTable = Get_Pending_Cases_Data()
+
+        Pending_Cases.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+
+            With Pending_Cases
+                Dim lvi As ListViewItem
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(row("date").ToString())
+                lvi.SubItems.Add(row("time").ToString())
+                lvi.SubItems.Add(row("name").ToString())
+                lvi.SubItems.Add(row("address").ToString())
+                lvi.SubItems.Add(row("nature_of_complaint").ToString())
+            End With
+        Next
+    End Sub
+
+    Public Sub Load_Barangay_Cases_Data()
+        Dim results As DataTable = Get_Barangay_Cases_Data()
+
+        Barangay_Cases.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+            With Barangay_Cases
+                Dim lvi As ListViewItem
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(row("date").ToString())
+                lvi.SubItems.Add(row("time").ToString())
+                lvi.SubItems.Add(row("name").ToString())
+                lvi.SubItems.Add(row("address").ToString())
+                lvi.SubItems.Add(row("nature_of_complaint").ToString())
+            End With
+        Next
+    End Sub
+
+    Public Sub Load_News_Data()
+        Dim results As DataTable = Get_Barangay_News_Data()
+
+        Barangay_News.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+            With Barangay_News
+                Dim lvi As ListViewItem
+                Dim parsedTime As DateTime
+                Dim inputDate = row("date").ToString()
+                Dim inputTime = row("time").ToString()
+
+                DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedTime)
+                DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
+
+                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(formattedDate)
+                lvi.SubItems.Add(formattedTime)
+                lvi.SubItems.Add(row("title").ToString())
+                lvi.SubItems.Add(row("body").ToString())
+            End With
+        Next
+    End Sub
+
+    Public Sub Load_Announcements_Data()
+        Dim results As DataTable = Get_Announcements_Data()
+
+        Announcements.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+            With Announcements
+                Dim lvi As ListViewItem
+                Dim parsedTime As DateTime
+                Dim inputDateandTime = row("date_and_time").ToString()
+
+                DateTime.TryParseExact(inputDateandTime, "yyyy-MM-dd HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
+
+                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(formattedDate)
+                lvi.SubItems.Add(formattedTime)
+                lvi.SubItems.Add(row("title").ToString())
+                lvi.SubItems.Add(row("body").ToString())
+            End With
+        Next
+    End Sub
+
     Private Function Format_Name(ByVal first_name As String) As String
         Dim nameParts() As String = first_name.Split(" "c)
         Dim firstNameInitials As String = ""
@@ -57,6 +149,13 @@ Public Class Main
     Public Sub Load_My_Profile_Data()
         Dim result = Get_User_Data(employee_primary_key)
         Dim fullname As String = ""
+        Dim user_image As String
+
+        If Not result("image") = "" Then
+            user_image = result("image")
+        Else
+            user_image = "default_user_image.png"
+        End If
 
         If String.IsNullOrWhiteSpace(result("middle_name")) Then
             fullname = result("first_name") & " " & result("last_name")
@@ -65,7 +164,7 @@ Public Class Main
         End If
 
         With My_Profile
-            .img_user.Image = Image.FromFile("dist/img/user_upload/" & result("image"))
+            .img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
             .lbl_user_details_full_name.Text = fullname
             .lbl_user_details_position.Text = result("position")
 
@@ -90,6 +189,8 @@ Public Class Main
             End With
 
             With .Update_Profile
+                .old_image = user_image
+                .selected_image = user_image
                 .lbl_primary_key.Text = result("primary_key")
                 .txt_first_name.Text = result("first_name")
                 .txt_middle_name.Text = result("middle_name")
@@ -98,6 +199,9 @@ Public Class Main
                 .txt_mobile_number.Text = result("mobile_number")
                 .txt_email.Text = result("email")
                 .txt_address.Text = result("address")
+                .img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
+
+                .Center_Object(.img_user)
             End With
 
             .Center_Object(.lbl_user_details_full_name)
@@ -109,6 +213,13 @@ Public Class Main
     Public Sub Load_Employee_Data()
         Dim result = Get_User_Data(employee_primary_key)
         Dim fullname As String = ""
+        Dim user_image As String
+
+        If Not result("image") = "" Then
+            user_image = result("image")
+        Else
+            user_image = "default_user_image.png"
+        End If
 
         If String.IsNullOrWhiteSpace(result("middle_name")) Then
             fullname = result("first_name") & " " & result("last_name")
@@ -117,7 +228,7 @@ Public Class Main
         End If
 
         With Profile
-            .img_user.Image = Image.FromFile("dist/img/user_upload/" & result("image"))
+            .img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
             .lbl_user_details_full_name.Text = fullname
             .lbl_user_details_position.Text = result("position")
 
@@ -142,6 +253,8 @@ Public Class Main
             End With
 
             With .Update_Profile
+                .old_image = user_image
+                .selected_image = user_image
                 .lbl_primary_key.Text = result("primary_key")
                 .txt_first_name.Text = result("first_name")
                 .txt_middle_name.Text = result("middle_name")
@@ -150,6 +263,9 @@ Public Class Main
                 .txt_mobile_number.Text = result("mobile_number")
                 .txt_email.Text = result("email")
                 .txt_address.Text = result("address")
+                .img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
+
+                .Center_Object(.img_user)
             End With
 
             With .Employee_Account_Settings
@@ -293,7 +409,7 @@ Public Class Main
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Process.Start(url)
+        'Process.Start(url)
     End Sub
 
     Private Sub img_user_Click(sender As Object, e As EventArgs) Handles img_user.Click
@@ -347,6 +463,9 @@ Public Class Main
             End If
 
             If current_tab = "btn_pending_cases" Then
+                Load_Cases_Images()
+                Load_Pending_Cases_Data()
+
                 Timer1.Stop()
 
                 loading_timer = 0
@@ -355,6 +474,9 @@ Public Class Main
             End If
 
             If current_tab = "btn_barangay_cases" Then
+                Load_Cases_Images()
+                Load_Barangay_Cases_Data()
+
                 Timer1.Stop()
 
                 loading_timer = 0
@@ -373,6 +495,8 @@ Public Class Main
             End If
 
             If current_tab = "btn_announcements" Then
+                Load_Announcements_Data()
+
                 Timer1.Stop()
 
                 loading_timer = 0
@@ -380,6 +504,9 @@ Public Class Main
             End If
 
             If current_tab = "btn_barangay_news" Then
+                Load_News_Images()
+                Load_News_Data()
+
                 Timer1.Stop()
 
                 loading_timer = 0

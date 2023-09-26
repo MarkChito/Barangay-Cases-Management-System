@@ -35,7 +35,7 @@ Partial Class Dashboard
         case_time = New ColumnHeader()
         title = New ColumnHeader()
         body = New ColumnHeader()
-        image = New ColumnHeader()
+        news_image = New ColumnHeader()
         pnl_sub_header = New Panel()
         btn_barangay_news = New Button()
         btn_announcements = New Button()
@@ -119,7 +119,7 @@ Partial Class Dashboard
         listview_employees.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         listview_employees.BackColor = Color.White
         listview_employees.BorderStyle = BorderStyle.None
-        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body, image})
+        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body, news_image})
         listview_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         listview_employees.FullRowSelect = True
         listview_employees.GridLines = True
@@ -157,10 +157,10 @@ Partial Class Dashboard
         body.Text = "Body"
         body.Width = 150
         ' 
-        ' image
+        ' news_image
         ' 
-        image.Text = ""
-        image.Width = 0
+        news_image.Text = ""
+        news_image.Width = 0
         ' 
         ' pnl_sub_header
         ' 
@@ -262,5 +262,5 @@ Partial Class Dashboard
     Friend WithEvents body As ColumnHeader
     Friend WithEvents pnl_title As Panel
     Friend WithEvents lbl_title As Label
-    Friend WithEvents image As ColumnHeader
+    Friend WithEvents news_image As ColumnHeader
 End Class

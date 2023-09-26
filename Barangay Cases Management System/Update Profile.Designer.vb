@@ -203,6 +203,7 @@ Partial Class Update_Profile
         ' 
         ' img_user
         ' 
+        img_user.BorderStyle = BorderStyle.FixedSingle
         img_user.Cursor = Cursors.Hand
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)
         img_user.Location = New Point(123, 7)

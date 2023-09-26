@@ -56,17 +56,16 @@
     End Sub
 
     Private Sub listview_employees_SizeChanged(sender As Object, e As EventArgs) Handles listview_employees.SizeChanged
-        ' Calculate the width for each visible column
-        Dim visibleColumnCount As Integer = listview_employees.Columns.Count - 2 ' Excluding the first and last columns
+        Dim visibleColumnCount As Integer = listview_employees.Columns.Count - 2
+
         If visibleColumnCount > 0 Then
             Dim columnWidth As Integer = listview_employees.Width / visibleColumnCount
 
-            For i As Integer = 1 To listview_employees.Columns.Count - 2 ' Exclude first and last columns
+            For i As Integer = 1 To listview_employees.Columns.Count - 2
                 listview_employees.Columns(i).Width = columnWidth
             Next
         End If
 
-        ' Hide the first and last columns
         listview_employees.Columns(0).Width = 0
         listview_employees.Columns(listview_employees.Columns.Count - 1).Width = 0
     End Sub
@@ -102,6 +101,7 @@
                 .lbl_barangay_news_date_and_time.Text = listview_employees.SelectedItems(0).SubItems(1).Text & " " & listview_employees.SelectedItems(0).SubItems(2).Text
                 .lbl_barangay_news_title.Text = listview_employees.SelectedItems(0).SubItems(3).Text
                 .lbl_barangay_news_body.Text = listview_employees.SelectedItems(0).SubItems(4).Text
+                .img_barangay_news_image.Image = Image.FromFile("dist/img/user_upload/" & listview_employees.SelectedItems(0).SubItems(5).Text)
                 .ShowDialog()
             End With
         End If

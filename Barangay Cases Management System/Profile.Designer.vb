@@ -29,6 +29,7 @@ Partial Class Profile
         Panel8 = New Panel()
         Overview = New Overview()
         Update_Profile = New Update_Profile()
+        Employee_Account_Settings = New Employee_Account_Settings()
         Panel7 = New Panel()
         btn_acount_settings = New Button()
         btn_update_profile = New Button()
@@ -46,7 +47,6 @@ Partial Class Profile
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
-        Employee_Account_Settings = New Employee_Account_Settings()
         Panel2.SuspendLayout()
         Panel4.SuspendLayout()
         pnl_overview_and_update_profile.SuspendLayout()
@@ -121,6 +121,15 @@ Partial Class Profile
         Update_Profile.Name = "Update_Profile"
         Update_Profile.Size = New Size(621, 521)
         Update_Profile.TabIndex = 1
+        ' 
+        ' Employee_Account_Settings
+        ' 
+        Employee_Account_Settings.BackColor = Color.White
+        Employee_Account_Settings.Dock = DockStyle.Fill
+        Employee_Account_Settings.Location = New Point(0, 0)
+        Employee_Account_Settings.Name = "Employee_Account_Settings"
+        Employee_Account_Settings.Size = New Size(621, 521)
+        Employee_Account_Settings.TabIndex = 2
         ' 
         ' Panel7
         ' 
@@ -255,6 +264,7 @@ Partial Class Profile
         ' 
         ' img_user
         ' 
+        img_user.BorderStyle = BorderStyle.FixedSingle
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)
         img_user.Location = New Point(125, 49)
         img_user.Name = "img_user"
@@ -332,14 +342,6 @@ Partial Class Profile
         Label1.Size = New Size(90, 29)
         Label1.TabIndex = 0
         Label1.Text = "Profile"
-        ' 
-        ' Employee_Account_Settings
-        ' 
-        Employee_Account_Settings.Dock = DockStyle.Fill
-        Employee_Account_Settings.Location = New Point(0, 0)
-        Employee_Account_Settings.Name = "Employee_Account_Settings"
-        Employee_Account_Settings.Size = New Size(621, 521)
-        Employee_Account_Settings.TabIndex = 2
         ' 
         ' Profile
         ' 

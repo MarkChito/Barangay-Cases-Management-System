@@ -57,7 +57,7 @@ Partial Class Developers
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(432, 45)
+        Panel1.Size = New Size(428, 45)
         Panel1.TabIndex = 0
         ' 
         ' img_close
@@ -65,7 +65,7 @@ Partial Class Developers
         img_close.BackColor = Color.Transparent
         img_close.Cursor = Cursors.Hand
         img_close.Image = CType(resources.GetObject("img_close.Image"), Image)
-        img_close.Location = New Point(397, 6)
+        img_close.Location = New Point(393, 6)
         img_close.Name = "img_close"
         img_close.Size = New Size(32, 32)
         img_close.SizeMode = PictureBoxSizeMode.CenterImage
@@ -90,9 +90,9 @@ Partial Class Developers
         Panel2.Controls.Add(LinkLabel1)
         Panel2.Controls.Add(Label3)
         Panel2.Dock = DockStyle.Bottom
-        Panel2.Location = New Point(0, 219)
+        Panel2.Location = New Point(0, 215)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(432, 48)
+        Panel2.Size = New Size(428, 48)
         Panel2.TabIndex = 1
         ' 
         ' Label2
@@ -147,7 +147,7 @@ Partial Class Developers
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(0, 45)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(432, 174)
+        Panel3.Size = New Size(428, 170)
         Panel3.TabIndex = 2
         ' 
         ' Label12
@@ -263,9 +263,9 @@ Partial Class Developers
         ' PictureBox1
         ' 
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(317, 12)
+        PictureBox1.Location = New Point(346, 12)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(100, 100)
+        PictureBox1.Size = New Size(70, 70)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
@@ -274,7 +274,7 @@ Partial Class Developers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(432, 267)
+        ClientSize = New Size(428, 263)
         ControlBox = False
         Controls.Add(Panel3)
         Controls.Add(Panel2)

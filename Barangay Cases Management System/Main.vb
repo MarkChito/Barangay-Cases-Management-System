@@ -98,6 +98,7 @@ Public Class Main
                 lvi.SubItems.Add(formattedTime)
                 lvi.SubItems.Add(row("title").ToString())
                 lvi.SubItems.Add(row("body").ToString())
+                lvi.SubItems.Add(row("image").ToString())
             End With
         Next
     End Sub
@@ -361,6 +362,8 @@ Public Class Main
         End With
 
         employee_primary_key = initial_data
+
+        btn_temp.Focus()
 
         Timer1.Start()
     End Sub

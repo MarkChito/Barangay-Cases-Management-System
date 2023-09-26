@@ -231,6 +231,7 @@ Partial Class My_Profile
         ' 
         ' img_user
         ' 
+        img_user.BorderStyle = BorderStyle.FixedSingle
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)
         img_user.Location = New Point(125, 49)
         img_user.Name = "img_user"

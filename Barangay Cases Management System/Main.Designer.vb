@@ -137,6 +137,7 @@ Partial Class Main
         ' img_user
         ' 
         img_user.BackColor = Color.Transparent
+        img_user.BorderStyle = BorderStyle.FixedSingle
         img_user.Cursor = Cursors.Hand
         img_user.Dock = DockStyle.Right
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)

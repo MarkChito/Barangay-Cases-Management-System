@@ -576,6 +576,31 @@ Module Model
         Return results
     End Function
 
+    Public Function Get_Search_Barangay_News_Data(inputted_data As String)
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaynews` WHERE `title` LIKE '%" & inputted_data & "%' OR `body` LIKE '%" & inputted_data & "%' ORDER BY `primary_key` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
     Public Function Get_Announcements_Data()
         Dim results As New DataTable
 
@@ -585,6 +610,31 @@ Module Model
 
         With command
             .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_announcements` ORDER BY `primary_key` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Search_Announcements_Data(inputted_data As String)
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_announcements` WHERE `title` LIKE '%" & inputted_data & "%' OR `body` LIKE '%" & inputted_data & "%' ORDER BY `primary_key` DESC"
             .Connection = connection
             .ExecuteNonQuery()
         End With
@@ -774,6 +824,35 @@ Module Model
 
         With command
             .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_useraccounts` (`first_name`, `middle_name`, `last_name`, `rfid_number`, `mobile_number`, `email`, `position`, `address`, `username`, `password`, `image`, `user_type`) VALUES ('" & first_name & "', '" & middle_name & "', '" & last_name & "', '" & rfid_number & "', '" & mobile_number & "', '" & email & "', '" & position & "', '" & address & "', '" & username & "', '" & password & "',  '" & image & "',  'user')"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Database_Close()
+    End Sub
+
+    Public Sub Add_An_Announcement(announcement_title As String, announcement_body As String)
+        Database_Open()
+
+        Dim date_and_time As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+
+        With command
+            .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_announcements` (`date_and_time`, `title`, `body`) VALUES ('" & date_and_time & "', '" & announcement_title & "', '" & announcement_body & "')"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Database_Close()
+    End Sub
+
+    Public Sub Add_A_Barangay_News(title As String, body As String, image As String)
+        Database_Open()
+
+        Dim current_date As String = DateTime.Now.ToString("yyyy-MM-dd")
+        Dim current_time As String = DateTime.Now.ToString("HH:mm:ss")
+
+        With command
+            .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_barangaynews` (`date`, `time`, `title`, `body`, `image`) VALUES ('" & current_date & "', '" & current_time & "', '" & title & "', '" & body & "', '" & image & "')"
             .Connection = connection
             .ExecuteNonQuery()
         End With

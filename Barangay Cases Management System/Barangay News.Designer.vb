@@ -33,6 +33,7 @@ Partial Class Barangay_News
         case_time = New ColumnHeader()
         title = New ColumnHeader()
         body = New ColumnHeader()
+        news_image = New ColumnHeader()
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
@@ -95,7 +96,7 @@ Partial Class Barangay_News
         listview_employees.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         listview_employees.BackColor = Color.White
         listview_employees.BorderStyle = BorderStyle.None
-        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body})
+        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body, news_image})
         listview_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         listview_employees.FullRowSelect = True
         listview_employees.GridLines = True
@@ -132,6 +133,11 @@ Partial Class Barangay_News
         ' 
         body.Text = "Body"
         body.Width = 150
+        ' 
+        ' news_image
+        ' 
+        news_image.Text = ""
+        news_image.Width = 0
         ' 
         ' Panel5
         ' 
@@ -263,4 +269,5 @@ Partial Class Barangay_News
     Friend WithEvents body As ColumnHeader
     Friend WithEvents Label4 As Label
     Friend WithEvents txt_search As TextBox
+    Friend WithEvents news_image As ColumnHeader
 End Class

@@ -61,6 +61,7 @@ Partial Class Add_Employee
         ' 
         ' img_user
         ' 
+        img_user.BorderStyle = BorderStyle.FixedSingle
         img_user.Image = CType(resources.GetObject("img_user.Image"), Image)
         img_user.Location = New Point(424, 6)
         img_user.Name = "img_user"
@@ -397,7 +398,7 @@ Partial Class Add_Employee
         Button1.Name = "Button1"
         Button1.Size = New Size(150, 35)
         Button1.TabIndex = 11
-        Button1.Text = "Choose File"
+        Button1.Text = "Choose &File"
         Button1.UseVisualStyleBackColor = False
         ' 
         ' Add_Employee

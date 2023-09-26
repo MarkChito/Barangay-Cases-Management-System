@@ -130,3 +130,5 @@ E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barang
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.pdb
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.genruntimeconfig.cache
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\ref\Barangay Cases Management System.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Announcements.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Barangay_News.resources

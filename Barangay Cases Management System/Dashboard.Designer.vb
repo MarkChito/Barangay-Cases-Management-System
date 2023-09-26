@@ -35,7 +35,7 @@ Partial Class Dashboard
         case_time = New ColumnHeader()
         title = New ColumnHeader()
         body = New ColumnHeader()
-        Panel6 = New Panel()
+        image = New ColumnHeader()
         pnl_sub_header = New Panel()
         btn_barangay_news = New Button()
         btn_announcements = New Button()
@@ -85,7 +85,6 @@ Partial Class Dashboard
         ' 
         Panel2.Controls.Add(pnl_title)
         Panel2.Controls.Add(listview_employees)
-        Panel2.Controls.Add(Panel6)
         Panel2.Controls.Add(pnl_sub_header)
         Panel2.Controls.Add(Panel3)
         Panel2.Controls.Add(Panel4)
@@ -120,7 +119,7 @@ Partial Class Dashboard
         listview_employees.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         listview_employees.BackColor = Color.White
         listview_employees.BorderStyle = BorderStyle.None
-        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body})
+        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body, image})
         listview_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         listview_employees.FullRowSelect = True
         listview_employees.GridLines = True
@@ -128,7 +127,7 @@ Partial Class Dashboard
         listview_employees.Location = New Point(30, 143)
         listview_employees.MultiSelect = False
         listview_employees.Name = "listview_employees"
-        listview_employees.Size = New Size(986, 398)
+        listview_employees.Size = New Size(986, 428)
         listview_employees.TabIndex = 17
         listview_employees.UseCompatibleStateImageBehavior = False
         listview_employees.View = View.Details
@@ -158,13 +157,10 @@ Partial Class Dashboard
         body.Text = "Body"
         body.Width = 150
         ' 
-        ' Panel6
+        ' image
         ' 
-        Panel6.Dock = DockStyle.Bottom
-        Panel6.Location = New Point(30, 541)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(986, 30)
-        Panel6.TabIndex = 16
+        image.Text = ""
+        image.Width = 0
         ' 
         ' pnl_sub_header
         ' 
@@ -196,7 +192,7 @@ Partial Class Dashboard
         ' 
         ' btn_announcements
         ' 
-        btn_announcements.BackColor = Color.White
+        btn_announcements.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
         btn_announcements.Cursor = Cursors.Hand
         btn_announcements.Dock = DockStyle.Left
         btn_announcements.FlatAppearance.BorderSize = 0
@@ -264,7 +260,7 @@ Partial Class Dashboard
     Friend WithEvents case_time As ColumnHeader
     Friend WithEvents title As ColumnHeader
     Friend WithEvents body As ColumnHeader
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents pnl_title As Panel
     Friend WithEvents lbl_title As Label
+    Friend WithEvents image As ColumnHeader
 End Class

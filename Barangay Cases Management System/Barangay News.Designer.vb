@@ -25,13 +25,14 @@ Partial Class Barangay_News
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Barangay_News))
         Panel2 = New Panel()
         Panel7 = New Panel()
+        Label4 = New Label()
+        txt_search = New TextBox()
         listview_employees = New ListView()
         primary_key = New ColumnHeader()
         case_date = New ColumnHeader()
         case_time = New ColumnHeader()
         title = New ColumnHeader()
         body = New ColumnHeader()
-        Panel6 = New Panel()
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
@@ -40,8 +41,6 @@ Partial Class Barangay_News
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
-        Label4 = New Label()
-        txt_search = New TextBox()
         Panel2.SuspendLayout()
         Panel7.SuspendLayout()
         Panel1.SuspendLayout()
@@ -50,7 +49,6 @@ Partial Class Barangay_News
         ' Panel2
         ' 
         Panel2.Controls.Add(Panel7)
-        Panel2.Controls.Add(Panel6)
         Panel2.Controls.Add(Panel5)
         Panel2.Controls.Add(Panel4)
         Panel2.Dock = DockStyle.Fill
@@ -68,8 +66,29 @@ Partial Class Barangay_News
         Panel7.Dock = DockStyle.Fill
         Panel7.Location = New Point(30, 0)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(986, 541)
+        Panel7.Size = New Size(986, 571)
         Panel7.TabIndex = 11
+        ' 
+        ' Label4
+        ' 
+        Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label4.AutoSize = True
+        Label4.BackColor = Color.Transparent
+        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label4.Location = New Point(674, 23)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(64, 20)
+        Label4.TabIndex = 8
+        Label4.Text = "Search:"
+        ' 
+        ' txt_search
+        ' 
+        txt_search.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        txt_search.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_search.Location = New Point(744, 20)
+        txt_search.Name = "txt_search"
+        txt_search.Size = New Size(242, 26)
+        txt_search.TabIndex = 7
         ' 
         ' listview_employees
         ' 
@@ -84,7 +103,7 @@ Partial Class Barangay_News
         listview_employees.Location = New Point(0, 63)
         listview_employees.MultiSelect = False
         listview_employees.Name = "listview_employees"
-        listview_employees.Size = New Size(986, 478)
+        listview_employees.Size = New Size(986, 508)
         listview_employees.TabIndex = 3
         listview_employees.UseCompatibleStateImageBehavior = False
         listview_employees.View = View.Details
@@ -113,14 +132,6 @@ Partial Class Barangay_News
         ' 
         body.Text = "Body"
         body.Width = 150
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Dock = DockStyle.Bottom
-        Panel6.Location = New Point(30, 541)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(986, 30)
-        Panel6.TabIndex = 10
         ' 
         ' Panel5
         ' 
@@ -215,27 +226,6 @@ Partial Class Barangay_News
         Label1.TabIndex = 0
         Label1.Text = "Barangay News"
         ' 
-        ' Label4
-        ' 
-        Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Label4.AutoSize = True
-        Label4.BackColor = Color.Transparent
-        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(674, 23)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(64, 20)
-        Label4.TabIndex = 8
-        Label4.Text = "Search:"
-        ' 
-        ' txt_search
-        ' 
-        txt_search.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        txt_search.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_search.Location = New Point(744, 20)
-        txt_search.Name = "txt_search"
-        txt_search.Size = New Size(242, 26)
-        txt_search.TabIndex = 7
-        ' 
         ' Barangay_News
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -263,7 +253,6 @@ Partial Class Barangay_News
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btn_new_employee As Button
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel7 As Panel
     Friend WithEvents listview_employees As ListView

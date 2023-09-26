@@ -52,5 +52,11 @@
     <Compile Update="Update Profile.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View_Announcements.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View_Barangay_News.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

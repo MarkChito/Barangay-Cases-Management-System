@@ -24,33 +24,31 @@ Partial Class Announcements
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Announcements))
         Panel2 = New Panel()
-        Panel1 = New Panel()
-        Label3 = New Label()
-        Label2 = New Label()
-        Label1 = New Label()
-        Panel3 = New Panel()
-        btn_new_employee = New Button()
-        Panel6 = New Panel()
-        Panel5 = New Panel()
-        Panel4 = New Panel()
         Panel7 = New Panel()
+        Label4 = New Label()
+        txt_search = New TextBox()
         listview_employees = New ListView()
         primary_key = New ColumnHeader()
         case_date = New ColumnHeader()
         case_time = New ColumnHeader()
         title = New ColumnHeader()
         body = New ColumnHeader()
-        Label4 = New Label()
-        txt_search = New TextBox()
+        Panel5 = New Panel()
+        Panel4 = New Panel()
+        Panel1 = New Panel()
+        btn_new_employee = New Button()
+        Panel3 = New Panel()
+        Label3 = New Label()
+        Label2 = New Label()
+        Label1 = New Label()
         Panel2.SuspendLayout()
-        Panel1.SuspendLayout()
         Panel7.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel2
         ' 
         Panel2.Controls.Add(Panel7)
-        Panel2.Controls.Add(Panel6)
         Panel2.Controls.Add(Panel5)
         Panel2.Controls.Add(Panel4)
         Panel2.Dock = DockStyle.Fill
@@ -58,6 +56,98 @@ Partial Class Announcements
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1046, 571)
         Panel2.TabIndex = 7
+        ' 
+        ' Panel7
+        ' 
+        Panel7.BackColor = Color.White
+        Panel7.Controls.Add(Label4)
+        Panel7.Controls.Add(txt_search)
+        Panel7.Controls.Add(listview_employees)
+        Panel7.Dock = DockStyle.Fill
+        Panel7.Location = New Point(30, 0)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(986, 571)
+        Panel7.TabIndex = 14
+        ' 
+        ' Label4
+        ' 
+        Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label4.AutoSize = True
+        Label4.BackColor = Color.Transparent
+        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label4.Location = New Point(674, 23)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(64, 20)
+        Label4.TabIndex = 10
+        Label4.Text = "Search:"
+        ' 
+        ' txt_search
+        ' 
+        txt_search.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        txt_search.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_search.Location = New Point(744, 20)
+        txt_search.Name = "txt_search"
+        txt_search.Size = New Size(242, 26)
+        txt_search.TabIndex = 9
+        ' 
+        ' listview_employees
+        ' 
+        listview_employees.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        listview_employees.BackColor = Color.White
+        listview_employees.BorderStyle = BorderStyle.None
+        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body})
+        listview_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        listview_employees.FullRowSelect = True
+        listview_employees.GridLines = True
+        listview_employees.HeaderStyle = ColumnHeaderStyle.Nonclickable
+        listview_employees.Location = New Point(0, 63)
+        listview_employees.MultiSelect = False
+        listview_employees.Name = "listview_employees"
+        listview_employees.Size = New Size(986, 508)
+        listview_employees.TabIndex = 4
+        listview_employees.UseCompatibleStateImageBehavior = False
+        listview_employees.View = View.Details
+        ' 
+        ' primary_key
+        ' 
+        primary_key.Text = ""
+        primary_key.Width = 0
+        ' 
+        ' case_date
+        ' 
+        case_date.Text = "Date"
+        case_date.Width = 150
+        ' 
+        ' case_time
+        ' 
+        case_time.Text = "Time"
+        case_time.Width = 150
+        ' 
+        ' title
+        ' 
+        title.Text = "Title"
+        title.Width = 150
+        ' 
+        ' body
+        ' 
+        body.Text = "Body"
+        body.Width = 150
+        ' 
+        ' Panel5
+        ' 
+        Panel5.Dock = DockStyle.Right
+        Panel5.Location = New Point(1016, 0)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(30, 571)
+        Panel5.TabIndex = 12
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Dock = DockStyle.Left
+        Panel4.Location = New Point(0, 0)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(30, 571)
+        Panel4.TabIndex = 11
         ' 
         ' Panel1
         ' 
@@ -71,6 +161,33 @@ Partial Class Announcements
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1046, 100)
         Panel1.TabIndex = 6
+        ' 
+        ' btn_new_employee
+        ' 
+        btn_new_employee.Anchor = AnchorStyles.Right
+        btn_new_employee.AutoSize = True
+        btn_new_employee.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
+        btn_new_employee.Cursor = Cursors.Hand
+        btn_new_employee.FlatStyle = FlatStyle.Flat
+        btn_new_employee.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btn_new_employee.ForeColor = Color.White
+        btn_new_employee.Image = CType(resources.GetObject("btn_new_employee.Image"), Image)
+        btn_new_employee.ImageAlign = ContentAlignment.MiddleLeft
+        btn_new_employee.Location = New Point(827, 29)
+        btn_new_employee.Name = "btn_new_employee"
+        btn_new_employee.Size = New Size(189, 42)
+        btn_new_employee.TabIndex = 10
+        btn_new_employee.Text = "      &New Announcement"
+        btn_new_employee.TextAlign = ContentAlignment.MiddleLeft
+        btn_new_employee.UseVisualStyleBackColor = False
+        ' 
+        ' Panel3
+        ' 
+        Panel3.Dock = DockStyle.Right
+        Panel3.Location = New Point(1016, 0)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(30, 100)
+        Panel3.TabIndex = 9
         ' 
         ' Label3
         ' 
@@ -109,133 +226,6 @@ Partial Class Announcements
         Label1.TabIndex = 0
         Label1.Text = "Announcements"
         ' 
-        ' Panel3
-        ' 
-        Panel3.Dock = DockStyle.Right
-        Panel3.Location = New Point(1016, 0)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(30, 100)
-        Panel3.TabIndex = 9
-        ' 
-        ' btn_new_employee
-        ' 
-        btn_new_employee.Anchor = AnchorStyles.Right
-        btn_new_employee.AutoSize = True
-        btn_new_employee.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        btn_new_employee.Cursor = Cursors.Hand
-        btn_new_employee.FlatStyle = FlatStyle.Flat
-        btn_new_employee.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        btn_new_employee.ForeColor = Color.White
-        btn_new_employee.Image = CType(resources.GetObject("btn_new_employee.Image"), Image)
-        btn_new_employee.ImageAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.Location = New Point(827, 29)
-        btn_new_employee.Name = "btn_new_employee"
-        btn_new_employee.Size = New Size(189, 42)
-        btn_new_employee.TabIndex = 10
-        btn_new_employee.Text = "      &New Announcement"
-        btn_new_employee.TextAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.UseVisualStyleBackColor = False
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Dock = DockStyle.Bottom
-        Panel6.Location = New Point(30, 541)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(986, 30)
-        Panel6.TabIndex = 13
-        ' 
-        ' Panel5
-        ' 
-        Panel5.Dock = DockStyle.Right
-        Panel5.Location = New Point(1016, 0)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(30, 571)
-        Panel5.TabIndex = 12
-        ' 
-        ' Panel4
-        ' 
-        Panel4.Dock = DockStyle.Left
-        Panel4.Location = New Point(0, 0)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(30, 571)
-        Panel4.TabIndex = 11
-        ' 
-        ' Panel7
-        ' 
-        Panel7.BackColor = Color.White
-        Panel7.Controls.Add(Label4)
-        Panel7.Controls.Add(txt_search)
-        Panel7.Controls.Add(listview_employees)
-        Panel7.Dock = DockStyle.Fill
-        Panel7.Location = New Point(30, 0)
-        Panel7.Name = "Panel7"
-        Panel7.Size = New Size(986, 541)
-        Panel7.TabIndex = 14
-        ' 
-        ' listview_employees
-        ' 
-        listview_employees.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        listview_employees.BackColor = Color.White
-        listview_employees.BorderStyle = BorderStyle.None
-        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, title, body})
-        listview_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        listview_employees.FullRowSelect = True
-        listview_employees.GridLines = True
-        listview_employees.HeaderStyle = ColumnHeaderStyle.Nonclickable
-        listview_employees.Location = New Point(0, 63)
-        listview_employees.MultiSelect = False
-        listview_employees.Name = "listview_employees"
-        listview_employees.Size = New Size(986, 478)
-        listview_employees.TabIndex = 4
-        listview_employees.UseCompatibleStateImageBehavior = False
-        listview_employees.View = View.Details
-        ' 
-        ' primary_key
-        ' 
-        primary_key.Text = ""
-        primary_key.Width = 0
-        ' 
-        ' case_date
-        ' 
-        case_date.Text = "Date"
-        case_date.Width = 150
-        ' 
-        ' case_time
-        ' 
-        case_time.Text = "Time"
-        case_time.Width = 150
-        ' 
-        ' title
-        ' 
-        title.Text = "Title"
-        title.Width = 150
-        ' 
-        ' body
-        ' 
-        body.Text = "Body"
-        body.Width = 150
-        ' 
-        ' Label4
-        ' 
-        Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Label4.AutoSize = True
-        Label4.BackColor = Color.Transparent
-        Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(674, 23)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(64, 20)
-        Label4.TabIndex = 10
-        Label4.Text = "Search:"
-        ' 
-        ' txt_search
-        ' 
-        txt_search.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        txt_search.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_search.Location = New Point(744, 20)
-        txt_search.Name = "txt_search"
-        txt_search.Size = New Size(242, 26)
-        txt_search.TabIndex = 9
-        ' 
         ' Announcements
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -248,10 +238,10 @@ Partial Class Announcements
         Name = "Announcements"
         Size = New Size(1046, 671)
         Panel2.ResumeLayout(False)
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
         Panel7.ResumeLayout(False)
         Panel7.PerformLayout()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -262,7 +252,6 @@ Partial Class Announcements
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btn_new_employee As Button
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel7 As Panel

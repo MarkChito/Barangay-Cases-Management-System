@@ -34,7 +34,6 @@ Partial Class Pending_Cases
         case_address = New ColumnHeader()
         case_nature_of_complaint = New ColumnHeader()
         Panel5 = New Panel()
-        Panel6 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
         Label3 = New Label()
@@ -49,7 +48,6 @@ Partial Class Pending_Cases
         ' 
         Panel2.Controls.Add(Panel3)
         Panel2.Controls.Add(Panel5)
-        Panel2.Controls.Add(Panel6)
         Panel2.Controls.Add(Panel4)
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(0, 100)
@@ -66,7 +64,7 @@ Partial Class Pending_Cases
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(30, 0)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(986, 541)
+        Panel3.Size = New Size(986, 571)
         Panel3.TabIndex = 7
         ' 
         ' Label4
@@ -103,7 +101,7 @@ Partial Class Pending_Cases
         listview_employees.Location = New Point(0, 63)
         listview_employees.MultiSelect = False
         listview_employees.Name = "listview_employees"
-        listview_employees.Size = New Size(986, 478)
+        listview_employees.Size = New Size(986, 508)
         listview_employees.TabIndex = 1
         listview_employees.UseCompatibleStateImageBehavior = False
         listview_employees.View = View.Details
@@ -143,16 +141,8 @@ Partial Class Pending_Cases
         Panel5.Dock = DockStyle.Right
         Panel5.Location = New Point(1016, 0)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(30, 541)
+        Panel5.Size = New Size(30, 571)
         Panel5.TabIndex = 6
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Dock = DockStyle.Bottom
-        Panel6.Location = New Point(30, 541)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(1016, 30)
-        Panel6.TabIndex = 5
         ' 
         ' Panel4
         ' 
@@ -235,7 +225,6 @@ Partial Class Pending_Cases
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents listview_employees As ListView

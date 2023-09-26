@@ -291,7 +291,7 @@ Partial Class Add_Employee
         Label5.AutoSize = True
         Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(514, 300)
+        Label5.Location = New Point(511, 300)
         Label5.Name = "Label5"
         Label5.Size = New Size(115, 20)
         Label5.TabIndex = 11

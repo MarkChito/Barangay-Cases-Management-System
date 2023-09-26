@@ -34,7 +34,6 @@ Partial Class Employees
         mobile_number = New ColumnHeader()
         email = New ColumnHeader()
         address = New ColumnHeader()
-        Panel6 = New Panel()
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
@@ -51,7 +50,6 @@ Partial Class Employees
         ' Panel2
         ' 
         Panel2.Controls.Add(Panel3)
-        Panel2.Controls.Add(Panel6)
         Panel2.Controls.Add(Panel5)
         Panel2.Controls.Add(Panel4)
         Panel2.Dock = DockStyle.Fill
@@ -70,7 +68,7 @@ Partial Class Employees
         Panel3.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Panel3.Location = New Point(30, 0)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(986, 541)
+        Panel3.Size = New Size(986, 571)
         Panel3.TabIndex = 6
         ' 
         ' Label4
@@ -107,7 +105,7 @@ Partial Class Employees
         listview_employees.Location = New Point(0, 63)
         listview_employees.MultiSelect = False
         listview_employees.Name = "listview_employees"
-        listview_employees.Size = New Size(986, 478)
+        listview_employees.Size = New Size(986, 508)
         listview_employees.TabIndex = 0
         listview_employees.UseCompatibleStateImageBehavior = False
         listview_employees.View = View.Details
@@ -141,14 +139,6 @@ Partial Class Employees
         ' 
         address.Text = "Address"
         address.Width = 150
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Dock = DockStyle.Bottom
-        Panel6.Location = New Point(30, 541)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(986, 30)
-        Panel6.TabIndex = 4
         ' 
         ' Panel5
         ' 
@@ -270,7 +260,6 @@ Partial Class Employees
     Friend WithEvents btn_new_employee As Button
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents listview_employees As ListView
     Friend WithEvents primary_key As ColumnHeader

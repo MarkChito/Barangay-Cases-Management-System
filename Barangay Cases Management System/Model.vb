@@ -101,7 +101,13 @@ Module Model
         Try
             connection.Open()
         Catch ex As Exception
-            MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
+            If connection_type = online_connection Then
+                MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
+            Else
+                MsgBox("Please run Apache and MySQL connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
+            End If
+
+            Login.Close()
 
             Application.Exit()
         End Try
@@ -228,18 +234,6 @@ Module Model
                 .btn_dashboard.PerformClick()
             End With
         End If
-    End Sub
-
-    Public Async Sub Load_Employee_Images()
-        Dim result = Await Get_All_User_Data()
-    End Sub
-
-    Public Async Sub Load_Cases_Images()
-        Dim result = Await Get_All_Cases_Data()
-    End Sub
-
-    Public Async Sub Load_News_Images()
-        Dim result = Await Get_All_News_Data()
     End Sub
 
     Private Async Function Get_All_User_Data() As Task(Of Dictionary(Of String, String))

@@ -102,6 +102,34 @@ Public Class Main
         Next
     End Sub
 
+    Public Sub Load_News_Data_2()
+        Dim results As DataTable = Get_Barangay_News_Data()
+
+        Dashboard.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+            With Dashboard
+                Dim lvi As ListViewItem
+                Dim parsedTime As DateTime
+                Dim inputDate = row("date").ToString()
+                Dim inputTime = row("time").ToString()
+
+                DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedTime)
+                DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
+
+                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(formattedDate)
+                lvi.SubItems.Add(formattedTime)
+                lvi.SubItems.Add(row("title").ToString())
+                lvi.SubItems.Add(row("body").ToString())
+                lvi.SubItems.Add(row("image").ToString())
+            End With
+        Next
+    End Sub
+
     Public Sub Load_Announcements_Data()
         Dim results As DataTable = Get_Announcements_Data()
 
@@ -109,6 +137,31 @@ Public Class Main
 
         For Each row As DataRow In results.Rows
             With Announcements
+                Dim lvi As ListViewItem
+                Dim parsedTime As DateTime
+                Dim inputDateandTime = row("date_and_time").ToString()
+
+                DateTime.TryParseExact(inputDateandTime, "yyyy-MM-dd HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
+
+                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
+
+                lvi = .listview_employees.Items.Add(row("primary_key").ToString())
+                lvi.SubItems.Add(formattedDate)
+                lvi.SubItems.Add(formattedTime)
+                lvi.SubItems.Add(row("title").ToString())
+                lvi.SubItems.Add(row("body").ToString())
+            End With
+        Next
+    End Sub
+
+    Public Sub Load_Announcements_Data_2()
+        Dim results As DataTable = Get_Announcements_Data()
+
+        Dashboard.listview_employees.Items.Clear()
+
+        For Each row As DataRow In results.Rows
+            With Dashboard
                 Dim lvi As ListViewItem
                 Dim parsedTime As DateTime
                 Dim inputDateandTime = row("date_and_time").ToString()
@@ -464,7 +517,6 @@ Public Class Main
             End If
 
             If current_tab = "btn_pending_cases" Then
-                Load_Cases_Images()
                 Load_Pending_Cases_Data()
 
                 Timer1.Stop()
@@ -475,7 +527,6 @@ Public Class Main
             End If
 
             If current_tab = "btn_barangay_cases" Then
-                Load_Cases_Images()
                 Load_Barangay_Cases_Data()
 
                 Timer1.Stop()
@@ -486,7 +537,6 @@ Public Class Main
             End If
 
             If current_tab = "btn_employees" Then
-                Load_Employee_Images()
                 Load_Employees_Data()
 
                 Timer1.Stop()
@@ -505,7 +555,6 @@ Public Class Main
             End If
 
             If current_tab = "btn_barangay_news" Then
-                Load_News_Images()
                 Load_News_Data()
 
                 Timer1.Stop()

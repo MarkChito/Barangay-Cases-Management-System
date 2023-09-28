@@ -44,7 +44,7 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Insert_Admin_Data()
+        'Insert_Admin_Data()
         Database_Open()
         CenterPanel()
         Open_File()

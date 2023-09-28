@@ -41,6 +41,16 @@ Partial Class Add_Barangay_Case
         Button2 = New Button()
         Panel8 = New Panel()
         Button3 = New Button()
+        txt_full_name = New TextBox()
+        Label6 = New Label()
+        TextBox2 = New TextBox()
+        Label7 = New Label()
+        Label8 = New Label()
+        TextBox3 = New TextBox()
+        txt_position = New ComboBox()
+        Label9 = New Label()
+        Label10 = New Label()
+        TextBox4 = New TextBox()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         Panel2.SuspendLayout()
@@ -171,7 +181,7 @@ Partial Class Add_Barangay_Case
         btn_next.Name = "btn_next"
         btn_next.Padding = New Padding(15, 0, 15, 0)
         btn_next.Size = New Size(105, 35)
-        btn_next.TabIndex = 4
+        btn_next.TabIndex = 5
         btn_next.Text = "&Next"
         btn_next.TextAlign = ContentAlignment.MiddleLeft
         btn_next.UseVisualStyleBackColor = False
@@ -250,6 +260,16 @@ Partial Class Add_Barangay_Case
         ' Panel8
         ' 
         Panel8.BackColor = Color.White
+        Panel8.Controls.Add(Label10)
+        Panel8.Controls.Add(TextBox4)
+        Panel8.Controls.Add(Label9)
+        Panel8.Controls.Add(txt_position)
+        Panel8.Controls.Add(Label8)
+        Panel8.Controls.Add(TextBox3)
+        Panel8.Controls.Add(Label7)
+        Panel8.Controls.Add(TextBox2)
+        Panel8.Controls.Add(Label6)
+        Panel8.Controls.Add(txt_full_name)
         Panel8.Controls.Add(Button3)
         Panel8.Dock = DockStyle.Fill
         Panel8.Location = New Point(30, 153)
@@ -271,6 +291,100 @@ Partial Class Add_Barangay_Case
         Button3.TabIndex = 4
         Button3.Text = "&Next"
         Button3.UseVisualStyleBackColor = False
+        ' 
+        ' txt_full_name
+        ' 
+        txt_full_name.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_full_name.Location = New Point(30, 36)
+        txt_full_name.Name = "txt_full_name"
+        txt_full_name.Size = New Size(450, 26)
+        txt_full_name.TabIndex = 0
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label6.Location = New Point(30, 13)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(80, 20)
+        Label6.TabIndex = 20
+        Label6.Text = "Full Name"
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox2.Location = New Point(506, 36)
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(450, 26)
+        TextBox2.TabIndex = 1
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label7.Location = New Point(506, 13)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(115, 20)
+        Label7.TabIndex = 22
+        Label7.Text = "Mobile Number"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label8.Location = New Point(30, 75)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(68, 20)
+        Label8.TabIndex = 24
+        Label8.Text = "Address"
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox3.Location = New Point(30, 98)
+        TextBox3.Multiline = True
+        TextBox3.Name = "TextBox3"
+        TextBox3.Size = New Size(926, 69)
+        TextBox3.TabIndex = 2
+        ' 
+        ' txt_position
+        ' 
+        txt_position.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_position.FormattingEnabled = True
+        txt_position.Items.AddRange(New Object() {"Accident                                        ", "Curfew Violation", "Harassment or Threats (Blotter)Noise Disturbance", "Illegal Dumping and Garbage", "Public Health and Sanitation", "Vandalism and Graffiti", "Public Safety Concerns", "Traffic Violations", "Property Disputes", "Public Nuisance", "Business Permits and Licenses", "Environmental Concerns", "Animal Control", "Disputes and Conflict Resolution", "Social Welfare and Assistance", "Other (Write the details in the description box)"})
+        txt_position.Location = New Point(30, 203)
+        txt_position.Name = "txt_position"
+        txt_position.Size = New Size(926, 28)
+        txt_position.TabIndex = 3
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label9.Location = New Point(30, 180)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(150, 20)
+        Label9.TabIndex = 26
+        Label9.Text = "Nature of Complaint"
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label10.Location = New Point(30, 244)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(89, 20)
+        Label10.TabIndex = 28
+        Label10.Text = "Description"
+        ' 
+        ' TextBox4
+        ' 
+        TextBox4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox4.Location = New Point(30, 267)
+        TextBox4.Multiline = True
+        TextBox4.Name = "TextBox4"
+        TextBox4.Size = New Size(926, 69)
+        TextBox4.TabIndex = 4
         ' 
         ' Add_Barangay_Case
         ' 
@@ -297,6 +411,7 @@ Partial Class Add_Barangay_Case
         Panel6.ResumeLayout(False)
         Panel7.ResumeLayout(False)
         Panel8.ResumeLayout(False)
+        Panel8.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -318,4 +433,14 @@ Partial Class Add_Barangay_Case
     Friend WithEvents Button2 As Button
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Button3 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txt_full_name As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txt_position As ComboBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TextBox4 As TextBox
 End Class

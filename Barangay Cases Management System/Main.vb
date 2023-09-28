@@ -722,7 +722,5 @@ Public Class Main
     Private Sub Main_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
         Hide_Account_Details()
         Hide_Notification()
-
-        lbl_panel_width.Text = Add_Barangay_Case.Width
     End Sub
 End Class

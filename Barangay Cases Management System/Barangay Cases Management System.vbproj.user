@@ -4,13 +4,16 @@
     <Compile Update="Account Settings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Add Barangay Case.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Add Employee.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Add_Announcement.vb">
+    <Compile Update="Add Announcement.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Add_Barangay_News.vb">
+    <Compile Update="Add Barangay News.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Announcements.vb">
@@ -19,7 +22,7 @@
     <Compile Update="Barangay News.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Barangay_Cases.vb">
+    <Compile Update="Barangay Cases.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Dashboard.vb">
@@ -31,7 +34,7 @@
     <Compile Update="Employees.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Employee_Account_Settings.vb">
+    <Compile Update="Employee Account Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Login.vb">
@@ -52,16 +55,16 @@
     <Compile Update="Profile.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="RFID_Login.vb">
+    <Compile Update="RFID Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Update Profile.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="View_Announcements.vb">
+    <Compile Update="View Announcements.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View_Barangay_News.vb">
+    <Compile Update="View Barangay News.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

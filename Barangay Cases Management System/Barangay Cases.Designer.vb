@@ -37,7 +37,7 @@ Partial Class Barangay_Cases
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
-        btn_new_employee = New Button()
+        btn_new_case = New Button()
         Panel3 = New Panel()
         Label3 = New Label()
         Label2 = New Label()
@@ -157,7 +157,7 @@ Partial Class Barangay_Cases
         ' 
         ' Panel1
         ' 
-        Panel1.Controls.Add(btn_new_employee)
+        Panel1.Controls.Add(btn_new_case)
         Panel1.Controls.Add(Panel3)
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(Label2)
@@ -168,24 +168,24 @@ Partial Class Barangay_Cases
         Panel1.Size = New Size(1046, 100)
         Panel1.TabIndex = 2
         ' 
-        ' btn_new_employee
+        ' btn_new_case
         ' 
-        btn_new_employee.Anchor = AnchorStyles.Right
-        btn_new_employee.AutoSize = True
-        btn_new_employee.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        btn_new_employee.Cursor = Cursors.Hand
-        btn_new_employee.FlatStyle = FlatStyle.Flat
-        btn_new_employee.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        btn_new_employee.ForeColor = Color.White
-        btn_new_employee.Image = CType(resources.GetObject("btn_new_employee.Image"), Image)
-        btn_new_employee.ImageAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.Location = New Point(827, 29)
-        btn_new_employee.Name = "btn_new_employee"
-        btn_new_employee.Size = New Size(189, 42)
-        btn_new_employee.TabIndex = 8
-        btn_new_employee.Text = "      &New Barangay Case"
-        btn_new_employee.TextAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.UseVisualStyleBackColor = False
+        btn_new_case.Anchor = AnchorStyles.Right
+        btn_new_case.AutoSize = True
+        btn_new_case.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
+        btn_new_case.Cursor = Cursors.Hand
+        btn_new_case.FlatStyle = FlatStyle.Flat
+        btn_new_case.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btn_new_case.ForeColor = Color.White
+        btn_new_case.Image = CType(resources.GetObject("btn_new_case.Image"), Image)
+        btn_new_case.ImageAlign = ContentAlignment.MiddleLeft
+        btn_new_case.Location = New Point(827, 29)
+        btn_new_case.Name = "btn_new_case"
+        btn_new_case.Size = New Size(189, 42)
+        btn_new_case.TabIndex = 8
+        btn_new_case.Text = "      &New Barangay Case"
+        btn_new_case.TextAlign = ContentAlignment.MiddleLeft
+        btn_new_case.UseVisualStyleBackColor = False
         ' 
         ' Panel3
         ' 
@@ -266,5 +266,5 @@ Partial Class Barangay_Cases
     Friend WithEvents case_nature_of_complaint As ColumnHeader
     Friend WithEvents Label4 As Label
     Friend WithEvents txt_search As TextBox
-    Friend WithEvents btn_new_employee As Button
+    Friend WithEvents btn_new_case As Button
 End Class

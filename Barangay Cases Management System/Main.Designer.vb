@@ -80,6 +80,7 @@ Partial Class Main
         lbl_account_position = New Button()
         lbl_account_name = New Button()
         pnl_body = New Panel()
+        Add_Barangay_Case = New Add_Barangay_Case()
         pnl_header.SuspendLayout()
         CType(img_notification, ComponentModel.ISupportInitialize).BeginInit()
         CType(img_user, ComponentModel.ISupportInitialize).BeginInit()
@@ -828,6 +829,17 @@ Partial Class Main
         pnl_body.Size = New Size(1334, 761)
         pnl_body.TabIndex = 25
         ' 
+        ' Add_Barangay_Case
+        ' 
+        Add_Barangay_Case.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Add_Barangay_Case.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Add_Barangay_Case.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Add_Barangay_Case.Location = New Point(288, 33)
+        Add_Barangay_Case.MinimumSize = New Size(1046, 671)
+        Add_Barangay_Case.Name = "Add_Barangay_Case"
+        Add_Barangay_Case.Size = New Size(1046, 671)
+        Add_Barangay_Case.TabIndex = 26
+        ' 
         ' Main
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -849,6 +861,7 @@ Partial Class Main
         Controls.Add(pnl_sidebar)
         Controls.Add(pnl_header)
         Controls.Add(pnl_body)
+        Controls.Add(Add_Barangay_Case)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MinimumSize = New Size(1350, 800)
         Name = "Main"
@@ -917,6 +930,7 @@ Partial Class Main
     Friend WithEvents Label2 As Label
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Label1 As Label
+    Friend WithEvents Add_Barangay_Case As Add_Barangay_Case
     Friend WithEvents Announcements As Announcements
     Friend WithEvents Barangay_Cases As Barangay_Cases
     Friend WithEvents Barangay_News As Barangay_News

@@ -14,4 +14,12 @@
 
         listview_employees.Columns(0).Width = 0
     End Sub
+
+    Private Sub btn_new_case_Click(sender As Object, e As EventArgs) Handles btn_new_case.Click
+        With Main
+            .Mouse_Click(btn_new_case)
+            .Hide_Account_Details()
+            .Hide_Notification()
+        End With
+    End Sub
 End Class

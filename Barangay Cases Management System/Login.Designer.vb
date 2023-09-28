@@ -160,6 +160,8 @@ Partial Class Login
         ' 
         btn_login.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
         btn_login.Cursor = Cursors.Hand
+        btn_login.FlatAppearance.BorderColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
+        btn_login.FlatAppearance.BorderSize = 0
         btn_login.FlatStyle = FlatStyle.Flat
         btn_login.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         btn_login.ForeColor = Color.White

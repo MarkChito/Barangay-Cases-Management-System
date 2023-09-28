@@ -6,8 +6,8 @@ Public Class Main
     Private pnl_account_details_visible = False
     Private pnl_account_notification_visible = False
     Private loading_timer As Integer = 0
-    Private current_tab As String = ""
-    Private employee_primary_key As String = ""
+    Public current_tab As String = ""
+    Public employee_primary_key As String = ""
 
     Public Sub Load_Employees_Data()
         Dim results As DataTable = Get_Employee_Data(primary_key)
@@ -339,6 +339,8 @@ Public Class Main
     End Sub
 
     Public Sub Mouse_Click(btn_name As Object, Optional initial_data As String = "")
+        btn_temp.Focus()
+
         current_tab = btn_name.Name
 
         btn_pending_cases.BackColor = Color.Transparent
@@ -354,18 +356,20 @@ Public Class Main
         btn_developers.BackColor = Color.Transparent
         btn_logout_2.BackColor = Color.Transparent
 
-        btn_name.BackColor = Color.FromArgb(246, 249, 255)
+        If Not current_tab = "btn_new_case" Then
+            btn_name.BackColor = Color.FromArgb(246, 249, 255)
 
-        With img_loading
-            .Visible = True
-            .BringToFront()
-        End With
+            With img_loading
+                .Visible = True
+                .BringToFront()
+            End With
 
-        employee_primary_key = initial_data
+            employee_primary_key = initial_data
 
-        btn_temp.Focus()
-
-        Timer1.Start()
+            Timer1.Start()
+        Else
+            Add_Barangay_Case.BringToFront()
+        End If
     End Sub
 
     Public Sub Hide_Account_Details()
@@ -458,6 +462,9 @@ Public Class Main
             sidebar_visible = True
         End If
 
+        Add_Barangay_Case.Width = Barangay_Cases.Width
+        Add_Barangay_Case.Location = Barangay_Cases.Location
+
         Hide_Account_Details()
         Hide_Notification()
     End Sub
@@ -490,11 +497,6 @@ Public Class Main
         End If
 
         btn_temp.Focus()
-    End Sub
-
-    Private Sub Main_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub pnl_footer_outer_SizeChanged(sender As Object, e As EventArgs) Handles pnl_footer_outer.SizeChanged
@@ -715,5 +717,12 @@ Public Class Main
             .Show()
             .txt_username.Focus()
         End With
+    End Sub
+
+    Private Sub Main_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
+        Hide_Account_Details()
+        Hide_Notification()
+
+        lbl_panel_width.Text = Add_Barangay_Case.Width
     End Sub
 End Class

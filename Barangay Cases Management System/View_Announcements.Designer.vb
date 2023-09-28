@@ -105,11 +105,11 @@ Partial Class View_Announcements
         ' 
         lbl_announcement_body.BackColor = Color.White
         lbl_announcement_body.BorderStyle = BorderStyle.None
-        lbl_announcement_body.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_announcement_body.Location = New Point(11, 70)
+        lbl_announcement_body.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        lbl_announcement_body.Location = New Point(11, 75)
         lbl_announcement_body.Name = "lbl_announcement_body"
         lbl_announcement_body.ReadOnly = True
-        lbl_announcement_body.Size = New Size(826, 433)
+        lbl_announcement_body.Size = New Size(826, 428)
         lbl_announcement_body.TabIndex = 5
         lbl_announcement_body.Text = "Announcement Body"
         ' 
@@ -125,7 +125,7 @@ Partial Class View_Announcements
         Panel3.Size = New Size(850, 510)
         Panel3.TabIndex = 6
         ' 
-        ' View_Accouncements
+        ' View_Announcements
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -136,7 +136,7 @@ Partial Class View_Announcements
         Controls.Add(Panel1)
         Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
         FormBorderStyle = FormBorderStyle.None
-        Name = "View_Accouncements"
+        Name = "View_Announcements"
         ShowIcon = False
         ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterParent

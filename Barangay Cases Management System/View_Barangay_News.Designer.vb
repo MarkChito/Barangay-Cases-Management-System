@@ -77,11 +77,11 @@ Partial Class View_Barangay_News
         ' 
         lbl_barangay_news_body.BackColor = Color.White
         lbl_barangay_news_body.BorderStyle = BorderStyle.None
-        lbl_barangay_news_body.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        lbl_barangay_news_body.Location = New Point(11, 371)
+        lbl_barangay_news_body.Font = New Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        lbl_barangay_news_body.Location = New Point(11, 381)
         lbl_barangay_news_body.Name = "lbl_barangay_news_body"
         lbl_barangay_news_body.ReadOnly = True
-        lbl_barangay_news_body.Size = New Size(826, 232)
+        lbl_barangay_news_body.Size = New Size(826, 222)
         lbl_barangay_news_body.TabIndex = 5
         lbl_barangay_news_body.Text = "Barangay News Body"
         ' 

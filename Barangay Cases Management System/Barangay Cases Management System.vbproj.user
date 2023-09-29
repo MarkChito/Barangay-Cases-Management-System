@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\My Project\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="Account Settings.vb">
       <SubType>Form</SubType>
@@ -35,6 +38,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Employee Account Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Image Capture.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Login.vb">

@@ -1,0 +1,36 @@
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Barangay Cases Management System.exe
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Barangay Cases Management System.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Barangay Cases Management System.deps.json
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Barangay Cases Management System.runtimeconfig.json
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Barangay Cases Management System.pdb
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\AWSSDK.Core.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\AWSSDK.SecurityToken.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\BCrypt.Net-Core.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\DnsClient.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Google.Protobuf.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\K4os.Compression.LZ4.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\K4os.Compression.LZ4.Streams.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\K4os.Hash.xxHash.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\MongoDB.Bson.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\MongoDB.Driver.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\MongoDB.Driver.Core.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\MongoDB.Libmongocrypt.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\MySql.Data.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\BouncyCastle.Crypto.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\SharpCompress.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\Snappier.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\System.Diagnostics.DiagnosticSource.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\System.IO.Pipelines.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\System.Text.Encodings.Web.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\System.Text.Json.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\ZstdSharp.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\linux\native\libmongocrypt.so
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\osx\native\libmongocrypt.dylib
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\win\native\mongocrypt.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\comerr64.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\gssapi64.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\k5sprt64.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\krb5_64.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\win-x64\native\krbcc64.dll
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Release\net6.0-windows\publish\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

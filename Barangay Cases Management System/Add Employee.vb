@@ -12,6 +12,7 @@ Public Class Add_Employee
 
         btn_submit.Enabled = True
         btn_submit.Text = "&Submit Changes"
+        btn_close.Visible = True
 
         If Not password = "" Or Not confirm_password = "" Then
             If password <> confirm_password Then

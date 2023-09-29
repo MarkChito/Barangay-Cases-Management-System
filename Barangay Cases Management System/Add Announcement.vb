@@ -38,6 +38,12 @@
 
             Main.Load_Announcements_Data()
 
+            btn_close.Visible = True
+            btn_submit.Enabled = True
+            btn_submit.Text = "&Submit Changes"
+
+            Main.btn_temp.Focus()
+
             MsgBox("You have successfully added an announcement.", MsgBoxStyle.Information, "Success")
 
             txt_announcement_title.Clear()
@@ -45,13 +51,13 @@
 
             Me.Close()
         Else
+            btn_close.Visible = True
+            btn_submit.Enabled = True
+            btn_submit.Text = "&Submit Changes"
+
+            Main.btn_temp.Focus()
+
             MsgBox("Please complete all the required details!", MsgBoxStyle.Critical, "Error")
         End If
-
-        btn_close.Visible = True
-        btn_submit.Enabled = True
-        btn_submit.Text = "&Submit Changes"
-
-        Main.btn_temp.Focus()
     End Sub
 End Class

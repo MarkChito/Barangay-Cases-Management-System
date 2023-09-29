@@ -56,6 +56,7 @@ Partial Class Main
         Label8 = New Label()
         Panel4 = New Panel()
         btn_temp = New Button()
+        Image_Capture = New Image_Capture()
         pnl_footer_outer = New Panel()
         pnl_footer_inner = New Panel()
         Label2 = New Label()
@@ -81,6 +82,8 @@ Partial Class Main
         lbl_account_name = New Button()
         pnl_body = New Panel()
         Add_Barangay_Case = New Add_Barangay_Case()
+        btn_temp_account = New Button()
+        btn_temp_notification = New Button()
         pnl_header.SuspendLayout()
         CType(img_notification, ComponentModel.ISupportInitialize).BeginInit()
         CType(img_user, ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +100,7 @@ Partial Class Main
         CType(img_loading, ComponentModel.ISupportInitialize).BeginInit()
         pnl_notification.SuspendLayout()
         pnl_account_details.SuspendLayout()
+        pnl_body.SuspendLayout()
         SuspendLayout()
         ' 
         ' pnl_header
@@ -194,12 +198,12 @@ Partial Class Main
         ' txt_search
         ' 
         txt_search.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_search.ForeColor = Color.Gray
+        txt_search.ForeColor = SystemColors.ControlText
         txt_search.Location = New Point(51, 2)
         txt_search.Name = "txt_search"
+        txt_search.PlaceholderText = "Search"
         txt_search.Size = New Size(321, 29)
-        txt_search.TabIndex = 3
-        txt_search.Text = "Search"
+        txt_search.TabIndex = 99
         ' 
         ' btn_toggle_sidebar
         ' 
@@ -252,6 +256,8 @@ Partial Class Main
         ' pnl_sidebar
         ' 
         pnl_sidebar.BackColor = Color.White
+        pnl_sidebar.Controls.Add(btn_temp_notification)
+        pnl_sidebar.Controls.Add(btn_temp_account)
         pnl_sidebar.Controls.Add(btn_logout)
         pnl_sidebar.Controls.Add(Panel11)
         pnl_sidebar.Controls.Add(btn_barangay_news)
@@ -519,6 +525,16 @@ Partial Class Main
         btn_temp.TabIndex = 12
         btn_temp.Text = "Button1"
         btn_temp.UseVisualStyleBackColor = True
+        ' 
+        ' Image_Capture
+        ' 
+        Image_Capture.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Image_Capture.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Image_Capture.Location = New Point(288, 33)
+        Image_Capture.MinimumSize = New Size(1046, 671)
+        Image_Capture.Name = "Image_Capture"
+        Image_Capture.Size = New Size(1046, 671)
+        Image_Capture.TabIndex = 0
         ' 
         ' pnl_footer_outer
         ' 
@@ -823,6 +839,7 @@ Partial Class Main
         ' 
         ' pnl_body
         ' 
+        pnl_body.Controls.Add(Image_Capture)
         pnl_body.Dock = DockStyle.Fill
         pnl_body.Location = New Point(0, 0)
         pnl_body.Name = "pnl_body"
@@ -839,6 +856,24 @@ Partial Class Main
         Add_Barangay_Case.Name = "Add_Barangay_Case"
         Add_Barangay_Case.Size = New Size(1046, 671)
         Add_Barangay_Case.TabIndex = 26
+        ' 
+        ' btn_temp_account
+        ' 
+        btn_temp_account.Location = New Point(-92, 689)
+        btn_temp_account.Name = "btn_temp_account"
+        btn_temp_account.Size = New Size(75, 23)
+        btn_temp_account.TabIndex = 35
+        btn_temp_account.Text = "Button1"
+        btn_temp_account.UseVisualStyleBackColor = True
+        ' 
+        ' btn_temp_notification
+        ' 
+        btn_temp_notification.Location = New Point(-97, 552)
+        btn_temp_notification.Name = "btn_temp_notification"
+        btn_temp_notification.Size = New Size(75, 23)
+        btn_temp_notification.TabIndex = 36
+        btn_temp_notification.Text = "Button1"
+        btn_temp_notification.UseVisualStyleBackColor = True
         ' 
         ' Main
         ' 
@@ -891,6 +926,7 @@ Partial Class Main
         pnl_notification.PerformLayout()
         pnl_account_details.ResumeLayout(False)
         pnl_account_details.PerformLayout()
+        pnl_body.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents pnl_header As Panel
@@ -930,6 +966,7 @@ Partial Class Main
     Friend WithEvents Label2 As Label
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Label1 As Label
+    Friend WithEvents Image_Capture As Image_Capture
     Friend WithEvents Add_Barangay_Case As Add_Barangay_Case
     Friend WithEvents Announcements As Announcements
     Friend WithEvents Barangay_Cases As Barangay_Cases
@@ -950,4 +987,6 @@ Partial Class Main
     Friend WithEvents lbl_account_position As Button
     Friend WithEvents lbl_account_name As Button
     Friend WithEvents pnl_body As Panel
+    Friend WithEvents btn_temp_account As Button
+    Friend WithEvents btn_temp_notification As Button
 End Class

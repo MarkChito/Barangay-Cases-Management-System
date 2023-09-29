@@ -15,7 +15,7 @@ Module Model
     Public ReadOnly localhost_connection = "http://localhost/"
 
     ' Change this when connecting online
-    Public ReadOnly connection_type = online_connection
+    Public ReadOnly connection_type = localhost_connection
 
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""

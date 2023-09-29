@@ -2,9 +2,9 @@
 Imports System.Globalization
 
 Public Class Main
-    Private sidebar_visible = True
-    Private pnl_account_details_visible = False
-    Private pnl_account_notification_visible = False
+    Private sidebar_visible As Boolean = True
+    Private pnl_account_details_visible As Boolean = False
+    Private pnl_account_notification_visible As Boolean = False
     Private loading_timer As Integer = 0
     Public current_tab As String = ""
     Public employee_primary_key As String = ""
@@ -356,9 +356,18 @@ Public Class Main
         btn_developers.BackColor = Color.Transparent
         btn_logout_2.BackColor = Color.Transparent
 
-        If Not current_tab = "btn_new_case" Then
-            btn_name.BackColor = Color.FromArgb(246, 249, 255)
+        Add_Barangay_Case.Hide()
+        Announcements.Hide()
+        Barangay_Cases.Hide()
+        Barangay_News.Hide()
+        Dashboard.Hide()
+        Employees.Hide()
+        My_Profile.Hide()
+        Pending_Cases.Hide()
+        Profile.Hide()
 
+        If Not current_tab = "btn_new_case" And Not current_tab = "btn_next" Then
+            btn_name.BackColor = Color.FromArgb(246, 249, 255)
             With img_loading
                 .Visible = True
                 .BringToFront()
@@ -368,7 +377,19 @@ Public Class Main
 
             Timer1.Start()
         Else
-            Add_Barangay_Case.BringToFront()
+            If current_tab = "btn_new_case" Then
+                With Add_Barangay_Case
+                    .Show()
+                    .BringToFront()
+                End With
+            End If
+
+            If current_tab = "btn_next" Then
+                With Image_Capture
+                    .Show()
+                    .BringToFront()
+                End With
+            End If
         End If
     End Sub
 
@@ -426,23 +447,6 @@ Public Class Main
         btn_temp.Focus()
     End Sub
 
-    Private Sub txt_search_GotFocus(sender As Object, e As EventArgs) Handles txt_search.GotFocus
-        If txt_search.Text = "Search" Then
-            txt_search.Text = ""
-            txt_search.ForeColor = Color.Black
-        End If
-
-        Hide_Account_Details()
-        Hide_Notification()
-    End Sub
-
-    Private Sub txt_search_LostFocus(sender As Object, e As EventArgs) Handles txt_search.LostFocus
-        If String.IsNullOrWhiteSpace(txt_search.Text) Then
-            txt_search.Text = "Search"
-            txt_search.ForeColor = Color.Gray
-        End If
-    End Sub
-
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Dim dialog_result = MessageBox.Show(Me, "Are you sure?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -455,18 +459,20 @@ Public Class Main
 
     Private Sub btn_toggle_sidebar_Click(sender As Object, e As EventArgs) Handles btn_toggle_sidebar.Click
         If sidebar_visible Then
-            pnl_sidebar.Visible = False
+            pnl_sidebar.Width = 0
             sidebar_visible = False
         Else
-            pnl_sidebar.Visible = True
+            pnl_sidebar.Width = 288
             sidebar_visible = True
         End If
 
-        Add_Barangay_Case.Width = Barangay_Cases.Width
-        Add_Barangay_Case.Location = Barangay_Cases.Location
+        Add_Barangay_Case.Width = pnl_footer_outer.Width
+        Add_Barangay_Case.Location = New Point(pnl_footer_outer.Location.X, Image_Capture.Location.Y)
 
-        Hide_Account_Details()
-        Hide_Notification()
+        Image_Capture.Width = pnl_footer_outer.Width
+        Image_Capture.Location = New Point(pnl_footer_outer.Location.X, Image_Capture.Location.Y)
+
+        btn_temp.Focus()
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -478,8 +484,6 @@ Public Class Main
     End Sub
 
     Private Sub btn_account_Click(sender As Object, e As EventArgs) Handles btn_account.Click
-        Hide_Notification()
-
         If Not pnl_account_details_visible Then
             With pnl_account_details
                 .Visible = True
@@ -496,7 +500,7 @@ Public Class Main
             pnl_account_details_visible = False
         End If
 
-        btn_temp.Focus()
+        btn_temp_account.Focus()
     End Sub
 
     Private Sub pnl_footer_outer_SizeChanged(sender As Object, e As EventArgs) Handles pnl_footer_outer.SizeChanged
@@ -516,7 +520,7 @@ Public Class Main
                 loading_timer = 0
 
                 With Dashboard
-                    .btn_announcements.PerformClick()
+                    .Show()
                     .BringToFront()
                 End With
             End If
@@ -528,7 +532,10 @@ Public Class Main
 
                 loading_timer = 0
 
-                Pending_Cases.BringToFront()
+                With Pending_Cases
+                    .Show()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "btn_barangay_cases" Then
@@ -538,7 +545,10 @@ Public Class Main
 
                 loading_timer = 0
 
-                Barangay_Cases.BringToFront()
+                With Barangay_Cases
+                    .Show()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "btn_employees" Then
@@ -547,7 +557,11 @@ Public Class Main
                 Timer1.Stop()
 
                 loading_timer = 0
-                Employees.BringToFront()
+
+                With Employees
+                    .Show()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "btn_announcements" Then
@@ -556,7 +570,11 @@ Public Class Main
                 Timer1.Stop()
 
                 loading_timer = 0
-                Announcements.BringToFront()
+
+                With Announcements
+                    .Show()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "btn_barangay_news" Then
@@ -565,23 +583,37 @@ Public Class Main
                 Timer1.Stop()
 
                 loading_timer = 0
-                Barangay_News.BringToFront()
+
+                With Barangay_News
+                    .Show()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "btn_my_profile" Then
                 Load_My_Profile_Data()
 
-                My_Profile.BringToFront()
                 Timer1.Stop()
+
                 loading_timer = 0
+
+                With My_Profile
+                    .Show()
+                    .BringToFront()
+                End With
             End If
 
             If current_tab = "listview_employees" Then
                 Load_Employee_Data()
 
-                Profile.BringToFront()
                 Timer1.Stop()
+
                 loading_timer = 0
+
+                With Profile
+                    .Show()
+                    .BringToFront()
+                End With
             End If
         End If
 
@@ -590,9 +622,6 @@ Public Class Main
 
     Private Sub btn_logout_2_Click(sender As Object, e As EventArgs) Handles btn_logout_2.Click
         btn_temp.Focus()
-
-        Hide_Account_Details()
-        Hide_Notification()
 
         Me.Hide()
 
@@ -605,19 +634,16 @@ Public Class Main
     End Sub
 
     Private Sub btn_developers_Click(sender As Object, e As EventArgs) Handles btn_developers.Click
-        Hide_Account_Details()
-        Hide_Notification()
+        btn_temp.Focus()
 
         Developers.ShowDialog()
     End Sub
 
     Private Sub btn_account_settings_Click(sender As Object, e As EventArgs) Handles btn_account_settings.Click
         Dim result = Get_User_Data(primary_key)
-
-        Hide_Account_Details()
-        Hide_Notification()
-
         Dim fullname As String = ""
+
+        btn_temp.Focus()
 
         If String.IsNullOrWhiteSpace(result("middle_name")) Then
             fullname = result("first_name") & " " & result("last_name")
@@ -640,8 +666,6 @@ Public Class Main
 
     Private Sub btn_my_profile_Click(sender As Object, e As EventArgs) Handles btn_my_profile.Click
         Mouse_Click(btn_my_profile, primary_key)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub img_user_Paint(sender As Object, e As PaintEventArgs) Handles img_user.Paint
@@ -649,8 +673,6 @@ Public Class Main
     End Sub
 
     Private Sub img_notification_Click(sender As Object, e As EventArgs) Handles img_notification.Click
-        Hide_Account_Details()
-
         If Not pnl_account_notification_visible Then
             With pnl_notification
                 .Visible = True
@@ -666,42 +688,32 @@ Public Class Main
 
             pnl_account_notification_visible = False
         End If
+
+        btn_temp_notification.Focus()
     End Sub
 
     Private Sub btn_dashboard_Click_1(sender As Object, e As EventArgs) Handles btn_dashboard.Click
         Mouse_Click(btn_dashboard)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub btn_barangay_cases_Click(sender As Object, e As EventArgs) Handles btn_barangay_cases.Click
         Mouse_Click(btn_barangay_cases)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub btn_pending_cases_Click(sender As Object, e As EventArgs) Handles btn_pending_cases.Click
         Mouse_Click(btn_pending_cases)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub btn_employees_Click(sender As Object, e As EventArgs) Handles btn_employees.Click
         Mouse_Click(btn_employees)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub btn_announcements_Click(sender As Object, e As EventArgs) Handles btn_announcements.Click
         Mouse_Click(btn_announcements)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub btn_barangay_news_Click(sender As Object, e As EventArgs) Handles btn_barangay_news.Click
         Mouse_Click(btn_barangay_news)
-        Hide_Account_Details()
-        Hide_Notification()
     End Sub
 
     Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
@@ -720,7 +732,16 @@ Public Class Main
     End Sub
 
     Private Sub Main_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
+        Me.StartPosition = FormStartPosition.CenterScreen
+
+        btn_temp.Focus()
+    End Sub
+
+    Private Sub btn_temp_account_LostFocus(sender As Object, e As EventArgs) Handles btn_temp_account.LostFocus
         Hide_Account_Details()
+    End Sub
+
+    Private Sub btn_temp_notification_LostFocus(sender As Object, e As EventArgs) Handles btn_temp_notification.LostFocus
         Hide_Notification()
     End Sub
 End Class

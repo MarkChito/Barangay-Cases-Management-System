@@ -25,7 +25,6 @@ Partial Class Add_Barangay_Case
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Add_Barangay_Case))
         Panel1 = New Panel()
         Label4 = New Label()
-        btn_new_employee = New Button()
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
@@ -36,33 +35,33 @@ Partial Class Add_Barangay_Case
         Panel2 = New Panel()
         Label5 = New Label()
         Panel6 = New Panel()
-        Button1 = New Button()
         Panel7 = New Panel()
-        Button2 = New Button()
-        Panel8 = New Panel()
-        Button3 = New Button()
-        txt_full_name = New TextBox()
-        Label6 = New Label()
-        TextBox2 = New TextBox()
+        pnl_parent = New Panel()
+        Panel9 = New Panel()
+        pnl_mobile_number = New Panel()
         Label7 = New Label()
-        Label8 = New Label()
-        TextBox3 = New TextBox()
-        txt_position = New ComboBox()
-        Label9 = New Label()
+        txt_mobile_number = New TextBox()
+        pnl_full_name = New Panel()
+        Label6 = New Label()
+        txt_full_name = New TextBox()
         Label10 = New Label()
-        TextBox4 = New TextBox()
+        txt_description = New TextBox()
+        Label9 = New Label()
+        txt_nature_of_complaint = New ComboBox()
+        Label8 = New Label()
+        txt_address = New TextBox()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         Panel2.SuspendLayout()
-        Panel6.SuspendLayout()
-        Panel7.SuspendLayout()
-        Panel8.SuspendLayout()
+        pnl_parent.SuspendLayout()
+        Panel9.SuspendLayout()
+        pnl_mobile_number.SuspendLayout()
+        pnl_full_name.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
         Panel1.Controls.Add(Label4)
-        Panel1.Controls.Add(btn_new_employee)
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(Label1)
@@ -84,25 +83,6 @@ Partial Class Add_Barangay_Case
         Label4.Size = New Size(131, 16)
         Label4.TabIndex = 11
         Label4.Text = "/ Barangay Cases"
-        ' 
-        ' btn_new_employee
-        ' 
-        btn_new_employee.Anchor = AnchorStyles.Right
-        btn_new_employee.AutoSize = True
-        btn_new_employee.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        btn_new_employee.Cursor = Cursors.Hand
-        btn_new_employee.FlatStyle = FlatStyle.Flat
-        btn_new_employee.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        btn_new_employee.ForeColor = Color.White
-        btn_new_employee.Image = CType(resources.GetObject("btn_new_employee.Image"), Image)
-        btn_new_employee.ImageAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.Location = New Point(1673, 29)
-        btn_new_employee.Name = "btn_new_employee"
-        btn_new_employee.Size = New Size(189, 42)
-        btn_new_employee.TabIndex = 10
-        btn_new_employee.Text = "      &New Announcement"
-        btn_new_employee.TextAlign = ContentAlignment.MiddleLeft
-        btn_new_employee.UseVisualStyleBackColor = False
         ' 
         ' Label3
         ' 
@@ -177,7 +157,7 @@ Partial Class Add_Barangay_Case
         btn_next.ForeColor = Color.White
         btn_next.Image = CType(resources.GetObject("btn_next.Image"), Image)
         btn_next.ImageAlign = ContentAlignment.MiddleRight
-        btn_next.Location = New Point(875, 8)
+        btn_next.Location = New Point(851, 8)
         btn_next.Name = "btn_next"
         btn_next.Padding = New Padding(15, 0, 15, 0)
         btn_next.Size = New Size(105, 35)
@@ -210,95 +190,85 @@ Partial Class Add_Barangay_Case
         ' Panel6
         ' 
         Panel6.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Panel6.Controls.Add(Button1)
         Panel6.Dock = DockStyle.Bottom
         Panel6.Location = New Point(30, 618)
         Panel6.Name = "Panel6"
         Panel6.Size = New Size(986, 3)
         Panel6.TabIndex = 16
         ' 
-        ' Button1
-        ' 
-        Button1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Button1.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        Button1.Cursor = Cursors.Hand
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button1.ForeColor = Color.White
-        Button1.Location = New Point(1624, 7)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(143, 34)
-        Button1.TabIndex = 4
-        Button1.Text = "&Next"
-        Button1.UseVisualStyleBackColor = False
-        ' 
         ' Panel7
         ' 
         Panel7.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Panel7.Controls.Add(Button2)
         Panel7.Dock = DockStyle.Top
         Panel7.Location = New Point(30, 150)
         Panel7.Name = "Panel7"
         Panel7.Size = New Size(986, 3)
         Panel7.TabIndex = 17
         ' 
-        ' Button2
+        ' pnl_parent
         ' 
-        Button2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Button2.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        Button2.Cursor = Cursors.Hand
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button2.ForeColor = Color.White
-        Button2.Location = New Point(2410, 7)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(143, 34)
-        Button2.TabIndex = 4
-        Button2.Text = "&Next"
-        Button2.UseVisualStyleBackColor = False
+        pnl_parent.BackColor = Color.White
+        pnl_parent.Controls.Add(Panel9)
+        pnl_parent.Controls.Add(Label10)
+        pnl_parent.Controls.Add(txt_description)
+        pnl_parent.Controls.Add(Label9)
+        pnl_parent.Controls.Add(txt_nature_of_complaint)
+        pnl_parent.Controls.Add(Label8)
+        pnl_parent.Controls.Add(txt_address)
+        pnl_parent.Dock = DockStyle.Fill
+        pnl_parent.Location = New Point(30, 153)
+        pnl_parent.Name = "pnl_parent"
+        pnl_parent.Size = New Size(986, 465)
+        pnl_parent.TabIndex = 18
         ' 
-        ' Panel8
+        ' Panel9
         ' 
-        Panel8.BackColor = Color.White
-        Panel8.Controls.Add(Label10)
-        Panel8.Controls.Add(TextBox4)
-        Panel8.Controls.Add(Label9)
-        Panel8.Controls.Add(txt_position)
-        Panel8.Controls.Add(Label8)
-        Panel8.Controls.Add(TextBox3)
-        Panel8.Controls.Add(Label7)
-        Panel8.Controls.Add(TextBox2)
-        Panel8.Controls.Add(Label6)
-        Panel8.Controls.Add(txt_full_name)
-        Panel8.Controls.Add(Button3)
-        Panel8.Dock = DockStyle.Fill
-        Panel8.Location = New Point(30, 153)
-        Panel8.Name = "Panel8"
-        Panel8.Size = New Size(986, 465)
-        Panel8.TabIndex = 18
+        Panel9.Controls.Add(pnl_mobile_number)
+        Panel9.Controls.Add(pnl_full_name)
+        Panel9.Dock = DockStyle.Top
+        Panel9.Location = New Point(0, 0)
+        Panel9.Name = "Panel9"
+        Panel9.Size = New Size(986, 72)
+        Panel9.TabIndex = 29
         ' 
-        ' Button3
+        ' pnl_mobile_number
         ' 
-        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Button3.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        Button3.Cursor = Cursors.Hand
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button3.ForeColor = Color.White
-        Button3.Location = New Point(2410, 7)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(143, 34)
-        Button3.TabIndex = 4
-        Button3.Text = "&Next"
-        Button3.UseVisualStyleBackColor = False
+        pnl_mobile_number.Controls.Add(Label7)
+        pnl_mobile_number.Controls.Add(txt_mobile_number)
+        pnl_mobile_number.Dock = DockStyle.Left
+        pnl_mobile_number.Location = New Point(493, 0)
+        pnl_mobile_number.Name = "pnl_mobile_number"
+        pnl_mobile_number.Size = New Size(493, 72)
+        pnl_mobile_number.TabIndex = 1
         ' 
-        ' txt_full_name
+        ' Label7
         ' 
-        txt_full_name.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_full_name.Location = New Point(30, 36)
-        txt_full_name.Name = "txt_full_name"
-        txt_full_name.Size = New Size(450, 26)
-        txt_full_name.TabIndex = 0
+        Label7.AutoSize = True
+        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label7.Location = New Point(13, 13)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(115, 20)
+        Label7.TabIndex = 22
+        Label7.Text = "Mobile Number"
+        ' 
+        ' txt_mobile_number
+        ' 
+        txt_mobile_number.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txt_mobile_number.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_mobile_number.Location = New Point(13, 36)
+        txt_mobile_number.Name = "txt_mobile_number"
+        txt_mobile_number.Size = New Size(450, 26)
+        txt_mobile_number.TabIndex = 1
+        ' 
+        ' pnl_full_name
+        ' 
+        pnl_full_name.Controls.Add(Label6)
+        pnl_full_name.Controls.Add(txt_full_name)
+        pnl_full_name.Dock = DockStyle.Left
+        pnl_full_name.Location = New Point(0, 0)
+        pnl_full_name.Name = "pnl_full_name"
+        pnl_full_name.Size = New Size(493, 72)
+        pnl_full_name.TabIndex = 0
         ' 
         ' Label6
         ' 
@@ -310,23 +280,55 @@ Partial Class Add_Barangay_Case
         Label6.TabIndex = 20
         Label6.Text = "Full Name"
         ' 
-        ' TextBox2
+        ' txt_full_name
         ' 
-        TextBox2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox2.Location = New Point(506, 36)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(450, 26)
-        TextBox2.TabIndex = 1
+        txt_full_name.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txt_full_name.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_full_name.Location = New Point(30, 36)
+        txt_full_name.Name = "txt_full_name"
+        txt_full_name.Size = New Size(450, 26)
+        txt_full_name.TabIndex = 0
         ' 
-        ' Label7
+        ' Label10
         ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label7.Location = New Point(506, 13)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(115, 20)
-        Label7.TabIndex = 22
-        Label7.Text = "Mobile Number"
+        Label10.AutoSize = True
+        Label10.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label10.Location = New Point(30, 305)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(89, 20)
+        Label10.TabIndex = 28
+        Label10.Text = "Description"
+        ' 
+        ' txt_description
+        ' 
+        txt_description.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        txt_description.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_description.Location = New Point(30, 328)
+        txt_description.Multiline = True
+        txt_description.Name = "txt_description"
+        txt_description.Size = New Size(926, 130)
+        txt_description.TabIndex = 4
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label9.Location = New Point(30, 241)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(150, 20)
+        Label9.TabIndex = 26
+        Label9.Text = "Nature of Complaint"
+        ' 
+        ' txt_nature_of_complaint
+        ' 
+        txt_nature_of_complaint.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txt_nature_of_complaint.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_nature_of_complaint.FormattingEnabled = True
+        txt_nature_of_complaint.Items.AddRange(New Object() {"Accident                                        ", "Curfew Violation", "Harassment or Threats (Blotter)Noise Disturbance", "Illegal Dumping and Garbage", "Public Health and Sanitation", "Vandalism and Graffiti", "Public Safety Concerns", "Traffic Violations", "Property Disputes", "Public Nuisance", "Business Permits and Licenses", "Environmental Concerns", "Animal Control", "Disputes and Conflict Resolution", "Social Welfare and Assistance", "Other (Write the details in the description box)"})
+        txt_nature_of_complaint.Location = New Point(30, 264)
+        txt_nature_of_complaint.Name = "txt_nature_of_complaint"
+        txt_nature_of_complaint.Size = New Size(926, 28)
+        txt_nature_of_complaint.TabIndex = 3
         ' 
         ' Label8
         ' 
@@ -338,60 +340,22 @@ Partial Class Add_Barangay_Case
         Label8.TabIndex = 24
         Label8.Text = "Address"
         ' 
-        ' TextBox3
+        ' txt_address
         ' 
-        TextBox3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox3.Location = New Point(30, 98)
-        TextBox3.Multiline = True
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(926, 69)
-        TextBox3.TabIndex = 2
-        ' 
-        ' txt_position
-        ' 
-        txt_position.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_position.FormattingEnabled = True
-        txt_position.Items.AddRange(New Object() {"Accident                                        ", "Curfew Violation", "Harassment or Threats (Blotter)Noise Disturbance", "Illegal Dumping and Garbage", "Public Health and Sanitation", "Vandalism and Graffiti", "Public Safety Concerns", "Traffic Violations", "Property Disputes", "Public Nuisance", "Business Permits and Licenses", "Environmental Concerns", "Animal Control", "Disputes and Conflict Resolution", "Social Welfare and Assistance", "Other (Write the details in the description box)"})
-        txt_position.Location = New Point(30, 203)
-        txt_position.Name = "txt_position"
-        txt_position.Size = New Size(926, 28)
-        txt_position.TabIndex = 3
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label9.Location = New Point(30, 180)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(150, 20)
-        Label9.TabIndex = 26
-        Label9.Text = "Nature of Complaint"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label10.Location = New Point(30, 244)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(89, 20)
-        Label10.TabIndex = 28
-        Label10.Text = "Description"
-        ' 
-        ' TextBox4
-        ' 
-        TextBox4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox4.Location = New Point(30, 267)
-        TextBox4.Multiline = True
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(926, 69)
-        TextBox4.TabIndex = 4
+        txt_address.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txt_address.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_address.Location = New Point(30, 98)
+        txt_address.Multiline = True
+        txt_address.Name = "txt_address"
+        txt_address.Size = New Size(926, 130)
+        txt_address.TabIndex = 2
         ' 
         ' Add_Barangay_Case
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        Controls.Add(Panel8)
+        Controls.Add(pnl_parent)
         Controls.Add(Panel7)
         Controls.Add(Panel6)
         Controls.Add(Panel2)
@@ -408,15 +372,18 @@ Partial Class Add_Barangay_Case
         Panel3.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        Panel6.ResumeLayout(False)
-        Panel7.ResumeLayout(False)
-        Panel8.ResumeLayout(False)
-        Panel8.PerformLayout()
+        pnl_parent.ResumeLayout(False)
+        pnl_parent.PerformLayout()
+        Panel9.ResumeLayout(False)
+        pnl_mobile_number.ResumeLayout(False)
+        pnl_mobile_number.PerformLayout()
+        pnl_full_name.ResumeLayout(False)
+        pnl_full_name.PerformLayout()
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btn_new_employee As Button
+    'Friend WithEvents btn_new_employee As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
@@ -428,19 +395,22 @@ Partial Class Add_Barangay_Case
     Friend WithEvents btn_next As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Button1 As Button
+    'Friend WithEvents Button1 As Button
     Friend WithEvents Panel7 As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Panel8 As Panel
-    Friend WithEvents Button3 As Button
+    'Friend WithEvents Button2 As Button
+    Friend WithEvents pnl_parent As Panel
+    'Friend WithEvents Button3 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents txt_full_name As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txt_mobile_number As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txt_address As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents txt_position As ComboBox
+    Friend WithEvents txt_nature_of_complaint As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txt_description As TextBox
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents pnl_mobile_number As Panel
+    Friend WithEvents pnl_full_name As Panel
 End Class

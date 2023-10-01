@@ -251,6 +251,7 @@ Module Model
 
             With Main
                 .Show()
+                .WindowState = FormWindowState.Maximized
                 .Load_User_Data()
                 .btn_dashboard.PerformClick()
             End With
@@ -874,6 +875,21 @@ Module Model
 
         With command
             .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_barangaynews` (`date`, `time`, `title`, `body`, `image`) VALUES ('" & current_date & "', '" & current_time & "', '" & title & "', '" & body & "', '" & image & "')"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Database_Close()
+    End Sub
+
+    Public Sub Add_A_Barangay_Case(name As String, mobile_number As String, address As String, nature_of_complaint As String, description As String, image As String)
+        Database_Open()
+
+        Dim current_date As String = DateTime.Now.ToString("yyyy-MM-dd")
+        Dim current_time As String = DateTime.Now.ToString("HH:mm:ss")
+
+        With command
+            .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_barangaycases` (`date`, `time`, `name`, `mobile_number`, `address`, `nature_of_complaint`, `description`, `image`) VALUES ('" & current_date & "', '" & current_time & "', '" & name & "', '" & mobile_number & "', '" & address & "', '" & nature_of_complaint & "', '" & description & "', '" & image & "')"
             .Connection = connection
             .ExecuteNonQuery()
         End With

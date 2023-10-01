@@ -500,6 +500,8 @@ Public Class Main
         If dialog_result = DialogResult.No Then
             e.Cancel = True
         Else
+            Image_Capture.Stop_Camera()
+
             Splash_Screen.Close()
         End If
     End Sub
@@ -531,21 +533,13 @@ Public Class Main
     End Sub
 
     Private Sub btn_account_Click(sender As Object, e As EventArgs) Handles btn_account.Click
-        If Not pnl_account_details_visible Then
-            With pnl_account_details
-                .Visible = True
-                .Location = New Point(pnl_body.Width - pnl_account_details.Width - 5, btn_account.Location.Y + 35)
-                .BringToFront()
-            End With
+        pnl_account_details_visible = True
 
-            pnl_account_details_visible = True
-        Else
-            With pnl_account_details
-                .Visible = False
-            End With
-
-            pnl_account_details_visible = False
-        End If
+        With pnl_account_details
+            .Visible = True
+            .Location = New Point(pnl_body.Width - pnl_account_details.Width - 5, btn_account.Location.Y + 35)
+            .BringToFront()
+        End With
 
         btn_temp_account.Focus()
     End Sub
@@ -702,6 +696,8 @@ Public Class Main
     End Sub
 
     Private Sub img_notification_Click(sender As Object, e As EventArgs) Handles img_notification.Click
+        btn_temp_notification.Focus()
+
         If Not pnl_account_notification_visible Then
             With pnl_notification
                 .Visible = True
@@ -717,8 +713,6 @@ Public Class Main
 
             pnl_account_notification_visible = False
         End If
-
-        btn_temp_notification.Focus()
     End Sub
 
     Private Sub btn_dashboard_Click_1(sender As Object, e As EventArgs) Handles btn_dashboard.Click

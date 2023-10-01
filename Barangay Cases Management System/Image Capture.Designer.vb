@@ -296,6 +296,7 @@ Partial Class Image_Capture
         img_captured_image.Location = New Point(0, 53)
         img_captured_image.Name = "img_captured_image"
         img_captured_image.Size = New Size(490, 353)
+        img_captured_image.SizeMode = PictureBoxSizeMode.StretchImage
         img_captured_image.TabIndex = 5
         img_captured_image.TabStop = False
         ' 
@@ -330,7 +331,7 @@ Partial Class Image_Capture
         ' 
         btn_capture_image.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         btn_capture_image.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        btn_capture_image.Cursor = Cursors.Hand
+        btn_capture_image.Cursor = Cursors.No
         btn_capture_image.Enabled = False
         btn_capture_image.FlatStyle = FlatStyle.Flat
         btn_capture_image.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
@@ -403,6 +404,7 @@ Partial Class Image_Capture
         img_live_camera.Location = New Point(0, 53)
         img_live_camera.Name = "img_live_camera"
         img_live_camera.Size = New Size(490, 353)
+        img_live_camera.SizeMode = PictureBoxSizeMode.StretchImage
         img_live_camera.TabIndex = 4
         img_live_camera.TabStop = False
         ' 
@@ -437,7 +439,7 @@ Partial Class Image_Capture
         ' btn_stop_webcam
         ' 
         btn_stop_webcam.BackColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
-        btn_stop_webcam.Cursor = Cursors.Hand
+        btn_stop_webcam.Cursor = Cursors.No
         btn_stop_webcam.Enabled = False
         btn_stop_webcam.FlatStyle = FlatStyle.Flat
         btn_stop_webcam.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)

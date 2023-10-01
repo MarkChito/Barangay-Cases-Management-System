@@ -57,7 +57,7 @@ Partial Class Developers
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(428, 45)
+        Panel1.Size = New Size(424, 45)
         Panel1.TabIndex = 0
         ' 
         ' img_close
@@ -65,7 +65,7 @@ Partial Class Developers
         img_close.BackColor = Color.Transparent
         img_close.Cursor = Cursors.Hand
         img_close.Image = CType(resources.GetObject("img_close.Image"), Image)
-        img_close.Location = New Point(393, 6)
+        img_close.Location = New Point(385, 6)
         img_close.Name = "img_close"
         img_close.Size = New Size(32, 32)
         img_close.SizeMode = PictureBoxSizeMode.CenterImage
@@ -77,7 +77,7 @@ Partial Class Developers
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(99, 7)
+        Label1.Location = New Point(79, 7)
         Label1.Name = "Label1"
         Label1.Size = New Size(267, 31)
         Label1.TabIndex = 0
@@ -90,9 +90,9 @@ Partial Class Developers
         Panel2.Controls.Add(LinkLabel1)
         Panel2.Controls.Add(Label3)
         Panel2.Dock = DockStyle.Bottom
-        Panel2.Location = New Point(0, 215)
+        Panel2.Location = New Point(0, 211)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(428, 48)
+        Panel2.Size = New Size(424, 48)
         Panel2.TabIndex = 1
         ' 
         ' Label2
@@ -100,7 +100,7 @@ Partial Class Developers
         Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label2.Location = New Point(162, 25)
+        Label2.Location = New Point(148, 25)
         Label2.Name = "Label2"
         Label2.Size = New Size(128, 18)
         Label2.TabIndex = 5
@@ -112,7 +112,7 @@ Partial Class Developers
         LinkLabel1.BackColor = Color.Transparent
         LinkLabel1.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         LinkLabel1.LinkBehavior = LinkBehavior.NeverUnderline
-        LinkLabel1.Location = New Point(152, 5)
+        LinkLabel1.Location = New Point(138, 5)
         LinkLabel1.Name = "LinkLabel1"
         LinkLabel1.Size = New Size(265, 18)
         LinkLabel1.TabIndex = 4
@@ -124,7 +124,7 @@ Partial Class Developers
         Label3.AutoSize = True
         Label3.BackColor = Color.Transparent
         Label3.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(35, 5)
+        Label3.Location = New Point(21, 5)
         Label3.Name = "Label3"
         Label3.Size = New Size(122, 18)
         Label3.TabIndex = 3
@@ -147,7 +147,7 @@ Partial Class Developers
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(0, 45)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(428, 170)
+        Panel3.Size = New Size(424, 166)
         Panel3.TabIndex = 2
         ' 
         ' Label12
@@ -155,7 +155,7 @@ Partial Class Developers
         Label12.AutoSize = True
         Label12.BackColor = Color.Transparent
         Label12.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label12.Location = New Point(210, 142)
+        Label12.Location = New Point(220, 138)
         Label12.Name = "Label12"
         Label12.Size = New Size(76, 20)
         Label12.TabIndex = 15
@@ -166,7 +166,7 @@ Partial Class Developers
         Label13.AutoSize = True
         Label13.BackColor = Color.Transparent
         Label13.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label13.Location = New Point(12, 142)
+        Label13.Location = New Point(22, 138)
         Label13.Name = "Label13"
         Label13.Size = New Size(180, 20)
         Label13.TabIndex = 14
@@ -177,7 +177,7 @@ Partial Class Developers
         Label10.AutoSize = True
         Label10.BackColor = Color.Transparent
         Label10.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label10.Location = New Point(210, 109)
+        Label10.Location = New Point(220, 105)
         Label10.Name = "Label10"
         Label10.Size = New Size(76, 20)
         Label10.TabIndex = 13
@@ -188,7 +188,7 @@ Partial Class Developers
         Label11.AutoSize = True
         Label11.BackColor = Color.Transparent
         Label11.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label11.Location = New Point(12, 109)
+        Label11.Location = New Point(22, 105)
         Label11.Name = "Label11"
         Label11.Size = New Size(181, 20)
         Label11.TabIndex = 12
@@ -199,7 +199,7 @@ Partial Class Developers
         Label8.AutoSize = True
         Label8.BackColor = Color.Transparent
         Label8.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label8.Location = New Point(210, 77)
+        Label8.Location = New Point(220, 73)
         Label8.Name = "Label8"
         Label8.Size = New Size(76, 20)
         Label8.TabIndex = 11
@@ -210,7 +210,7 @@ Partial Class Developers
         Label9.AutoSize = True
         Label9.BackColor = Color.Transparent
         Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.Location = New Point(12, 77)
+        Label9.Location = New Point(22, 73)
         Label9.Name = "Label9"
         Label9.Size = New Size(183, 20)
         Label9.TabIndex = 10
@@ -221,7 +221,7 @@ Partial Class Developers
         Label6.AutoSize = True
         Label6.BackColor = Color.Transparent
         Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(210, 43)
+        Label6.Location = New Point(220, 39)
         Label6.Name = "Label6"
         Label6.Size = New Size(76, 20)
         Label6.TabIndex = 9
@@ -232,7 +232,7 @@ Partial Class Developers
         Label7.AutoSize = True
         Label7.BackColor = Color.Transparent
         Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(12, 43)
+        Label7.Location = New Point(22, 39)
         Label7.Name = "Label7"
         Label7.Size = New Size(159, 20)
         Label7.TabIndex = 8
@@ -243,7 +243,7 @@ Partial Class Developers
         Label5.AutoSize = True
         Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(210, 12)
+        Label5.Location = New Point(220, 8)
         Label5.Name = "Label5"
         Label5.Size = New Size(68, 20)
         Label5.TabIndex = 7
@@ -254,7 +254,7 @@ Partial Class Developers
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(12, 12)
+        Label4.Location = New Point(22, 8)
         Label4.Name = "Label4"
         Label4.Size = New Size(192, 20)
         Label4.TabIndex = 6
@@ -263,7 +263,7 @@ Partial Class Developers
         ' PictureBox1
         ' 
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(346, 12)
+        PictureBox1.Location = New Point(333, 8)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(70, 70)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
@@ -274,7 +274,7 @@ Partial Class Developers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(428, 263)
+        ClientSize = New Size(424, 259)
         ControlBox = False
         Controls.Add(Panel3)
         Controls.Add(Panel2)

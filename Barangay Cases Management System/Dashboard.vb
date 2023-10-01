@@ -27,9 +27,7 @@
             .FlatAppearance.MouseOverBackColor = .BackColor
         End With
 
-        With lbl_title
-            .Text = "Anouncements"
-        End With
+        lbl_title.Text = "Anouncements"
 
         Center_Object(lbl_title)
     End Sub

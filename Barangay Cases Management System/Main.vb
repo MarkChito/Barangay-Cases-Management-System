@@ -2,12 +2,56 @@
 Imports System.Globalization
 
 Public Class Main
-    Private sidebar_visible As Boolean = True
+    Public sidebar_visible As Boolean = True
     Private pnl_account_details_visible As Boolean = False
     Private pnl_account_notification_visible As Boolean = False
     Private loading_timer As Integer = 0
     Public current_tab As String = ""
     Public employee_primary_key As String = ""
+
+    Private is_account_buttons_clicked As Boolean = False
+
+    Private Sub Logout()
+        btn_temp.Focus()
+        Hide_Account_Details()
+
+        primary_key = Nothing
+
+        Me.Hide()
+
+        pnl_sidebar.Show()
+        sidebar_visible = True
+
+        With Login
+            .is_loading = False
+
+            .check_remember_me.Enabled = True
+            .btn_login.Text = "Login"
+
+            If Not .check_remember_me.Checked Then
+                .txt_username.Clear()
+                .txt_password.Clear()
+                .check_remember_me.Checked = False
+            End If
+
+            .password_hidden = True
+            .txt_password.UseSystemPasswordChar = True
+            .img_show_hide_password.Image = Image.FromFile("dist/img/password_show.png")
+            .txt_username.Focus()
+
+            With .img_loading
+                .Visible = False
+                .SendToBack()
+            End With
+        End With
+
+        MsgBox("You have successfully signed out!", MsgBoxStyle.Information, "Success")
+
+        With Login
+            .Show()
+            .txt_username.Focus()
+        End With
+    End Sub
 
     Public Sub Load_Employees_Data()
         Dim results As DataTable = Get_Employee_Data(primary_key)
@@ -362,11 +406,12 @@ Public Class Main
         Barangay_News.Hide()
         Dashboard.Hide()
         Employees.Hide()
+        Image_Capture.Hide()
         My_Profile.Hide()
         Pending_Cases.Hide()
         Profile.Hide()
 
-        If Not current_tab = "btn_new_case" And Not current_tab = "btn_next" Then
+        If Not current_tab = "btn_new_case" And Not current_tab = "btn_next" And Not current_tab = "btn_previous" Then
             btn_name.BackColor = Color.FromArgb(246, 249, 255)
             With img_loading
                 .Visible = True
@@ -377,7 +422,7 @@ Public Class Main
 
             Timer1.Start()
         Else
-            If current_tab = "btn_new_case" Then
+            If current_tab = "btn_new_case" Or current_tab = "btn_previous" Then
                 With Add_Barangay_Case
                     .Show()
                     .BringToFront()
@@ -391,6 +436,8 @@ Public Class Main
                 End With
             End If
         End If
+
+        Hide_Account_Details()
     End Sub
 
     Public Sub Hide_Account_Details()
@@ -459,10 +506,10 @@ Public Class Main
 
     Private Sub btn_toggle_sidebar_Click(sender As Object, e As EventArgs) Handles btn_toggle_sidebar.Click
         If sidebar_visible Then
-            pnl_sidebar.Width = 0
+            pnl_sidebar.Hide()
             sidebar_visible = False
         Else
-            pnl_sidebar.Width = 288
+            pnl_sidebar.Show()
             sidebar_visible = True
         End If
 
@@ -511,139 +558,125 @@ Public Class Main
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If loading_timer = 1 Then
+        If current_tab = "btn_dashboard" Then
+            With Dashboard
+                .Show()
+                .btn_announcements.PerformClick()
+                .BringToFront()
+            End With
+
             img_loading.Visible = False
-
-            If current_tab = "btn_dashboard" Then
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Dashboard
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "btn_pending_cases" Then
-                Load_Pending_Cases_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Pending_Cases
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "btn_barangay_cases" Then
-                Load_Barangay_Cases_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Barangay_Cases
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "btn_employees" Then
-                Load_Employees_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Employees
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "btn_announcements" Then
-                Load_Announcements_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Announcements
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "btn_barangay_news" Then
-                Load_News_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Barangay_News
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "btn_my_profile" Then
-                Load_My_Profile_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With My_Profile
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
-
-            If current_tab = "listview_employees" Then
-                Load_Employee_Data()
-
-                Timer1.Stop()
-
-                loading_timer = 0
-
-                With Profile
-                    .Show()
-                    .BringToFront()
-                End With
-            End If
+            Timer1.Stop()
         End If
 
-        loading_timer += 1
+        If current_tab = "btn_pending_cases" Then
+            Load_Pending_Cases_Data()
+
+            With Pending_Cases
+                .Show()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
+
+        If current_tab = "btn_barangay_cases" Then
+            Load_Barangay_Cases_Data()
+
+            With Barangay_Cases
+                .Show()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
+
+        If current_tab = "btn_employees" Then
+            Load_Employees_Data()
+
+            With Employees
+                .Show()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
+
+        If current_tab = "btn_announcements" Then
+            Load_Announcements_Data()
+
+            With Announcements
+                .Show()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
+
+        If current_tab = "btn_barangay_news" Then
+            Load_News_Data()
+
+            With Barangay_News
+                .Show()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
+
+        If current_tab = "btn_my_profile" Then
+            Load_My_Profile_Data()
+
+            With My_Profile
+                .Show()
+                .btn_overview.PerformClick()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
+
+        If current_tab = "listview_employees" Then
+            Load_Employee_Data()
+
+            With Profile
+                .Show()
+                .btn_overview.PerformClick()
+                .BringToFront()
+            End With
+
+            img_loading.Visible = False
+            Timer1.Stop()
+        End If
     End Sub
 
     Private Sub btn_logout_2_Click(sender As Object, e As EventArgs) Handles btn_logout_2.Click
-        btn_temp.Focus()
-
-        Me.Hide()
-
-        MsgBox("You've been successfully signed out", MsgBoxStyle.Information, "Success!")
-
-        With Login
-            .Show()
-            .txt_username.Focus()
-        End With
+        Logout()
     End Sub
 
     Private Sub btn_developers_Click(sender As Object, e As EventArgs) Handles btn_developers.Click
-        btn_temp.Focus()
-
+        Hide_Account_Details()
         Developers.ShowDialog()
+        btn_temp.Focus()
+    End Sub
+
+    Private Sub btn_my_profile_Click(sender As Object, e As EventArgs) Handles btn_my_profile.Click
+        Mouse_Click(btn_my_profile, primary_key)
     End Sub
 
     Private Sub btn_account_settings_Click(sender As Object, e As EventArgs) Handles btn_account_settings.Click
+        btn_temp.Focus()
+
+        Hide_Account_Details()
+
         Dim result = Get_User_Data(primary_key)
         Dim fullname As String = ""
-
-        btn_temp.Focus()
 
         If String.IsNullOrWhiteSpace(result("middle_name")) Then
             fullname = result("first_name") & " " & result("last_name")
@@ -662,10 +695,6 @@ Public Class Main
 
             .ShowDialog()
         End With
-    End Sub
-
-    Private Sub btn_my_profile_Click(sender As Object, e As EventArgs) Handles btn_my_profile.Click
-        Mouse_Click(btn_my_profile, primary_key)
     End Sub
 
     Private Sub img_user_Paint(sender As Object, e As PaintEventArgs) Handles img_user.Paint
@@ -717,18 +746,7 @@ Public Class Main
     End Sub
 
     Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
-        btn_temp.Focus()
-
-        primary_key = Nothing
-
-        Me.Hide()
-
-        MsgBox("You have successfully signed out!", MsgBoxStyle.Information, "Success")
-
-        With Login
-            .Show()
-            .txt_username.Focus()
-        End With
+        Logout()
     End Sub
 
     Private Sub Main_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
@@ -738,10 +756,20 @@ Public Class Main
     End Sub
 
     Private Sub btn_temp_account_LostFocus(sender As Object, e As EventArgs) Handles btn_temp_account.LostFocus
-        Hide_Account_Details()
+        If Not is_account_buttons_clicked Then
+            Hide_Account_Details()
+        End If
     End Sub
 
     Private Sub btn_temp_notification_LostFocus(sender As Object, e As EventArgs) Handles btn_temp_notification.LostFocus
         Hide_Notification()
+    End Sub
+
+    Private Sub account_btns_MouseEnter(sender As Object, e As EventArgs) Handles btn_my_profile.MouseEnter, btn_account_settings.MouseEnter, btn_developers.MouseEnter, btn_logout_2.MouseEnter, btn_my_profile.Enter, btn_account_settings.Enter, btn_developers.Enter, btn_logout_2.Enter
+        is_account_buttons_clicked = True
+    End Sub
+
+    Private Sub account_btns_MouseLeave(sender As Object, e As EventArgs) Handles btn_my_profile.MouseLeave, btn_account_settings.MouseLeave, btn_developers.MouseLeave, btn_logout_2.MouseLeave, btn_my_profile.Leave, btn_account_settings.Leave, btn_developers.Leave, btn_logout_2.Leave
+        is_account_buttons_clicked = False
     End Sub
 End Class

@@ -101,14 +101,14 @@ Partial Class Dashboard
         pnl_title.Dock = DockStyle.Top
         pnl_title.Location = New Point(30, 93)
         pnl_title.Name = "pnl_title"
-        pnl_title.Size = New Size(986, 50)
+        pnl_title.Size = New Size(986, 100)
         pnl_title.TabIndex = 18
         ' 
         ' lbl_title
         ' 
         lbl_title.AutoSize = True
         lbl_title.Font = New Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        lbl_title.Location = New Point(382, 10)
+        lbl_title.Location = New Point(382, 35)
         lbl_title.Name = "lbl_title"
         lbl_title.Size = New Size(223, 31)
         lbl_title.TabIndex = 0
@@ -124,10 +124,10 @@ Partial Class Dashboard
         listview_employees.FullRowSelect = True
         listview_employees.GridLines = True
         listview_employees.HeaderStyle = ColumnHeaderStyle.Nonclickable
-        listview_employees.Location = New Point(30, 143)
+        listview_employees.Location = New Point(30, 193)
         listview_employees.MultiSelect = False
         listview_employees.Name = "listview_employees"
-        listview_employees.Size = New Size(986, 428)
+        listview_employees.Size = New Size(986, 378)
         listview_employees.TabIndex = 17
         listview_employees.UseCompatibleStateImageBehavior = False
         listview_employees.View = View.Details

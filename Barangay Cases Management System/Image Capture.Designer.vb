@@ -31,7 +31,8 @@ Partial Class Image_Capture
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel3 = New Panel()
-        btn_next = New Button()
+        btn_previous = New Button()
+        btn_submit = New Button()
         Panel6 = New Panel()
         Panel2 = New Panel()
         Label6 = New Label()
@@ -124,31 +125,51 @@ Partial Class Image_Capture
         ' Panel3
         ' 
         Panel3.BackColor = Color.White
-        Panel3.Controls.Add(btn_next)
+        Panel3.Controls.Add(btn_previous)
+        Panel3.Controls.Add(btn_submit)
         Panel3.Dock = DockStyle.Bottom
         Panel3.Location = New Point(30, 621)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(986, 50)
         Panel3.TabIndex = 17
         ' 
-        ' btn_next
+        ' btn_previous
         ' 
-        btn_next.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        btn_next.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        btn_next.Cursor = Cursors.Hand
-        btn_next.FlatStyle = FlatStyle.Flat
-        btn_next.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_next.ForeColor = Color.White
-        btn_next.Image = CType(resources.GetObject("btn_next.Image"), Image)
-        btn_next.ImageAlign = ContentAlignment.MiddleRight
-        btn_next.Location = New Point(875, 8)
-        btn_next.Name = "btn_next"
-        btn_next.Padding = New Padding(15, 0, 15, 0)
-        btn_next.Size = New Size(105, 35)
-        btn_next.TabIndex = 6
-        btn_next.Text = "&Next"
-        btn_next.TextAlign = ContentAlignment.MiddleLeft
-        btn_next.UseVisualStyleBackColor = False
+        btn_previous.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btn_previous.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
+        btn_previous.Cursor = Cursors.Hand
+        btn_previous.FlatStyle = FlatStyle.Flat
+        btn_previous.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_previous.ForeColor = Color.White
+        btn_previous.Image = CType(resources.GetObject("btn_previous.Image"), Image)
+        btn_previous.ImageAlign = ContentAlignment.MiddleLeft
+        btn_previous.Location = New Point(720, 8)
+        btn_previous.Name = "btn_previous"
+        btn_previous.Padding = New Padding(15, 0, 15, 0)
+        btn_previous.Size = New Size(132, 35)
+        btn_previous.TabIndex = 7
+        btn_previous.Text = "&Previous"
+        btn_previous.TextAlign = ContentAlignment.MiddleRight
+        btn_previous.UseVisualStyleBackColor = False
+        ' 
+        ' btn_submit
+        ' 
+        btn_submit.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btn_submit.BackColor = Color.FromArgb(CByte(25), CByte(135), CByte(84))
+        btn_submit.Cursor = Cursors.Hand
+        btn_submit.FlatStyle = FlatStyle.Flat
+        btn_submit.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_submit.ForeColor = Color.White
+        btn_submit.Image = CType(resources.GetObject("btn_submit.Image"), Image)
+        btn_submit.ImageAlign = ContentAlignment.MiddleLeft
+        btn_submit.Location = New Point(858, 8)
+        btn_submit.Name = "btn_submit"
+        btn_submit.Padding = New Padding(15, 0, 15, 0)
+        btn_submit.Size = New Size(122, 35)
+        btn_submit.TabIndex = 6
+        btn_submit.Text = "&Submit"
+        btn_submit.TextAlign = ContentAlignment.MiddleRight
+        btn_submit.UseVisualStyleBackColor = False
         ' 
         ' Panel6
         ' 
@@ -246,7 +267,7 @@ Partial Class Image_Capture
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     'Friend WithEvents btn_next As Button
-    Friend WithEvents btn_next As Button
+    Friend WithEvents btn_submit As Button
     Friend WithEvents Panel6 As Panel
     'Friend WithEvents Button2 As Button
     Friend WithEvents Panel2 As Panel
@@ -256,4 +277,5 @@ Partial Class Image_Capture
     'Friend WithEvents Button4 As Button
     Friend WithEvents pnl_parent As Panel
     Friend WithEvents Label6 As Label
+    Friend WithEvents btn_previous As Button
 End Class

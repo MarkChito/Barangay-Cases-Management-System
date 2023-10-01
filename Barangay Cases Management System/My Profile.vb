@@ -26,8 +26,16 @@ Public Class My_Profile
     End Sub
 
     Private Sub btn_overview_Click(sender As Object, e As EventArgs) Handles btn_overview.Click
-        btn_overview.ForeColor = Color.Blue
-        btn_update_profile.ForeColor = Color.Black
+        With btn_overview
+            .BackColor = Color.FromArgb(246, 249, 255)
+            .ForeColor = Color.Blue
+            .FlatAppearance.MouseOverBackColor = .BackColor
+        End With
+
+        With btn_update_profile
+            .ForeColor = Color.Black
+            .BackColor = Color.White
+        End With
 
         Overview.BringToFront()
 
@@ -35,8 +43,16 @@ Public Class My_Profile
     End Sub
 
     Private Sub btn_update_profile_Click(sender As Object, e As EventArgs) Handles btn_update_profile.Click
-        btn_overview.ForeColor = Color.Black
-        btn_update_profile.ForeColor = Color.Blue
+        With btn_update_profile
+            .BackColor = Color.FromArgb(246, 249, 255)
+            .ForeColor = Color.Blue
+            .FlatAppearance.MouseOverBackColor = .BackColor
+        End With
+
+        With btn_overview
+            .ForeColor = Color.Black
+            .BackColor = Color.White
+        End With
 
         Update_Profile.BringToFront()
 
@@ -61,5 +77,19 @@ Public Class My_Profile
         Center_Object(lbl_user_details_full_name)
         Center_Object(lbl_user_details_position)
         Center_Object(img_user)
+    End Sub
+
+    Private Sub btn_overview_MouseEnter(sender As Object, e As EventArgs) Handles btn_overview.MouseEnter
+        With btn_overview
+            .FlatAppearance.MouseOverBackColor = .BackColor
+            .FlatAppearance.MouseDownBackColor = .BackColor
+        End With
+    End Sub
+
+    Private Sub btn_update_profile_MouseEnter(sender As Object, e As EventArgs) Handles btn_update_profile.MouseEnter
+        With btn_update_profile
+            .FlatAppearance.MouseOverBackColor = .BackColor
+            .FlatAppearance.MouseDownBackColor = .BackColor
+        End With
     End Sub
 End Class

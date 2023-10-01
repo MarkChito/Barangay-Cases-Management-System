@@ -92,14 +92,26 @@ Public Class Employee_Account_Settings
             Dim errors As Integer = 0
 
             If Not Check_Username(txt_username.Text, old_username) Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
+                Main.btn_temp.Focus()
+
                 MsgBox("Username already exists!", MsgBoxStyle.Critical, "Error")
+
                 txt_username.Focus()
 
                 errors += 1
             End If
 
             If Not Check_RFID_Number(txt_rfid_number.Text, old_rfid_number) Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
+                Main.btn_temp.Focus()
+
                 MsgBox("RFID Number already exists!", MsgBoxStyle.Critical, "Error")
+
                 txt_rfid_number.Focus()
 
                 errors += 1
@@ -108,15 +120,20 @@ Public Class Employee_Account_Settings
             If Verify_Password(txt_password.Text, txt_confirm_password.Text) And errors = 0 Then
                 Update_Account(txt_rfid_number.Text, txt_username.Text, password, lbl_primary_key.Text)
 
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
+                Main.btn_temp.Focus()
+
                 MsgBox("Employee account is successfully updated!", MsgBoxStyle.Information, "Success")
             End If
         Else
+            btn_submit.Enabled = True
+            btn_submit.Text = "&Submit Changes"
+
+            Main.btn_temp.Focus()
+
             MsgBox("Please complete all the required details!", MsgBoxStyle.Critical, "Error")
         End If
-
-        btn_submit.Enabled = True
-        btn_submit.Text = "&Submit Changes"
-
-        Main.btn_temp.Focus()
     End Sub
 End Class

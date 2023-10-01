@@ -228,6 +228,11 @@ Module Model
         If response_ok = 4 Then
             Login.Hide()
 
+            With RFID_Login
+                .img_rfid.Image = Image.FromFile("dist/img/scan_rfid_gif.gif")
+                .Close()
+            End With
+
             With Main
                 .Show()
                 .Load_User_Data()

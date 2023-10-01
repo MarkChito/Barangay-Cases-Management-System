@@ -38,6 +38,8 @@ Partial Class Main
         PictureBox2 = New PictureBox()
         Timer1 = New Timer(components)
         pnl_sidebar = New Panel()
+        btn_temp_notification = New Button()
+        btn_temp_account = New Button()
         btn_logout = New Button()
         Panel11 = New Panel()
         Label6 = New Label()
@@ -82,8 +84,6 @@ Partial Class Main
         lbl_account_name = New Button()
         pnl_body = New Panel()
         Add_Barangay_Case = New Add_Barangay_Case()
-        btn_temp_account = New Button()
-        btn_temp_notification = New Button()
         pnl_header.SuspendLayout()
         CType(img_notification, ComponentModel.ISupportInitialize).BeginInit()
         CType(img_user, ComponentModel.ISupportInitialize).BeginInit()
@@ -279,6 +279,24 @@ Partial Class Main
         pnl_sidebar.Name = "pnl_sidebar"
         pnl_sidebar.Size = New Size(288, 728)
         pnl_sidebar.TabIndex = 11
+        ' 
+        ' btn_temp_notification
+        ' 
+        btn_temp_notification.Location = New Point(-97, 552)
+        btn_temp_notification.Name = "btn_temp_notification"
+        btn_temp_notification.Size = New Size(75, 23)
+        btn_temp_notification.TabIndex = 36
+        btn_temp_notification.Text = "Button1"
+        btn_temp_notification.UseVisualStyleBackColor = True
+        ' 
+        ' btn_temp_account
+        ' 
+        btn_temp_account.Location = New Point(-92, 689)
+        btn_temp_account.Name = "btn_temp_account"
+        btn_temp_account.Size = New Size(75, 23)
+        btn_temp_account.TabIndex = 35
+        btn_temp_account.Text = "Button1"
+        btn_temp_account.UseVisualStyleBackColor = True
         ' 
         ' btn_logout
         ' 
@@ -856,24 +874,6 @@ Partial Class Main
         Add_Barangay_Case.Name = "Add_Barangay_Case"
         Add_Barangay_Case.Size = New Size(1046, 671)
         Add_Barangay_Case.TabIndex = 26
-        ' 
-        ' btn_temp_account
-        ' 
-        btn_temp_account.Location = New Point(-92, 689)
-        btn_temp_account.Name = "btn_temp_account"
-        btn_temp_account.Size = New Size(75, 23)
-        btn_temp_account.TabIndex = 35
-        btn_temp_account.Text = "Button1"
-        btn_temp_account.UseVisualStyleBackColor = True
-        ' 
-        ' btn_temp_notification
-        ' 
-        btn_temp_notification.Location = New Point(-97, 552)
-        btn_temp_notification.Name = "btn_temp_notification"
-        btn_temp_notification.Size = New Size(75, 23)
-        btn_temp_notification.TabIndex = 36
-        btn_temp_notification.Text = "Button1"
-        btn_temp_notification.UseVisualStyleBackColor = True
         ' 
         ' Main
         ' 

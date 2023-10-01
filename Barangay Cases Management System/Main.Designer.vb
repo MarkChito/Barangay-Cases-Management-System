@@ -188,22 +188,25 @@ Partial Class Main
         ' 
         PictureBox3.BackColor = Color.Transparent
         PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
-        PictureBox3.Location = New Point(345, 4)
+        PictureBox3.Location = New Point(356, 6)
         PictureBox3.Name = "PictureBox3"
-        PictureBox3.Size = New Size(25, 25)
+        PictureBox3.Size = New Size(20, 20)
         PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox3.TabIndex = 2
         PictureBox3.TabStop = False
         ' 
         ' txt_search
         ' 
-        txt_search.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_search.ForeColor = SystemColors.ControlText
-        txt_search.Location = New Point(51, 2)
+        txt_search.AutoCompleteCustomSource.AddRange(New String() {"Dashboard", "Barangay Cases", "New Barangay Case", "Pending Cases", "Employees", "Announcements", "Barangay News", "My Profile"})
+        txt_search.AutoCompleteMode = AutoCompleteMode.Suggest
+        txt_search.AutoCompleteSource = AutoCompleteSource.CustomSource
+        txt_search.Cursor = Cursors.IBeam
+        txt_search.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        txt_search.Location = New Point(39, 3)
         txt_search.Name = "txt_search"
         txt_search.PlaceholderText = "Search"
-        txt_search.Size = New Size(321, 29)
-        txt_search.TabIndex = 99
+        txt_search.Size = New Size(340, 26)
+        txt_search.TabIndex = 37
         ' 
         ' btn_toggle_sidebar
         ' 
@@ -935,7 +938,6 @@ Partial Class Main
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btn_toggle_sidebar As PictureBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents txt_search As TextBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents btn_account As Button
     Friend WithEvents img_user As PictureBox
@@ -989,4 +991,5 @@ Partial Class Main
     Friend WithEvents pnl_body As Panel
     Friend WithEvents btn_temp_account As Button
     Friend WithEvents btn_temp_notification As Button
+    Friend WithEvents txt_search As TextBox
 End Class

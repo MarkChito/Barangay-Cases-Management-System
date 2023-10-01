@@ -22,6 +22,7 @@ Partial Class Login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Login))
         img_loading = New PictureBox()
         pnl_login = New Panel()
@@ -40,6 +41,8 @@ Partial Class Login
         Label4 = New Label()
         Label3 = New Label()
         Label2 = New Label()
+        Timer1 = New Timer(components)
+        Label7 = New Label()
         CType(img_loading, ComponentModel.ISupportInitialize).BeginInit()
         pnl_login.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -60,6 +63,7 @@ Partial Class Login
         ' 
         ' pnl_login
         ' 
+        pnl_login.Controls.Add(Label7)
         pnl_login.Controls.Add(btn_temp)
         pnl_login.Controls.Add(Label1)
         pnl_login.Controls.Add(PictureBox1)
@@ -84,11 +88,11 @@ Partial Class Login
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        Label1.Location = New Point(82, 137)
+        Label1.Location = New Point(113, 137)
         Label1.Name = "Label1"
-        Label1.Size = New Size(307, 66)
+        Label1.Size = New Size(244, 33)
         Label1.TabIndex = 2
-        Label1.Text = "Barangay Cases " & vbCrLf & "Management System"
+        Label1.Text = "Barangay Cases"
         Label1.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PictureBox1
@@ -188,6 +192,7 @@ Partial Class Login
         ' 
         txt_password.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txt_password.Location = New Point(20, 211)
+        txt_password.MaxLength = 30
         txt_password.Name = "txt_password"
         txt_password.Size = New Size(350, 26)
         txt_password.TabIndex = 1
@@ -249,6 +254,22 @@ Partial Class Login
         Label2.Text = "Login To Your Account"
         Label2.TextAlign = ContentAlignment.MiddleCenter
         ' 
+        ' Timer1
+        ' 
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
+        Label7.Font = New Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        Label7.Location = New Point(82, 170)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(307, 33)
+        Label7.TabIndex = 4
+        Label7.Text = "Management System"
+        Label7.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' Login
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -289,4 +310,6 @@ Partial Class Login
     Friend WithEvents btn_rfid_login As LinkLabel
     Friend WithEvents img_show_hide_password As PictureBox
     Friend WithEvents btn_temp As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label7 As Label
 End Class

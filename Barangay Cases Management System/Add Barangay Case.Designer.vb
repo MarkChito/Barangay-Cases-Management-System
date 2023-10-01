@@ -191,9 +191,9 @@ Partial Class Add_Barangay_Case
         ' 
         Panel6.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
         Panel6.Dock = DockStyle.Bottom
-        Panel6.Location = New Point(30, 618)
+        Panel6.Location = New Point(30, 615)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(986, 3)
+        Panel6.Size = New Size(986, 6)
         Panel6.TabIndex = 16
         ' 
         ' Panel7
@@ -202,7 +202,7 @@ Partial Class Add_Barangay_Case
         Panel7.Dock = DockStyle.Top
         Panel7.Location = New Point(30, 150)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(986, 3)
+        Panel7.Size = New Size(986, 6)
         Panel7.TabIndex = 17
         ' 
         ' pnl_parent
@@ -216,9 +216,9 @@ Partial Class Add_Barangay_Case
         pnl_parent.Controls.Add(Label8)
         pnl_parent.Controls.Add(txt_address)
         pnl_parent.Dock = DockStyle.Fill
-        pnl_parent.Location = New Point(30, 153)
+        pnl_parent.Location = New Point(30, 156)
         pnl_parent.Name = "pnl_parent"
-        pnl_parent.Size = New Size(986, 465)
+        pnl_parent.Size = New Size(986, 459)
         pnl_parent.TabIndex = 18
         ' 
         ' Panel9
@@ -306,7 +306,7 @@ Partial Class Add_Barangay_Case
         txt_description.Location = New Point(30, 328)
         txt_description.Multiline = True
         txt_description.Name = "txt_description"
-        txt_description.Size = New Size(926, 130)
+        txt_description.Size = New Size(926, 127)
         txt_description.TabIndex = 4
         ' 
         ' Label9
@@ -322,6 +322,8 @@ Partial Class Add_Barangay_Case
         ' txt_nature_of_complaint
         ' 
         txt_nature_of_complaint.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txt_nature_of_complaint.BackColor = Color.White
+        txt_nature_of_complaint.DropDownStyle = ComboBoxStyle.DropDownList
         txt_nature_of_complaint.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txt_nature_of_complaint.FormattingEnabled = True
         txt_nature_of_complaint.Items.AddRange(New Object() {"Accident                                        ", "Curfew Violation", "Harassment or Threats (Blotter)Noise Disturbance", "Illegal Dumping and Garbage", "Public Health and Sanitation", "Vandalism and Graffiti", "Public Safety Concerns", "Traffic Violations", "Property Disputes", "Public Nuisance", "Business Permits and Licenses", "Environmental Concerns", "Animal Control", "Disputes and Conflict Resolution", "Social Welfare and Assistance", "Other (Write the details in the description box)"})

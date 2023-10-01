@@ -60,7 +60,7 @@ Public Class Add_Barangay_Case
                 End With
             End If
         Else
-                Main.btn_temp.Focus()
+            Main.btn_temp.Focus()
 
             MsgBox("Please complete all the required details!", MsgBoxStyle.Critical, "Error")
         End If

@@ -316,7 +316,9 @@ Partial Class Update_Profile
         ' 
         ' txt_position
         ' 
+        txt_position.BackColor = Color.White
         txt_position.Dock = DockStyle.Top
+        txt_position.DropDownStyle = ComboBoxStyle.DropDownList
         txt_position.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txt_position.FormattingEnabled = True
         txt_position.Items.AddRange(New Object() {"Barangay Captain", "Barangay Kagawad", "SK Chairman", "Barangay Secretary", "Barangay Treasurer", "Barangay Health Worker", "Barangay Tanod", "Barangay Health Officer"})

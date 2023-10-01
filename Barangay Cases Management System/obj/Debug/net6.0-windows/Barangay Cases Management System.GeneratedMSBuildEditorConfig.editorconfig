@@ -1,6 +1,6 @@
 is_global = true
 build_property.ApplicationManifest = app.manifest
-build_property.StartupObject = Sub Main
+build_property.StartupObject = Barangay_Cases_Management_System.My.MyApplication
 build_property.ApplicationDefaultFont = 
 build_property.ApplicationHighDpiMode = 
 build_property.ApplicationUseCompatibleTextRendering = 

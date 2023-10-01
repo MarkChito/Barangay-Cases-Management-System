@@ -4,12 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>Barangay_Cases_Management_System</RootNamespace>
-    <StartupObject>Sub Main</StartupObject>
-    <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject>Barangay_Cases_Management_System.My.MyApplication</StartupObject>
+    <UseWindowsForms>True</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>logo.ico</ApplicationIcon>
     <ImportedNamespaces>System.Data=False,System.Drawing=False,System.Windows.Forms=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,Barangay Cases Management System=True</ImportedNamespaces>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <UseWPF>False</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>

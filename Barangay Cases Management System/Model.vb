@@ -101,13 +101,15 @@ Module Model
         Try
             connection.Open()
         Catch ex As Exception
+            Splash_Screen.Timer1.Stop()
+
             If connection_type = online_connection Then
                 MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
             Else
                 MsgBox("Please run Apache and MySQL connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
             End If
 
-            Login.Close()
+            Splash_Screen.Close()
 
             Application.Exit()
         End Try
@@ -115,6 +117,19 @@ Module Model
 
     Public Sub Database_Close()
         connection.Close()
+    End Sub
+
+    Public Sub Initialize()
+        'Insert_Admin_Data()
+        Database_Open()
+        Database_Close()
+
+        With Splash_Screen
+            .Timer1.Stop()
+            .Hide()
+        End With
+
+        Login.Show()
     End Sub
 
     Public Function Authenticate(username As String, password As String)
@@ -227,6 +242,7 @@ Module Model
 
         If response_ok = 4 Then
             Login.Hide()
+            Login.Timer1.Stop()
 
             With RFID_Login
                 .img_rfid.Image = Image.FromFile("dist/img/scan_rfid_gif.gif")

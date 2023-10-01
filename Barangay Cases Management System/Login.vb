@@ -44,14 +44,6 @@ Public Class Login
         pnl_login.Location = New Point(centerX, centerY)
     End Sub
 
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Insert_Admin_Data()
-        Database_Open()
-        CenterPanel()
-        Open_File()
-        Database_Close()
-    End Sub
-
     Private Sub Login_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         CenterPanel()
     End Sub
@@ -85,21 +77,61 @@ Public Class Login
         End If
     End Sub
 
-    Private Sub btn_login_Click(sender As Object, e As EventArgs) Handles btn_login.Click
-        btn_temp.Focus()
+    Private Sub txt_username_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_username.KeyDown
+        If Not is_loading Then
+            If e.KeyCode = Keys.Enter Then
+                With txt_password
+                    .Clear()
+                    .Focus()
+                End With
+            End If
+        End If
+    End Sub
 
+    Private Sub txt_password_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_password.KeyDown
+        If Not is_loading Then
+            If e.KeyCode = Keys.Enter Then
+                btn_login.Text = "Checking Credentials..."
+                check_remember_me.Enabled = False
+
+                btn_temp.Focus()
+
+                Timer1.Start()
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_rfid_login_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btn_rfid_login.LinkClicked
+        If Not is_loading Then
+            With RFID_Login
+                .ShowDialog()
+                .txt_rfid_number.Focus()
+            End With
+        End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If Not is_loading Then
             If String.IsNullOrWhiteSpace(txt_username.Text) Then
+                btn_login.Text = "Login"
+                check_remember_me.Enabled = True
+
+                Timer1.Stop()
+
                 MessageBox.Show("Please fill in the Username field.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
                 txt_username.Focus()
             ElseIf String.IsNullOrWhiteSpace(txt_password.Text) Then
+                btn_login.Text = "Login"
+                check_remember_me.Enabled = True
+
+                Timer1.Stop()
+
                 MessageBox.Show("Please fill in the Password field.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
                 txt_password.Focus()
             Else
                 is_loading = True
-
-                btn_login.Text = "Checking Credentials..."
-                check_remember_me.Enabled = False
 
                 Dim results = Authenticate(txt_username.Text, txt_password.Text)
 
@@ -120,37 +152,32 @@ Public Class Login
                     check_remember_me.Enabled = True
                     btn_login.Text = "Login"
 
+                    btn_login.Text = "Login"
+                    check_remember_me.Enabled = True
+
+                    Timer1.Stop()
+
                     MessageBox.Show("Invalid Username or Password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         End If
     End Sub
 
-    Private Sub txt_username_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_username.KeyDown
-        If Not is_loading Then
-            If e.KeyCode = Keys.Enter Then
-                With txt_password
-                    .Clear()
-                    .Focus()
-                End With
-            End If
-        End If
+    Private Sub btn_login_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_login.MouseDown
+        btn_login.Text = "Checking Credentials..."
+        check_remember_me.Enabled = False
+
+        btn_temp.Focus()
+
+        Timer1.Start()
     End Sub
 
-    Private Sub txt_password_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_password.KeyDown
-        If Not is_loading Then
-            If e.KeyCode = Keys.Enter Then
-                btn_login.PerformClick()
-            End If
-        End If
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CenterPanel()
+        Open_File()
     End Sub
 
-    Private Sub btn_rfid_login_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btn_rfid_login.LinkClicked
-        If Not is_loading Then
-            With RFID_Login
-                .ShowDialog()
-                .txt_rfid_number.Focus()
-            End With
-        End If
+    Private Sub Login_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Splash_Screen.Close()
     End Sub
 End Class

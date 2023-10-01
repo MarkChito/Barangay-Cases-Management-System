@@ -500,7 +500,7 @@ Public Class Main
         If dialog_result = DialogResult.No Then
             e.Cancel = True
         Else
-            Login.Close()
+            Splash_Screen.Close()
         End If
     End Sub
 
@@ -771,5 +771,55 @@ Public Class Main
 
     Private Sub account_btns_MouseLeave(sender As Object, e As EventArgs) Handles btn_my_profile.MouseLeave, btn_account_settings.MouseLeave, btn_developers.MouseLeave, btn_logout_2.MouseLeave, btn_my_profile.Leave, btn_account_settings.Leave, btn_developers.Leave, btn_logout_2.Leave
         is_account_buttons_clicked = False
+    End Sub
+
+    Private Sub txt_search_TextChanged(sender As Object, e As EventArgs) Handles txt_search.TextChanged
+        If txt_search.Text = "Dashboard" Then
+            Mouse_Click(btn_dashboard)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "Barangay Cases" Then
+            Mouse_Click(btn_barangay_cases)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "New Barangay Case" Then
+            Mouse_Click(Barangay_Cases.btn_new_case)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "Pending Cases" Then
+            Mouse_Click(btn_pending_cases)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "Employees" Then
+            Mouse_Click(btn_employees)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "Announcements" Then
+            Mouse_Click(btn_announcements)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "Barangay News" Then
+            Mouse_Click(btn_barangay_news)
+
+            txt_search.Clear()
+        End If
+
+        If txt_search.Text = "My Profile" Then
+            Mouse_Click(btn_my_profile, primary_key)
+
+            txt_search.Clear()
+        End If
     End Sub
 End Class

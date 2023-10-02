@@ -83,6 +83,7 @@ Partial Class Main
         lbl_account_position = New Button()
         lbl_account_name = New Button()
         pnl_body = New Panel()
+        Edit_Barangay_Case = New Edit_Barangay_Case()
         Add_Barangay_Case = New Add_Barangay_Case()
         pnl_header.SuspendLayout()
         CType(img_notification, ComponentModel.ISupportInitialize).BeginInit()
@@ -556,6 +557,7 @@ Partial Class Main
         Image_Capture.Name = "Image_Capture"
         Image_Capture.Size = New Size(1046, 671)
         Image_Capture.TabIndex = 0
+        Image_Capture.Visible = False
         ' 
         ' pnl_footer_outer
         ' 
@@ -619,6 +621,7 @@ Partial Class Main
         Announcements.Name = "Announcements"
         Announcements.Size = New Size(1046, 671)
         Announcements.TabIndex = 13
+        Announcements.Visible = False
         ' 
         ' Barangay_Cases
         ' 
@@ -641,6 +644,7 @@ Partial Class Main
         Barangay_News.Name = "Barangay_News"
         Barangay_News.Size = New Size(1046, 671)
         Barangay_News.TabIndex = 15
+        Barangay_News.Visible = False
         ' 
         ' Employees
         ' 
@@ -652,6 +656,7 @@ Partial Class Main
         Employees.Name = "Employees"
         Employees.Size = New Size(1046, 671)
         Employees.TabIndex = 16
+        Employees.Visible = False
         ' 
         ' Pending_Cases
         ' 
@@ -663,6 +668,7 @@ Partial Class Main
         Pending_Cases.Name = "Pending_Cases"
         Pending_Cases.Size = New Size(1046, 671)
         Pending_Cases.TabIndex = 17
+        Pending_Cases.Visible = False
         ' 
         ' Profile
         ' 
@@ -673,6 +679,7 @@ Partial Class Main
         Profile.Name = "Profile"
         Profile.Size = New Size(1046, 671)
         Profile.TabIndex = 18
+        Profile.Visible = False
         ' 
         ' My_Profile
         ' 
@@ -685,6 +692,7 @@ Partial Class Main
         My_Profile.Name = "My_Profile"
         My_Profile.Size = New Size(1046, 671)
         My_Profile.TabIndex = 19
+        My_Profile.Visible = False
         ' 
         ' img_loading
         ' 
@@ -718,6 +726,7 @@ Partial Class Main
         pnl_notification.Name = "pnl_notification"
         pnl_notification.Size = New Size(245, 45)
         pnl_notification.TabIndex = 24
+        pnl_notification.Visible = False
         ' 
         ' Label7
         ' 
@@ -743,6 +752,7 @@ Partial Class Main
         pnl_account_details.Name = "pnl_account_details"
         pnl_account_details.Size = New Size(207, 242)
         pnl_account_details.TabIndex = 23
+        pnl_account_details.Visible = False
         ' 
         ' btn_logout_2
         ' 
@@ -860,12 +870,24 @@ Partial Class Main
         ' 
         ' pnl_body
         ' 
+        pnl_body.Controls.Add(Edit_Barangay_Case)
         pnl_body.Controls.Add(Image_Capture)
         pnl_body.Dock = DockStyle.Fill
         pnl_body.Location = New Point(0, 0)
         pnl_body.Name = "pnl_body"
         pnl_body.Size = New Size(1334, 761)
         pnl_body.TabIndex = 25
+        ' 
+        ' Edit_Barangay_Case
+        ' 
+        Edit_Barangay_Case.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Edit_Barangay_Case.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        Edit_Barangay_Case.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Edit_Barangay_Case.Location = New Point(288, 33)
+        Edit_Barangay_Case.Name = "Edit_Barangay_Case"
+        Edit_Barangay_Case.Size = New Size(1046, 671)
+        Edit_Barangay_Case.TabIndex = 1
+        Edit_Barangay_Case.Visible = False
         ' 
         ' Add_Barangay_Case
         ' 
@@ -877,6 +899,7 @@ Partial Class Main
         Add_Barangay_Case.Name = "Add_Barangay_Case"
         Add_Barangay_Case.Size = New Size(1046, 671)
         Add_Barangay_Case.TabIndex = 26
+        Add_Barangay_Case.Visible = False
         ' 
         ' Main
         ' 
@@ -992,4 +1015,5 @@ Partial Class Main
     Friend WithEvents btn_temp_account As Button
     Friend WithEvents btn_temp_notification As Button
     Friend WithEvents txt_search As TextBox
+    Friend WithEvents Edit_Barangay_Case As Edit_Barangay_Case
 End Class

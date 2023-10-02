@@ -19,6 +19,7 @@ Module Model
 
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""
+    Public is_edit_pending_case As Boolean = False
 
     Public Function MongoDB_Database_Name()
         Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
@@ -890,6 +891,21 @@ Module Model
 
         With command
             .CommandText = "INSERT INTO `tbl_barangaycasesmanagement_barangaycases` (`date`, `time`, `name`, `mobile_number`, `address`, `nature_of_complaint`, `description`, `image`) VALUES ('" & current_date & "', '" & current_time & "', '" & name & "', '" & mobile_number & "', '" & address & "', '" & nature_of_complaint & "', '" & description & "', '" & image & "')"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Database_Close()
+    End Sub
+
+    Public Sub Update_A_Barangay_Case(name As String, mobile_number As String, address As String, nature_of_complaint As String, description As String, image As String, status As String, primary_key As String)
+        Database_Open()
+
+        Dim current_date As String = DateTime.Now.ToString("yyyy-MM-dd")
+        Dim current_time As String = DateTime.Now.ToString("HH:mm:ss")
+
+        With command
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_barangaycases` SET `name` = '" & name & "', `mobile_number` = '" & mobile_number & "', `address` = '" & address & "', `nature_of_complaint` = '" & nature_of_complaint & "', `description` = '" & description & "', `image` = '" & image & "', `status` = '" & status & "' WHERE `primary_key` = '" & primary_key & "'"
             .Connection = connection
             .ExecuteNonQuery()
         End With

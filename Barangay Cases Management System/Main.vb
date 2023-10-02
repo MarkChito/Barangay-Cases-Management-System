@@ -8,6 +8,7 @@ Public Class Main
     Private loading_timer As Integer = 0
     Public current_tab As String = ""
     Public employee_primary_key As String = ""
+    Public is_image_capture_buttons_moved As Boolean = False
 
     Private is_account_buttons_clicked As Boolean = False
 
@@ -21,6 +22,8 @@ Public Class Main
 
         pnl_sidebar.Show()
         sidebar_visible = True
+
+        Image_Capture.Stop_Camera()
 
         With Login
             .is_loading = False
@@ -86,16 +89,29 @@ Public Class Main
         Pending_Cases.listview_employees.Items.Clear()
 
         For Each row As DataRow In results.Rows
-
             With Pending_Cases
                 Dim lvi As ListViewItem
+                Dim parsedDate As DateTime
+                Dim parsedTime As DateTime
+
+                Dim inputDate = row("date").ToString()
+                Dim inputTime = row("time").ToString()
+
+                DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedDate)
+                DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
+
+                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
 
                 lvi = .listview_employees.Items.Add(row("primary_key").ToString())
-                lvi.SubItems.Add(row("date").ToString())
-                lvi.SubItems.Add(row("time").ToString())
+                lvi.SubItems.Add(formattedDate)
+                lvi.SubItems.Add(formattedTime)
                 lvi.SubItems.Add(row("name").ToString())
+                lvi.SubItems.Add(row("mobile_number").ToString())
                 lvi.SubItems.Add(row("address").ToString())
                 lvi.SubItems.Add(row("nature_of_complaint").ToString())
+                lvi.SubItems.Add(row("description").ToString())
+                lvi.SubItems.Add(row("image").ToString())
             End With
         Next
     End Sub
@@ -108,13 +124,27 @@ Public Class Main
         For Each row As DataRow In results.Rows
             With Barangay_Cases
                 Dim lvi As ListViewItem
+                Dim parsedDate As DateTime
+                Dim parsedTime As DateTime
+
+                Dim inputDate = row("date").ToString()
+                Dim inputTime = row("time").ToString()
+
+                DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedDate)
+                DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
+
+                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
 
                 lvi = .listview_employees.Items.Add(row("primary_key").ToString())
-                lvi.SubItems.Add(row("date").ToString())
-                lvi.SubItems.Add(row("time").ToString())
+                lvi.SubItems.Add(formattedDate)
+                lvi.SubItems.Add(formattedTime)
                 lvi.SubItems.Add(row("name").ToString())
+                lvi.SubItems.Add(row("mobile_number").ToString())
                 lvi.SubItems.Add(row("address").ToString())
                 lvi.SubItems.Add(row("nature_of_complaint").ToString())
+                lvi.SubItems.Add(row("description").ToString())
+                lvi.SubItems.Add(row("image").ToString())
             End With
         Next
     End Sub
@@ -128,13 +158,14 @@ Public Class Main
             With Barangay_News
                 Dim lvi As ListViewItem
                 Dim parsedTime As DateTime
+                Dim parsedDate As DateTime
                 Dim inputDate = row("date").ToString()
                 Dim inputTime = row("time").ToString()
 
-                DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedTime)
+                DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedDate)
                 DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
 
-                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
+                Dim formattedDate As String = parsedDate.ToString("MMMM d, yyyy")
                 Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
 
                 lvi = .listview_employees.Items.Add(row("primary_key").ToString())
@@ -405,13 +436,32 @@ Public Class Main
         Barangay_Cases.Hide()
         Barangay_News.Hide()
         Dashboard.Hide()
+        Edit_Barangay_Case.Hide()
         Employees.Hide()
         Image_Capture.Hide()
         My_Profile.Hide()
         Pending_Cases.Hide()
         Profile.Hide()
 
-        If Not current_tab = "btn_new_case" And Not current_tab = "btn_next" And Not current_tab = "btn_previous" Then
+        Image_Capture.Stop_Camera()
+
+        If is_image_capture_buttons_moved Then
+            With Image_Capture
+                With .btn_submit
+                    .Text = "&Submit"
+                    .Width = 122
+                    .Location = New Point(.Location.X + 10, .Location.Y)
+                End With
+
+                .btn_reject.Hide()
+
+                .btn_previous.Location = New Point(.btn_submit.Location.X - 138, .btn_previous.Location.Y)
+
+                is_image_capture_buttons_moved = False
+            End With
+        End If
+
+        If Not current_tab = "btn_new_case" And Not current_tab = "btn_edit_case" And Not current_tab = "btn_next" And Not current_tab = "btn_previous" Then
             btn_name.BackColor = Color.FromArgb(246, 249, 255)
             With img_loading
                 .Visible = True
@@ -422,8 +472,31 @@ Public Class Main
 
             Timer1.Start()
         Else
-            If current_tab = "btn_new_case" Or current_tab = "btn_previous" Then
+            If current_tab = "btn_new_case" Then
+                is_edit_pending_case = False
+
                 With Add_Barangay_Case
+                    .Show()
+                    .BringToFront()
+                End With
+            End If
+
+            If current_tab = "btn_previous" Then
+                If is_edit_pending_case Then
+                    With Edit_Barangay_Case
+                        .Show()
+                        .BringToFront()
+                    End With
+                Else
+                    With Add_Barangay_Case
+                        .Show()
+                        .BringToFront()
+                    End With
+                End If
+            End If
+
+            If current_tab = "btn_edit_case" Then
+                With Edit_Barangay_Case
                     .Show()
                     .BringToFront()
                 End With
@@ -431,6 +504,39 @@ Public Class Main
 
             If current_tab = "btn_next" Then
                 With Image_Capture
+                    If is_edit_pending_case Then
+                        With .btn_submit
+                            .Text = "&Approve"
+                            .Width = 132
+                            .Location = New Point(.Location.X - 10, .Location.Y)
+                        End With
+
+                        .btn_reject.Show()
+                        .btn_reject.Location = New Point(.btn_submit.Location.X - 122, .btn_reject.Location.Y)
+
+                        .btn_previous.Location = New Point(.btn_reject.Location.X - 138, .btn_previous.Location.Y)
+
+                        .lbl_title.Text = "Edit Barangay Case"
+                        .lbl_barangay_pending_case.Text = "/ Pending Cases"
+
+                        With .lbl_sub_title
+                            .Text = "/ Edit Barangay Case"
+                            .Location = New Point(229, 57)
+                        End With
+
+                        is_image_capture_buttons_moved = True
+                    Else
+                        .lbl_title.Text = "New Barangay Case"
+                        .lbl_barangay_pending_case.Text = "/ Barangay Cases"
+
+                        With .lbl_sub_title
+                            .Text = "/ New Barangay Case"
+                            .Location = New Point(239, 57)
+                        End With
+
+                        is_image_capture_buttons_moved = False
+                    End If
+
                     .Show()
                     .BringToFront()
                 End With
@@ -488,10 +594,6 @@ Public Class Main
         End If
 
         img_user.Image = Image.FromFile("dist/img/user_upload/" & user_image)
-    End Sub
-
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btn_temp.Focus()
     End Sub
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -744,8 +846,6 @@ Public Class Main
     End Sub
 
     Private Sub Main_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
-        Me.StartPosition = FormStartPosition.CenterScreen
-
         btn_temp.Focus()
     End Sub
 

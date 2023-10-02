@@ -26,6 +26,7 @@ Partial Class Login
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Login))
         img_loading = New PictureBox()
         pnl_login = New Panel()
+        Label7 = New Label()
         btn_temp = New Button()
         Label1 = New Label()
         PictureBox1 = New PictureBox()
@@ -42,7 +43,6 @@ Partial Class Login
         Label3 = New Label()
         Label2 = New Label()
         Timer1 = New Timer(components)
-        Label7 = New Label()
         CType(img_loading, ComponentModel.ISupportInitialize).BeginInit()
         pnl_login.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +72,19 @@ Partial Class Login
         pnl_login.Name = "pnl_login"
         pnl_login.Size = New Size(470, 637)
         pnl_login.TabIndex = 1
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.BackColor = Color.Transparent
+        Label7.Font = New Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        Label7.Location = New Point(82, 170)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(307, 33)
+        Label7.TabIndex = 4
+        Label7.Text = "Management System"
+        Label7.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' btn_temp
         ' 
@@ -256,19 +269,6 @@ Partial Class Login
         ' 
         ' Timer1
         ' 
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.BackColor = Color.Transparent
-        Label7.Font = New Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        Label7.Location = New Point(82, 170)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(307, 33)
-        Label7.TabIndex = 4
-        Label7.Text = "Management System"
-        Label7.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Login
         ' 

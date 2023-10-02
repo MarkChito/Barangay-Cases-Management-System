@@ -24,13 +24,14 @@ Partial Class Image_Capture
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Image_Capture))
         Panel1 = New Panel()
-        Label4 = New Label()
-        Label3 = New Label()
-        Label2 = New Label()
-        Label1 = New Label()
+        lbl_barangay_pending_case = New Label()
+        lbl_sub_title = New Label()
+        lbl_dashboard = New Label()
+        lbl_title = New Label()
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel3 = New Panel()
+        btn_reject = New Button()
         btn_previous = New Button()
         btn_submit = New Button()
         Panel6 = New Panel()
@@ -75,65 +76,65 @@ Partial Class Image_Capture
         ' 
         ' Panel1
         ' 
-        Panel1.Controls.Add(Label4)
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(lbl_barangay_pending_case)
+        Panel1.Controls.Add(lbl_sub_title)
+        Panel1.Controls.Add(lbl_dashboard)
+        Panel1.Controls.Add(lbl_title)
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1046, 100)
         Panel1.TabIndex = 8
         ' 
-        ' Label4
+        ' lbl_barangay_pending_case
         ' 
-        Label4.AutoSize = True
-        Label4.BackColor = Color.Transparent
-        Label4.Cursor = Cursors.Hand
-        Label4.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.ForeColor = Color.FromArgb(CByte(137), CByte(155), CByte(195))
-        Label4.Location = New Point(110, 57)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(131, 16)
-        Label4.TabIndex = 11
-        Label4.Text = "/ Barangay Cases"
+        lbl_barangay_pending_case.AutoSize = True
+        lbl_barangay_pending_case.BackColor = Color.Transparent
+        lbl_barangay_pending_case.Cursor = Cursors.Hand
+        lbl_barangay_pending_case.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        lbl_barangay_pending_case.ForeColor = Color.FromArgb(CByte(137), CByte(155), CByte(195))
+        lbl_barangay_pending_case.Location = New Point(110, 57)
+        lbl_barangay_pending_case.Name = "lbl_barangay_pending_case"
+        lbl_barangay_pending_case.Size = New Size(131, 16)
+        lbl_barangay_pending_case.TabIndex = 11
+        lbl_barangay_pending_case.Text = "/ Barangay Cases"
         ' 
-        ' Label3
+        ' lbl_sub_title
         ' 
-        Label3.AutoSize = True
-        Label3.BackColor = Color.Transparent
-        Label3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.FromArgb(CByte(81), CByte(103), CByte(172))
-        Label3.Location = New Point(239, 57)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(157, 16)
-        Label3.TabIndex = 2
-        Label3.Text = "/ New Barangay Case"
+        lbl_sub_title.AutoSize = True
+        lbl_sub_title.BackColor = Color.Transparent
+        lbl_sub_title.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        lbl_sub_title.ForeColor = Color.FromArgb(CByte(81), CByte(103), CByte(172))
+        lbl_sub_title.Location = New Point(239, 57)
+        lbl_sub_title.Name = "lbl_sub_title"
+        lbl_sub_title.Size = New Size(157, 16)
+        lbl_sub_title.TabIndex = 2
+        lbl_sub_title.Text = "/ New Barangay Case"
         ' 
-        ' Label2
+        ' lbl_dashboard
         ' 
-        Label2.AutoSize = True
-        Label2.BackColor = Color.Transparent
-        Label2.Cursor = Cursors.Hand
-        Label2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.ForeColor = Color.FromArgb(CByte(137), CByte(155), CByte(195))
-        Label2.Location = New Point(28, 57)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(84, 16)
-        Label2.TabIndex = 1
-        Label2.Text = "Dashboard"
+        lbl_dashboard.AutoSize = True
+        lbl_dashboard.BackColor = Color.Transparent
+        lbl_dashboard.Cursor = Cursors.Hand
+        lbl_dashboard.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        lbl_dashboard.ForeColor = Color.FromArgb(CByte(137), CByte(155), CByte(195))
+        lbl_dashboard.Location = New Point(28, 57)
+        lbl_dashboard.Name = "lbl_dashboard"
+        lbl_dashboard.Size = New Size(84, 16)
+        lbl_dashboard.TabIndex = 1
+        lbl_dashboard.Text = "Dashboard"
         ' 
-        ' Label1
+        ' lbl_title
         ' 
-        Label1.AutoSize = True
-        Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        Label1.Location = New Point(25, 28)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(249, 29)
-        Label1.TabIndex = 0
-        Label1.Text = "New Barangay Case"
+        lbl_title.AutoSize = True
+        lbl_title.BackColor = Color.Transparent
+        lbl_title.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        lbl_title.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        lbl_title.Location = New Point(25, 28)
+        lbl_title.Name = "lbl_title"
+        lbl_title.Size = New Size(249, 29)
+        lbl_title.TabIndex = 0
+        lbl_title.Text = "New Barangay Case"
         ' 
         ' Panel5
         ' 
@@ -154,6 +155,7 @@ Partial Class Image_Capture
         ' Panel3
         ' 
         Panel3.BackColor = Color.White
+        Panel3.Controls.Add(btn_reject)
         Panel3.Controls.Add(btn_previous)
         Panel3.Controls.Add(btn_submit)
         Panel3.Dock = DockStyle.Bottom
@@ -161,6 +163,26 @@ Partial Class Image_Capture
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(986, 50)
         Panel3.TabIndex = 17
+        ' 
+        ' btn_reject
+        ' 
+        btn_reject.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btn_reject.BackColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
+        btn_reject.Cursor = Cursors.Hand
+        btn_reject.FlatStyle = FlatStyle.Flat
+        btn_reject.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_reject.ForeColor = Color.White
+        btn_reject.Image = CType(resources.GetObject("btn_reject.Image"), Image)
+        btn_reject.ImageAlign = ContentAlignment.MiddleLeft
+        btn_reject.Location = New Point(598, 8)
+        btn_reject.Name = "btn_reject"
+        btn_reject.Padding = New Padding(15, 0, 15, 0)
+        btn_reject.Size = New Size(116, 35)
+        btn_reject.TabIndex = 8
+        btn_reject.Text = "&Reject"
+        btn_reject.TextAlign = ContentAlignment.MiddleRight
+        btn_reject.UseVisualStyleBackColor = False
+        btn_reject.Visible = False
         ' 
         ' btn_previous
         ' 
@@ -525,11 +547,11 @@ Partial Class Image_Capture
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label4 As Label
+    Friend WithEvents lbl_barangay_pending_case As Label
     'Friend WithEvents btn_new_employee As Button
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lbl_sub_title As Label
+    Friend WithEvents lbl_dashboard As Label
+    Friend WithEvents lbl_title As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
@@ -564,4 +586,5 @@ Partial Class Image_Capture
     Friend WithEvents lbl_camera_is_off As Label
     Friend WithEvents img_captured_image As PictureBox
     Friend WithEvents lbl_no_image As Label
+    Friend WithEvents btn_reject As Button
 End Class

@@ -34,6 +34,9 @@
     <Compile Update="Developers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Edit Barangay Case.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Employee Account Settings.vb">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,6 +74,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="View Announcements.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View Barangay Case.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View Barangay News.vb">

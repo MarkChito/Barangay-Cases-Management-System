@@ -21,20 +21,12 @@ Public Class Add_Barangay_Case
         button_name.Region = New Region(path)
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        With Main
-            .Mouse_Click(.btn_dashboard)
-            .Hide_Account_Details()
-            .Hide_Notification()
-        End With
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        Main.Mouse_Click(Main.btn_barangay_cases)
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        With Main
-            .Mouse_Click(.btn_barangay_cases)
-            .Hide_Account_Details()
-            .Hide_Notification()
-        End With
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+        Main.Mouse_Click(Main.btn_dashboard)
     End Sub
 
     Private Sub btn_next_Paint(sender As Object, e As PaintEventArgs) Handles btn_next.Paint
@@ -53,11 +45,7 @@ Public Class Add_Barangay_Case
 
                 txt_mobile_number.Focus()
             Else
-                With Main
-                    .Mouse_Click(btn_next)
-                    .Hide_Account_Details()
-                    .Hide_Notification()
-                End With
+                Main.Mouse_Click(btn_next)
             End If
         Else
             Main.btn_temp.Focus()

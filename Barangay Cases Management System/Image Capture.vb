@@ -48,6 +48,25 @@ Public Class Image_Capture
     Public Sub Stop_Camera()
         If videoSource IsNot Nothing AndAlso videoSource.IsRunning Then
             videoSource.SignalToStop()
+
+            With btn_start_webcam
+                .Enabled = True
+                .Cursor = Cursors.Hand
+            End With
+
+            With btn_stop_webcam
+                .Enabled = False
+                .Cursor = Cursors.No
+            End With
+
+            With btn_capture_image
+                .Enabled = False
+                .Cursor = Cursors.No
+            End With
+
+            img_live_camera.Image = Nothing
+
+            lbl_camera_is_off.Show()
         End If
     End Sub
 
@@ -86,32 +105,56 @@ Public Class Image_Capture
             End If
 
             If errors = 0 Then
-                With Main.Add_Barangay_Case
-                    Add_A_Barangay_Case(.txt_full_name.Text, .txt_mobile_number.Text, .txt_address.Text, .txt_nature_of_complaint.Text, .txt_description.Text, user_image)
+                If Not is_edit_pending_case Then
+                    With Main.Add_Barangay_Case
+                        Add_A_Barangay_Case(.txt_full_name.Text, .txt_mobile_number.Text, .txt_address.Text, .txt_nature_of_complaint.Text, .txt_description.Text, user_image)
 
-                    .txt_full_name.Clear()
-                    .txt_mobile_number.Clear()
-                    .txt_address.Clear()
-                    .txt_nature_of_complaint.Text = Nothing
-                    .txt_description.Clear()
-                End With
+                        .txt_full_name.Clear()
+                        .txt_mobile_number.Clear()
+                        .txt_address.Clear()
+                        .txt_nature_of_complaint.Text = Nothing
+                        .txt_description.Clear()
+                    End With
+                Else
+                    is_edit_pending_case = False
 
-                btn_stop_webcam.PerformClick()
+                    With Main.Edit_Barangay_Case
+                        Update_A_Barangay_Case(.txt_full_name.Text, .txt_mobile_number.Text, .txt_address.Text, .txt_nature_of_complaint.Text, .txt_description.Text, user_image, "4", .lbl_primary_key.Text)
+
+                        .txt_full_name.Clear()
+                        .txt_mobile_number.Clear()
+                        .txt_address.Clear()
+                        .txt_nature_of_complaint.Text = Nothing
+                        .txt_description.Clear()
+                    End With
+                End If
+
+                Stop_Camera()
 
                 img_captured_image.Image = Nothing
                 lbl_no_image.Show()
 
-                btn_previous.Show()
+                btn_reject.Hide()
 
                 With btn_submit
                     .Enabled = True
+                    .Location = New Point(.Location.X + 40, .Location.Y)
                     .Width = 122
-                    .Text = "Submit"
+                    .Text = "&Submit"
                 End With
 
-                Main.btn_barangay_cases.PerformClick()
+                With btn_previous
+                    .Show()
+                    .Location = New Point(btn_submit.Location.X - 138, .Location.Y)
+                End With
 
-                MsgBox("You've successfully added a barangay case.", MsgBoxStyle.Information, "Success")
+                Main.Mouse_Click(Main.btn_barangay_cases)
+
+                If Not is_edit_pending_case Then
+                    MsgBox("You've successfully added a barangay case.", MsgBoxStyle.Information, "Success")
+                Else
+                    MsgBox("You've successfully approved a barangay case.", MsgBoxStyle.Information, "Success")
+                End If
             End If
         End If
     End Sub
@@ -136,20 +179,16 @@ Public Class Image_Capture
         button_name.Region = New Region(path)
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        With Main
-            .Mouse_Click(.btn_barangay_cases)
-            .Hide_Account_Details()
-            .Hide_Notification()
-        End With
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles lbl_barangay_pending_case.Click
+        If is_edit_pending_case Then
+            Main.Mouse_Click(Main.btn_pending_cases)
+        Else
+            Main.Mouse_Click(Main.btn_barangay_cases)
+        End If
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        With Main
-            .Mouse_Click(.btn_dashboard)
-            .Hide_Account_Details()
-            .Hide_Notification()
-        End With
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles lbl_dashboard.Click
+        Main.Mouse_Click(Main.btn_dashboard)
     End Sub
 
     Private Sub btn_submit_Paint(sender As Object, e As PaintEventArgs) Handles btn_submit.Paint
@@ -158,6 +197,10 @@ Public Class Image_Capture
 
     Private Sub btn_previous_Paint(sender As Object, e As PaintEventArgs) Handles btn_previous.Paint
         Design_Button(btn_previous)
+    End Sub
+
+    Private Sub btn_reject_Paint(sender As Object, e As PaintEventArgs) Handles btn_reject.Paint
+        Design_Button(btn_reject)
     End Sub
 
     Private Sub btn_previous_Click(sender As Object, e As EventArgs) Handles btn_previous.Click
@@ -209,25 +252,6 @@ Public Class Image_Capture
     End Sub
 
     Private Sub btn_stop_webcam_Click(sender As Object, e As EventArgs) Handles btn_stop_webcam.Click
-        With btn_start_webcam
-            .Enabled = True
-            .Cursor = Cursors.Hand
-        End With
-
-        With btn_stop_webcam
-            .Enabled = False
-            .Cursor = Cursors.No
-        End With
-
-        With btn_capture_image
-            .Enabled = False
-            .Cursor = Cursors.No
-        End With
-
-        img_live_camera.Image = Nothing
-
-        lbl_camera_is_off.Show()
-
         Stop_Camera()
     End Sub
 
@@ -247,8 +271,10 @@ Public Class Image_Capture
         Dim errors As Integer = 0
 
         btn_previous.Hide()
+        btn_reject.Hide()
 
         With btn_submit
+            .Location = New Point(.Location.X - 40, .Location.Y)
             .Width = 162
             .Text = "Processing..."
             .Enabled = False
@@ -284,5 +310,54 @@ Public Class Image_Capture
         If errors = 0 Then
             UploadImageToServerAsync(selected_image, uploadUrl)
         End If
+    End Sub
+
+    Private Sub btn_reject_Click(sender As Object, e As EventArgs) Handles btn_reject.Click
+        Dim errors As Integer = 0
+
+        btn_previous.Hide()
+        btn_submit.Hide()
+
+        With btn_reject
+            .Location = New Point(.Location.X + 92, .Location.Y)
+            .Width = 162
+            .Text = "Processing..."
+            .Enabled = False
+        End With
+
+        is_edit_pending_case = False
+
+        With Main.Edit_Barangay_Case
+            Update_A_Barangay_Case(.txt_full_name.Text, .txt_mobile_number.Text, .txt_address.Text, .txt_nature_of_complaint.Text, .txt_description.Text, "default_user_image.png", "3", .lbl_primary_key.Text)
+
+            .txt_full_name.Clear()
+            .txt_mobile_number.Clear()
+            .txt_address.Clear()
+            .txt_nature_of_complaint.Text = Nothing
+            .txt_description.Clear()
+        End With
+
+        Stop_Camera()
+
+        img_captured_image.Image = Nothing
+        lbl_no_image.Show()
+
+        btn_submit.Show()
+
+        With btn_previous
+            .Show()
+            .Location = New Point(btn_submit.Location.X - 138, .Location.Y)
+        End With
+
+        With btn_reject
+            .Enabled = True
+            .Width = 116
+            .Text = "&Reject"
+            .Hide()
+        End With
+
+        Main.Mouse_Click(Main.btn_pending_cases)
+
+        MsgBox("You've successfully rejected a barangay case.", MsgBoxStyle.Information, "Success")
     End Sub
 End Class

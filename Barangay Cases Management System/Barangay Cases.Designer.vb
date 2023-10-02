@@ -32,8 +32,11 @@ Partial Class Barangay_Cases
         case_date = New ColumnHeader()
         case_time = New ColumnHeader()
         case_name = New ColumnHeader()
+        case_mobile_number = New ColumnHeader()
         case_address = New ColumnHeader()
         case_nature_of_complaint = New ColumnHeader()
+        case_image = New ColumnHeader()
+        case_description = New ColumnHeader()
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
@@ -96,7 +99,7 @@ Partial Class Barangay_Cases
         listview_employees.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         listview_employees.BackColor = Color.White
         listview_employees.BorderStyle = BorderStyle.None
-        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, case_name, case_address, case_nature_of_complaint})
+        listview_employees.Columns.AddRange(New ColumnHeader() {primary_key, case_date, case_time, case_name, case_mobile_number, case_address, case_nature_of_complaint, case_description, case_image})
         listview_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         listview_employees.FullRowSelect = True
         listview_employees.GridLines = True
@@ -129,6 +132,11 @@ Partial Class Barangay_Cases
         case_name.Text = "Name"
         case_name.Width = 150
         ' 
+        ' case_mobile_number
+        ' 
+        case_mobile_number.Text = ""
+        case_mobile_number.Width = 0
+        ' 
         ' case_address
         ' 
         case_address.Text = "Address"
@@ -138,6 +146,16 @@ Partial Class Barangay_Cases
         ' 
         case_nature_of_complaint.Text = "Nature of Compliant"
         case_nature_of_complaint.Width = 150
+        ' 
+        ' case_image
+        ' 
+        case_image.Text = ""
+        case_image.Width = 0
+        ' 
+        ' case_description
+        ' 
+        case_description.Text = ""
+        case_description.Width = 0
         ' 
         ' Panel5
         ' 
@@ -267,4 +285,7 @@ Partial Class Barangay_Cases
     Friend WithEvents Label4 As Label
     Friend WithEvents txt_search As TextBox
     Friend WithEvents btn_new_case As Button
+    Friend WithEvents case_mobile_number As ColumnHeader
+    Friend WithEvents case_image As ColumnHeader
+    Friend WithEvents case_description As ColumnHeader
 End Class

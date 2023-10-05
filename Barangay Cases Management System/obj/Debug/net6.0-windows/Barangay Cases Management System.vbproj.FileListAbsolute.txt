@@ -101,25 +101,6 @@ E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barang
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.vbproj.AssemblyReference.cache
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Account_Settings.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Employee.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Announcements.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Barangay_News.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Barangay_Cases.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Dashboard.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Developers.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Employees.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Employee_Account_Settings.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Login.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Main.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.My_Profile.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Resources.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Overview.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Pending_Cases.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Profile.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.RFID_Login.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Update_Profile.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.vbproj.GenerateResource.cache
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.GeneratedMSBuildEditorConfig.editorconfig
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.AssemblyInfoInputs.cache
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.AssemblyInfo.vb
@@ -130,15 +111,34 @@ E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barang
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.pdb
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.genruntimeconfig.cache
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\ref\Barangay Cases Management System.dll
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Announcements.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Barangay_News.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Announcement.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Barangay_News.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Barangay_Case.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Image_Capture.resources
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Splash_Screen.resources
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\AForge.dll
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\AForge.Video.dll
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\bin\Debug\net6.0-windows\AForge.Video.DirectShow.dll
-E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Barangay_Case.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Account_Settings.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Announcement.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Barangay_Case.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Barangay_News.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Add_Employee.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Announcements.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Barangay_Cases.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Barangay_News.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Dashboard.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Developers.resources
 E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Edit_Barangay_Case.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Employee_Account_Settings.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Employees.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Image_Capture.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Login.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Main.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.My_Profile.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Resources.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Overview.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Pending_Cases.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Profile.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.RFID_Login.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Splash_Screen.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.Update_Profile.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Announcements.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Barangay_Case.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay_Cases_Management_System.View_Barangay_News.resources
+E:\Documents\Visual Studio 2022\Projects\Barangay Cases Management System\Barangay Cases Management System\obj\Debug\net6.0-windows\Barangay Cases Management System.vbproj.GenerateResource.cache

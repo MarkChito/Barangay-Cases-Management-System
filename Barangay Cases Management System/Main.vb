@@ -472,6 +472,8 @@ Public Class Main
 
             Timer1.Start()
         Else
+            img_loading.Visible = False
+
             If current_tab = "btn_new_case" Then
                 is_edit_pending_case = False
 
@@ -661,7 +663,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -673,7 +674,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -685,7 +685,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -697,7 +696,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -709,7 +707,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -721,7 +718,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -734,7 +730,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
 
@@ -747,7 +742,6 @@ Public Class Main
                 .BringToFront()
             End With
 
-            img_loading.Visible = False
             Timer1.Stop()
         End If
     End Sub

@@ -15,11 +15,17 @@ Module Model
     Public ReadOnly localhost_connection = "http://localhost/"
 
     ' Change this when connecting online
-    Public ReadOnly connection_type = online_connection
+    Public ReadOnly connection_type = localhost_connection
 
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""
     Public is_edit_pending_case As Boolean = False
+
+    Private tbl_barangaycasesmanagement_announcements As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_announcements")
+    Private tbl_barangaycasesmanagement_barangaycases As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_barangaycases")
+    Private tbl_barangaycasesmanagement_barangaynews As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_barangaynews")
+    Private tbl_barangaycasesmanagement_citizens As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_citizens")
+    Private tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_useraccounts")
 
     Public Function MongoDB_Database_Name()
         Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
@@ -38,9 +44,14 @@ Module Model
         Return database_name
     End Function
 
-    Public Sub Insert_Admin_Data()
+    Public Function MongoDB_Table_Name(string_table_name As String)
         Dim database_name As IMongoDatabase = MongoDB_Database_Name()
-        Dim tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = database_name.GetCollection(Of BsonDocument)("tbl_barangaycasesmanagement_useraccounts")
+        Dim table_name As IMongoCollection(Of BsonDocument) = database_name.GetCollection(Of BsonDocument)(string_table_name)
+
+        Return table_name
+    End Function
+
+    Public Sub MongoDB_Initialize()
         Dim filter = Builders(Of BsonDocument).Filter.And(Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", "1"))
         Dim existingDocument = tbl_barangaycasesmanagement_useraccounts.Find(filter).FirstOrDefault()
 
@@ -121,7 +132,7 @@ Module Model
     End Sub
 
     Public Sub Initialize()
-        'Insert_Admin_Data()
+        MongoDB_Initialize()
         Database_Open()
         Database_Close()
 

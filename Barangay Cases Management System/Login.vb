@@ -149,9 +149,6 @@ Public Class Login
                 Else
                     is_loading = False
 
-                    check_remember_me.Enabled = True
-                    btn_login.Text = "Login"
-
                     btn_login.Text = "Login"
                     check_remember_me.Enabled = True
 

@@ -81,7 +81,7 @@
         End With
     End Sub
 
-    Private Sub RFID_Login_GotFocus(sender As Object, e As EventArgs) Handles Me.GotFocus
+    Private Sub RFID_Login_GotFocus(sender As Object, e As EventArgs) Handles MyBase.GotFocus
         With txt_rfid_number
             .Clear()
             .Focus()

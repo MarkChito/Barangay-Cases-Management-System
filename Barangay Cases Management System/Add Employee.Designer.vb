@@ -53,6 +53,7 @@ Partial Class Add_Employee
         txt_first_name = New TextBox()
         Label1 = New Label()
         Button1 = New Button()
+        btn_temp = New Button()
         CType(img_user, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         Panel1.SuspendLayout()
@@ -133,6 +134,7 @@ Partial Class Add_Employee
         ' Panel3
         ' 
         Panel3.BorderStyle = BorderStyle.FixedSingle
+        Panel3.Controls.Add(btn_temp)
         Panel3.Controls.Add(Label9)
         Panel3.Controls.Add(Label10)
         Panel3.Controls.Add(txt_confirm_password)
@@ -403,6 +405,15 @@ Partial Class Add_Employee
         Button1.Text = "Choose &File"
         Button1.UseVisualStyleBackColor = False
         ' 
+        ' btn_temp
+        ' 
+        btn_temp.Location = New Point(103, -84)
+        btn_temp.Name = "btn_temp"
+        btn_temp.Size = New Size(75, 23)
+        btn_temp.TabIndex = 63
+        btn_temp.Text = "Button2"
+        btn_temp.UseVisualStyleBackColor = True
+        ' 
         ' Add_Employee
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -457,4 +468,5 @@ Partial Class Add_Employee
     Friend WithEvents txt_password As TextBox
     Friend WithEvents txt_username As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents btn_temp As Button
 End Class

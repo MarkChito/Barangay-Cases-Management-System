@@ -10,42 +10,62 @@ Public Class Add_Employee
     Private Function Verify_Password(password As String, confirm_password As String)
         Dim errorCount As Integer = 0
 
-        btn_submit.Enabled = True
-        btn_submit.Text = "&Submit Changes"
-        btn_close.Visible = True
-
         If Not password = "" Or Not confirm_password = "" Then
             If password <> confirm_password Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+                btn_close.Visible = True
+
                 ' Passwords do not match
                 MsgBox("Passwords do not match", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf password.Length < 8 Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+                btn_close.Visible = True
+
                 ' Password must be at least 8 characters long
                 MsgBox("Password must be at least 8 characters long", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[A-Z]") Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+                btn_close.Visible = True
+
                 ' Password must have at least one uppercase letter (A-Z)
                 MsgBox("Password must have at least one uppercase letter (A-Z)", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[a-z]") Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+                btn_close.Visible = True
+
                 ' Password must have at least one lowercase letter (a-z)
                 MsgBox("Password must have at least one lowercase letter (a-z)", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[0-9]") Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+                btn_close.Visible = True
+
                 ' Password must have at least one digit (0-9)
                 MsgBox("Password must have at least one digit (0-9)", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[!@#$%^&*()_+\-=[\]{};':|,.<>/]") Then
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+                btn_close.Visible = True
+
                 ' Password must have at least one special character
                 MsgBox("Password must have at least one special character (e.g., !@#$%^&*()_+-=[]{};':|,.<>/?)", MsgBoxStyle.Critical, "Error")
 
@@ -99,35 +119,46 @@ Public Class Add_Employee
         Dim errors As Integer = 0
         Dim user_image As String = "default_user_image.png"
 
-        Main.btn_temp.Focus()
-
         btn_close.Visible = False
         btn_submit.Text = "Processing..."
         btn_submit.Enabled = False
 
         If Verify_Password(txt_password.Text, txt_confirm_password.Text) Then
             If Not Verify_Email(txt_email.Text) Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 MsgBox("Email address is not valid!", MsgBoxStyle.Critical, "Error")
 
                 txt_email.Focus()
 
                 errors += 1
-
             ElseIf Not Verify_Mobile_Number(txt_mobile_number.Text) Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 MsgBox("Mobile Number is not valid!", MsgBoxStyle.Critical, "Error")
 
                 txt_mobile_number.Focus()
 
                 errors += 1
-
             ElseIf Not Add_Employee_Check_Username(txt_username.Text) Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 MsgBox("Username already exists!", MsgBoxStyle.Critical, "Error")
 
                 txt_username.Focus()
 
                 errors += 1
-
             ElseIf Not Add_Employee_Check_RFID_Number(txt_rfid_number.Text) Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 MsgBox("RFID Number already exists!", MsgBoxStyle.Critical, "Error")
 
                 txt_rfid_number.Focus()
@@ -153,12 +184,20 @@ Public Class Add_Employee
 
                                 user_image = image_name
                             Else
+                                btn_close.Visible = True
+                                btn_submit.Enabled = True
+                                btn_submit.Text = "&Submit Changes"
+
                                 MsgBox("Error uploading file. Status code: " & response.StatusCode.ToString(), MsgBoxStyle.Critical, "Error")
 
                                 errors += 1
                             End If
                         End Using
                     Catch ex As Exception
+                        btn_close.Visible = True
+                        btn_submit.Enabled = True
+                        btn_submit.Text = "&Submit Changes"
+
                         MsgBox("An error occurred: " & ex.Message, MsgBoxStyle.Critical, "Error")
 
                         errors += 1
@@ -169,6 +208,10 @@ Public Class Add_Employee
                     Add_An_Employee(txt_first_name.Text, txt_middle_name.Text, txt_last_name.Text, txt_rfid_number.Text, txt_position.Text, txt_mobile_number.Text, txt_email.Text, txt_address.Text, txt_username.Text, txt_password.Text, user_image)
 
                     Main.Load_Employees_Data()
+
+                    Me.Hide()
+
+                    MsgBox("Successfully Added an Employee", MsgBoxStyle.Information, "Success")
 
                     txt_first_name.Clear()
                     txt_middle_name.Clear()
@@ -185,23 +228,19 @@ Public Class Add_Employee
 
                     selected_image = ""
 
-                    Me.Hide()
-
-                    MsgBox("Successfully Added an Employee", MsgBoxStyle.Information, "Success")
+                    btn_close.Visible = True
+                    btn_submit.Enabled = True
+                    btn_submit.Text = "&Submit Changes"
 
                     Me.Close()
                 End If
             End If
         End If
-
-        btn_close.Visible = True
-        btn_submit.Enabled = True
-        btn_submit.Text = "&Submit Changes"
-
-        Main.btn_temp.Focus()
     End Sub
 
     Private Sub btn_close_Click(sender As Object, e As EventArgs) Handles btn_close.Click
+        btn_temp.Focus()
+
         Me.Close()
     End Sub
 
@@ -218,6 +257,8 @@ Public Class Add_Employee
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        btn_temp.Focus()
+
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif|All Files|*.*"
 
@@ -231,6 +272,8 @@ Public Class Add_Employee
     End Sub
 
     Private Sub btn_submit_Click(sender As Object, e As EventArgs) Handles btn_submit.Click
+        btn_temp.Focus()
+
         If Not String.IsNullOrWhiteSpace(txt_first_name.Text) And Not String.IsNullOrWhiteSpace(txt_last_name.Text) And Not String.IsNullOrWhiteSpace(txt_rfid_number.Text) And Not String.IsNullOrWhiteSpace(txt_mobile_number.Text) And Not String.IsNullOrWhiteSpace(txt_email.Text) And Not String.IsNullOrWhiteSpace(txt_position.Text) And Not String.IsNullOrWhiteSpace(txt_address.Text) And Not String.IsNullOrWhiteSpace(txt_username.Text) And Not String.IsNullOrWhiteSpace(txt_password.Text) And Not String.IsNullOrWhiteSpace(txt_confirm_password.Text) Then
             UploadImageToServerAsync(selected_image, uploadUrl)
         Else

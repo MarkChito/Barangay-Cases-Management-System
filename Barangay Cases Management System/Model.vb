@@ -14,9 +14,6 @@ Module Model
     Public ReadOnly online_connection = "https://"
     Public ReadOnly localhost_connection = "http://localhost/"
 
-    ' Change this when connecting online
-    Public ReadOnly connection_type = localhost_connection
-
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""
     Public is_edit_pending_case As Boolean = False
@@ -27,6 +24,10 @@ Module Model
     Private tbl_barangaycasesmanagement_citizens As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_citizens")
     Private tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_useraccounts")
 
+    ' CHANGE THIS WHEN CONNECTING ONLINE
+    Public ReadOnly connection_type = online_connection
+
+    '====================== MongoDB Functions ======================
     Public Function MongoDB_Database_Name()
         Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
         Dim offline_connectionString As String = "mongodb://localhost:27017"
@@ -79,6 +80,7 @@ Module Model
         End If
     End Sub
 
+    '====================== MySQL Functions ======================
     Public Sub Database_Open()
         ' Database Configuration
         Dim localhost_server = "localhost"
@@ -144,6 +146,7 @@ Module Model
         Login.Show()
     End Sub
 
+    '====================== Select Queries ======================
     Public Function Authenticate(username As String, password As String)
         Dim results As New Dictionary(Of String, String)()
 
@@ -227,50 +230,6 @@ Module Model
 
         Return results
     End Function
-
-    Public Async Sub Load_All_Images()
-        Dim result = Await Get_All_User_Data()
-        Dim result_2 = Await Get_All_Citizen_Data()
-        Dim result_3 = Await Get_All_News_Data()
-        Dim result_4 = Await Get_All_Cases_Data()
-
-        Dim response_ok As Integer = 0
-
-        If result("response_code") = 200 Then
-            response_ok += 1
-        End If
-
-        If result_2("response_code") = 200 Then
-            response_ok += 1
-        End If
-
-        If result_3("response_code") = 200 Then
-            response_ok += 1
-        End If
-
-        If result_4("response_code") = 200 Then
-            response_ok += 1
-        End If
-
-        If response_ok = 4 Then
-            With Login
-                .Hide()
-                .Timer1.Stop()
-            End With
-
-            With RFID_Login
-                .img_rfid.Image = Image.FromFile("dist/img/scan_rfid_gif.gif")
-                .Close()
-            End With
-
-            With Main
-                .Show()
-                .WindowState = FormWindowState.Maximized
-                .Load_User_Data()
-                .btn_dashboard.PerformClick()
-            End With
-        End If
-    End Sub
 
     Private Async Function Get_All_User_Data() As Task(Of Dictionary(Of String, String))
         Dim results As New Dictionary(Of String, String)()
@@ -458,19 +417,6 @@ Module Model
         Database_Close()
 
         Return results
-    End Function
-
-    Private Function Password_Verify(plainTextPassword As String, storedHashedPassword As String) As Boolean
-        Dim fixedHashedPassword As String = storedHashedPassword.Replace("$2y$", "$2a$")
-
-        Return Net.BCrypt.Verify(plainTextPassword, fixedHashedPassword)
-    End Function
-
-    Public Function Password_Hash(password As String)
-        Dim salt As String = Net.BCrypt.GenerateSalt()
-        Dim hashedPassword As String = Net.BCrypt.HashPassword(password, salt)
-
-        Return hashedPassword
     End Function
 
     Public Function Get_User_Data(primary_key As String)
@@ -687,42 +633,48 @@ Module Model
         Return results
     End Function
 
-    Public Sub Update_Account(rfid_number As String, username As String, password As String, primary_key As String)
-        Database_Open()
+    Public Async Sub Load_All_Images()
+        Dim result = Await Get_All_User_Data()
+        Dim result_2 = Await Get_All_Citizen_Data()
+        Dim result_3 = Await Get_All_News_Data()
+        Dim result_4 = Await Get_All_Cases_Data()
 
-        With command
-            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `rfid_number`='" & rfid_number & "', `username`='" & username & "', `password`='" & password & "' WHERE `primary_key`='" & primary_key & "'"
-            .Connection = connection
-            .ExecuteNonQuery()
-        End With
+        Dim response_ok As Integer = 0
 
-        Dim database As IMongoDatabase = MongoDB_Database_Name()
-        Dim tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("tbl_barangaycasesmanagement_useraccounts")
-        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
-        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("rfid_number", rfid_number).Set(Of String)("username", username).Set(Of String)("password", password)
+        If result("response_code") = 200 Then
+            response_ok += 1
+        End If
 
-        tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
+        If result_2("response_code") = 200 Then
+            response_ok += 1
+        End If
 
-        Database_Close()
-    End Sub
+        If result_3("response_code") = 200 Then
+            response_ok += 1
+        End If
 
-    Public Sub Update_Profile_Information(first_name As String, middle_name As String, last_name As String, position As String, mobile_number As String, email As String, address As String, image_name As String, primary_key As String)
-        Database_Open()
+        If result_4("response_code") = 200 Then
+            response_ok += 1
+        End If
 
-        With command
-            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `first_name`='" & first_name & "', `middle_name`='" & middle_name & "', `last_name`='" & last_name & "', `position`='" & position & "', `mobile_number`='" & mobile_number & "', `email`='" & email & "', `address`='" & address & "', `image`='" & image_name & "' WHERE `primary_key`='" & primary_key & "'"
-            .Connection = connection
-            .ExecuteNonQuery()
-        End With
+        If response_ok = 4 Then
+            With Login
+                .Hide()
+                .Timer1.Stop()
+            End With
 
-        Dim database As IMongoDatabase = MongoDB_Database_Name()
-        Dim tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = database.GetCollection(Of BsonDocument)("tbl_barangaycasesmanagement_useraccounts")
-        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
-        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("first_name", first_name).Set(Of String)("middle_name", middle_name).Set(Of String)("last_name", last_name).Set(Of String)("position", position).Set(Of String)("mobile_number", mobile_number).Set(Of String)("email", email).Set(Of String)("address", address)
+            With RFID_Login
+                .img_rfid.Image = Image.FromFile("dist/img/scan_rfid_gif.gif")
+                .Close()
+            End With
 
-        tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
-
-        Database_Close()
+            With Main
+                .Show()
+                .WindowState = FormWindowState.Maximized
+                .Load_User_Data()
+                .btn_dashboard.PerformClick()
+            End With
+        End If
     End Sub
 
     Public Function Check_Username(username As String, old_username As String)
@@ -853,6 +805,7 @@ Module Model
         End If
     End Function
 
+    '====================== Insert Queries ======================
     Public Sub Add_An_Employee(first_name As String, middle_name As String, last_name As String, rfid_number As String, position As String, mobile_number As String, email As String, address As String, username As String, password As String, image As String)
         Database_Open()
 
@@ -864,7 +817,44 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Dim primary_key As String = ""
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT `primary_key` FROM `tbl_barangaycasesmanagement_useraccounts` WHERE `primary_key` = LAST_INSERT_ID()"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        For Each row As DataRow In table.Rows
+            primary_key = row("primary_key").ToString()
+        Next
+
         Database_Close()
+
+        Dim Document As New BsonDocument() From {
+            {"primary_key", primary_key},
+            {"first_name", first_name},
+            {"middle_name", middle_name},
+            {"last_name", last_name},
+            {"rfid_number", rfid_number},
+            {"mobile_number", mobile_number},
+            {"email", email},
+            {"position", position},
+            {"address", address},
+            {"username", username},
+            {"password", password},
+            {"image", image},
+            {"user_type", "user"}
+        }
+
+        tbl_barangaycasesmanagement_useraccounts.InsertOne(Document)
     End Sub
 
     Public Sub Add_An_Announcement(announcement_title As String, announcement_body As String)
@@ -878,7 +868,35 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Dim primary_key As String = ""
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT `primary_key` FROM `tbl_barangaycasesmanagement_announcements` WHERE `primary_key` = LAST_INSERT_ID()"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        For Each row As DataRow In table.Rows
+            primary_key = row("primary_key").ToString()
+        Next
+
         Database_Close()
+
+        Dim Document As New BsonDocument() From {
+            {"primary_key", primary_key},
+            {"date_and_time", date_and_time},
+            {"title", announcement_title},
+            {"body", announcement_body}
+        }
+
+        tbl_barangaycasesmanagement_announcements.InsertOne(Document)
     End Sub
 
     Public Sub Add_A_Barangay_News(title As String, body As String, image As String)
@@ -893,7 +911,37 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Dim primary_key As String = ""
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT `primary_key` FROM `tbl_barangaycasesmanagement_barangaynews` WHERE `primary_key` = LAST_INSERT_ID()"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        For Each row As DataRow In table.Rows
+            primary_key = row("primary_key").ToString()
+        Next
+
         Database_Close()
+
+        Dim Document As New BsonDocument() From {
+            {"primary_key", primary_key},
+            {"date", current_date},
+            {"time", current_time},
+            {"title", title},
+            {"body", body},
+            {"image", image}
+        }
+
+        tbl_barangaycasesmanagement_barangaynews.InsertOne(Document)
     End Sub
 
     Public Sub Add_A_Barangay_Case(name As String, mobile_number As String, address As String, nature_of_complaint As String, description As String, image As String)
@@ -907,6 +955,74 @@ Module Model
             .Connection = connection
             .ExecuteNonQuery()
         End With
+
+        Dim primary_key As String = ""
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT `primary_key` FROM `tbl_barangaycasesmanagement_barangaycases` WHERE `primary_key` = LAST_INSERT_ID()"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        For Each row As DataRow In table.Rows
+            primary_key = row("primary_key").ToString()
+        Next
+
+        Database_Close()
+
+        Dim Document As New BsonDocument() From {
+            {"primary_key", primary_key},
+            {"date", current_date},
+            {"time", current_time},
+            {"name", name},
+            {"mobile_number", mobile_number},
+            {"address", address},
+            {"nature_of_complaint", nature_of_complaint},
+            {"description", description},
+            {"image", image}
+        }
+
+        tbl_barangaycasesmanagement_barangaycases.InsertOne(Document)
+    End Sub
+
+    '====================== Update Queries ======================
+    Public Sub Update_Account(rfid_number As String, username As String, password As String, primary_key As String)
+        Database_Open()
+
+        With command
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `rfid_number`='" & rfid_number & "', `username`='" & username & "', `password`='" & password & "' WHERE `primary_key`='" & primary_key & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
+        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("rfid_number", rfid_number).Set(Of String)("username", username).Set(Of String)("password", password)
+
+        tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
+
+        Database_Close()
+    End Sub
+
+    Public Sub Update_Profile_Information(first_name As String, middle_name As String, last_name As String, position As String, mobile_number As String, email As String, address As String, image_name As String, primary_key As String)
+        Database_Open()
+
+        With command
+            .CommandText = "UPDATE `tbl_barangaycasesmanagement_useraccounts` SET `first_name`='" & first_name & "', `middle_name`='" & middle_name & "', `last_name`='" & last_name & "', `position`='" & position & "', `mobile_number`='" & mobile_number & "', `email`='" & email & "', `address`='" & address & "', `image`='" & image_name & "' WHERE `primary_key`='" & primary_key & "'"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
+        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("first_name", first_name).Set(Of String)("middle_name", middle_name).Set(Of String)("last_name", last_name).Set(Of String)("position", position).Set(Of String)("mobile_number", mobile_number).Set(Of String)("email", email).Set(Of String)("address", address).Set(Of String)("image", image_name)
+
+        tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
 
         Database_Close()
     End Sub
@@ -923,6 +1039,25 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
+        Dim update = Builders(Of BsonDocument).Update.Set(Of String)("name", name).Set(Of String)("mobile_number", mobile_number).Set(Of String)("address", address).Set(Of String)("nature_of_complaint", nature_of_complaint).Set(Of String)("description", description).Set(Of String)("image", image).Set(Of String)("status", status)
+
+        tbl_barangaycasesmanagement_barangaycases.UpdateOne(filter, update)
+
         Database_Close()
     End Sub
+
+    '====================== Password Functions ======================
+    Private Function Password_Verify(plainTextPassword As String, storedHashedPassword As String) As Boolean
+        Dim fixedHashedPassword As String = storedHashedPassword.Replace("$2y$", "$2a$")
+
+        Return Net.BCrypt.Verify(plainTextPassword, fixedHashedPassword)
+    End Function
+
+    Public Function Password_Hash(password As String)
+        Dim salt As String = Net.BCrypt.GenerateSalt()
+        Dim hashedPassword As String = Net.BCrypt.HashPassword(password, salt)
+
+        Return hashedPassword
+    End Function
 End Module

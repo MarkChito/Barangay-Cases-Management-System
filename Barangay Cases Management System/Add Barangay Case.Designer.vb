@@ -326,7 +326,7 @@ Partial Class Add_Barangay_Case
         txt_nature_of_complaint.DropDownStyle = ComboBoxStyle.DropDownList
         txt_nature_of_complaint.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txt_nature_of_complaint.FormattingEnabled = True
-        txt_nature_of_complaint.Items.AddRange(New Object() {"Accident                                        ", "Curfew Violation", "Harassment or Threats (Blotter)Noise Disturbance", "Illegal Dumping and Garbage", "Public Health and Sanitation", "Vandalism and Graffiti", "Public Safety Concerns", "Traffic Violations", "Property Disputes", "Public Nuisance", "Business Permits and Licenses", "Environmental Concerns", "Animal Control", "Disputes and Conflict Resolution", "Social Welfare and Assistance", "Other (Write the details in the description box)"})
+        txt_nature_of_complaint.Items.AddRange(New Object() {"Accident", "Curfew Violation", "Harassment or Threats (Blotter)Noise Disturbance", "Illegal Dumping and Garbage", "Public Health and Sanitation", "Vandalism and Graffiti", "Public Safety Concerns", "Traffic Violations", "Property Disputes", "Public Nuisance", "Business Permits and Licenses", "Environmental Concerns", "Animal Control", "Disputes and Conflict Resolution", "Social Welfare and Assistance", "Other (Write the details in the description box)"})
         txt_nature_of_complaint.Location = New Point(30, 264)
         txt_nature_of_complaint.Name = "txt_nature_of_complaint"
         txt_nature_of_complaint.Size = New Size(926, 28)

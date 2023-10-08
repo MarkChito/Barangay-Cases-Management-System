@@ -49,14 +49,24 @@ Public Class Account_Settings
             Dim errors As Integer = 0
 
             If Not Check_Username(txt_username.Text, old_username) Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 MsgBox("Username already exists!", MsgBoxStyle.Critical, "Error")
+
                 txt_username.Focus()
 
                 errors += 1
             End If
 
             If Not Check_RFID_Number(txt_rfid_number.Text, old_rfid_number) Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 MsgBox("RFID Number already exists!", MsgBoxStyle.Critical, "Error")
+
                 txt_rfid_number.Focus()
 
                 errors += 1
@@ -69,58 +79,80 @@ Public Class Account_Settings
 
                 MsgBox("Your account is successfully updated!", MsgBoxStyle.Information, "Success")
 
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 Me.Close()
             End If
         Else
+            btn_close.Visible = True
+            btn_submit.Enabled = True
+            btn_submit.Text = "&Submit Changes"
+
             MsgBox("Please complete all the required details!", MsgBoxStyle.Critical, "Error")
         End If
-
-        btn_close.Visible = True
-        btn_submit.Enabled = True
-        btn_submit.Text = "&Submit Changes"
-
-        Main.btn_temp.Focus()
     End Sub
 
     Private Function Verify_Password(password As String, confirm_password As String)
         Dim errorCount As Integer = 0
 
-        btn_close.Visible = True
-        btn_submit.Enabled = True
-        btn_submit.Text = "&Submit Changes"
-
         If Not password = "" Or Not confirm_password = "" Then
             If password <> confirm_password Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 ' Passwords do not match
                 MsgBox("Passwords do not match", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf password.Length < 8 Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 ' Password must be at least 8 characters long
                 MsgBox("Password must be at least 8 characters long", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[A-Z]") Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 ' Password must have at least one uppercase letter (A-Z)
                 MsgBox("Password must have at least one uppercase letter (A-Z)", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[a-z]") Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 ' Password must have at least one lowercase letter (a-z)
                 MsgBox("Password must have at least one lowercase letter (a-z)", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[0-9]") Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 ' Password must have at least one digit (0-9)
                 MsgBox("Password must have at least one digit (0-9)", MsgBoxStyle.Critical, "Error")
 
                 errorCount += 1
 
             ElseIf Not Regex.IsMatch(password, "[!@#$%^&*()_+\-=[\]{};':|,.<>/]") Then
+                btn_close.Visible = True
+                btn_submit.Enabled = True
+                btn_submit.Text = "&Submit Changes"
+
                 ' Password must have at least one special character
                 MsgBox("Password must have at least one special character (e.g., !@#$%^&*()_+-=[]{};':|,.<>/?)", MsgBoxStyle.Critical, "Error")
 

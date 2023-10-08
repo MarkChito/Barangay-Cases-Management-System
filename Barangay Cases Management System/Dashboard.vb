@@ -54,18 +54,14 @@
     End Sub
 
     Private Sub listview_employees_SizeChanged(sender As Object, e As EventArgs) Handles listview_employees.SizeChanged
-        Dim visibleColumnCount As Integer = listview_employees.Columns.Count - 2
-
-        If visibleColumnCount > 0 Then
-            Dim columnWidth As Integer = listview_employees.Width / visibleColumnCount
-
-            For i As Integer = 1 To listview_employees.Columns.Count - 2
-                listview_employees.Columns(i).Width = columnWidth
-            Next
-        End If
+        Dim listview_width As Integer = listview_employees.Width
 
         listview_employees.Columns(0).Width = 0
-        listview_employees.Columns(listview_employees.Columns.Count - 1).Width = 0
+        listview_employees.Columns(1).Width = listview_width * 0.15
+        listview_employees.Columns(2).Width = listview_width * 0.1
+        listview_employees.Columns(3).Width = listview_width * 0.25
+        listview_employees.Columns(4).Width = listview_width * 0.5
+        listview_employees.Columns(5).Width = 0
     End Sub
 
     Private Sub pnl_title_SizeChanged(sender As Object, e As EventArgs) Handles pnl_title.SizeChanged

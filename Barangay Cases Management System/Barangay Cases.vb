@@ -8,17 +8,20 @@
     End Sub
 
     Private Sub listview_employees_SizeChanged(sender As Object, e As EventArgs) Handles listview_employees.SizeChanged
-        Dim columnWidth As Integer = listview_employees.Width / (listview_employees.Columns.Count - 4)
         Dim visible_columns() As Integer = {1, 2, 3, 5, 6}
         Dim non_visible_columns() As Integer = {0, 4, 7, 8}
 
-        For Each visible_column As Integer In visible_columns
-            listview_employees.Columns(visible_column).Width = columnWidth
-        Next
+        Dim listview_width As Integer = listview_employees.Width
 
-        For Each non_visible_column As Integer In non_visible_columns
-            listview_employees.Columns(non_visible_column).Width = 0
-        Next
+        listview_employees.Columns(0).Width = 0
+        listview_employees.Columns(1).Width = listview_width * 0.15
+        listview_employees.Columns(2).Width = listview_width * 0.1
+        listview_employees.Columns(3).Width = listview_width * 0.2
+        listview_employees.Columns(4).Width = 0
+        listview_employees.Columns(5).Width = listview_width * 0.25
+        listview_employees.Columns(6).Width = listview_width * 0.3
+        listview_employees.Columns(7).Width = 0
+        listview_employees.Columns(8).Width = 0
     End Sub
 
     Private Sub btn_new_case_Click(sender As Object, e As EventArgs) Handles btn_new_case.Click

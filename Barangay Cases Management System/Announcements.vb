@@ -32,11 +32,13 @@ Public Class Announcements
     End Sub
 
     Private Sub listview_employees_SizeChanged(sender As Object, e As EventArgs) Handles listview_employees.SizeChanged
-        For i As Integer = 1 To listview_employees.Columns.Count - 1
-            listview_employees.Columns(i).Width = (listview_employees.Width - listview_employees.Columns(0).Width) / (listview_employees.Columns.Count - 1)
-        Next
+        Dim listview_width As Integer = listview_employees.Width
 
         listview_employees.Columns(0).Width = 0
+        listview_employees.Columns(1).Width = listview_width * 0.15
+        listview_employees.Columns(2).Width = listview_width * 0.1
+        listview_employees.Columns(3).Width = listview_width * 0.25
+        listview_employees.Columns(4).Width = listview_width * 0.5
     End Sub
 
     Private Sub btn_new_employee_Click(sender As Object, e As EventArgs) Handles btn_new_employee.Click

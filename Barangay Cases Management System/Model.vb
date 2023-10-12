@@ -1002,12 +1002,12 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Database_Close()
+
         Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
         Dim update = Builders(Of BsonDocument).Update.Set(Of String)("rfid_number", rfid_number).Set(Of String)("username", username).Set(Of String)("password", password)
 
         tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
-
-        Database_Close()
     End Sub
 
     Public Sub Update_Profile_Information(first_name As String, middle_name As String, last_name As String, position As String, mobile_number As String, email As String, address As String, image_name As String, primary_key As String)
@@ -1019,12 +1019,12 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Database_Close()
+
         Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
         Dim update = Builders(Of BsonDocument).Update.Set(Of String)("first_name", first_name).Set(Of String)("middle_name", middle_name).Set(Of String)("last_name", last_name).Set(Of String)("position", position).Set(Of String)("mobile_number", mobile_number).Set(Of String)("email", email).Set(Of String)("address", address).Set(Of String)("image", image_name)
 
         tbl_barangaycasesmanagement_useraccounts.UpdateOne(filter, update)
-
-        Database_Close()
     End Sub
 
     Public Sub Update_A_Barangay_Case(name As String, mobile_number As String, address As String, nature_of_complaint As String, description As String, image As String, status As String, primary_key As String)
@@ -1039,12 +1039,12 @@ Module Model
             .ExecuteNonQuery()
         End With
 
+        Database_Close()
+
         Dim filter = Builders(Of BsonDocument).Filter.Eq(Of String)("primary_key", primary_key)
         Dim update = Builders(Of BsonDocument).Update.Set(Of String)("name", name).Set(Of String)("mobile_number", mobile_number).Set(Of String)("address", address).Set(Of String)("nature_of_complaint", nature_of_complaint).Set(Of String)("description", description).Set(Of String)("image", image).Set(Of String)("status", status)
 
         tbl_barangaycasesmanagement_barangaycases.UpdateOne(filter, update)
-
-        Database_Close()
     End Sub
 
     '====================== Password Functions ======================

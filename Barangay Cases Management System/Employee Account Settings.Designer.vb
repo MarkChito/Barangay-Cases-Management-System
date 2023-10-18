@@ -166,6 +166,7 @@ Partial Class Employee_Account_Settings
         lbl_primary_key.Size = New Size(105, 15)
         lbl_primary_key.TabIndex = 16
         lbl_primary_key.Text = "Do Not Delete This"
+        lbl_primary_key.Visible = False
         ' 
         ' Panel10
         ' 

@@ -321,7 +321,7 @@ Partial Class Update_Profile
         txt_position.DropDownStyle = ComboBoxStyle.DropDownList
         txt_position.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txt_position.FormattingEnabled = True
-        txt_position.Items.AddRange(New Object() {"Barangay Captain", "Barangay Kagawad", "SK Chairman", "Barangay Secretary", "Barangay Treasurer", "Barangay Health Worker", "Barangay Tanod", "Barangay Health Officer"})
+        txt_position.Items.AddRange(New Object() {"Employee"})
         txt_position.Location = New Point(0, 272)
         txt_position.Name = "txt_position"
         txt_position.Size = New Size(346, 28)

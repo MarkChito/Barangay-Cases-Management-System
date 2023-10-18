@@ -76,6 +76,8 @@ Partial Class Main
         pnl_notification = New Panel()
         Label7 = New Label()
         pnl_account_details = New Panel()
+        btn_open_website = New Button()
+        btn_connect_to_mobile_app = New Button()
         btn_logout_2 = New Button()
         btn_developers = New Button()
         btn_account_settings = New Button()
@@ -742,6 +744,8 @@ Partial Class Main
         ' pnl_account_details
         ' 
         pnl_account_details.BackColor = Color.White
+        pnl_account_details.Controls.Add(btn_open_website)
+        pnl_account_details.Controls.Add(btn_connect_to_mobile_app)
         pnl_account_details.Controls.Add(btn_logout_2)
         pnl_account_details.Controls.Add(btn_developers)
         pnl_account_details.Controls.Add(btn_account_settings)
@@ -750,9 +754,49 @@ Partial Class Main
         pnl_account_details.Controls.Add(lbl_account_name)
         pnl_account_details.Location = New Point(1127, 33)
         pnl_account_details.Name = "pnl_account_details"
-        pnl_account_details.Size = New Size(207, 242)
+        pnl_account_details.Size = New Size(207, 332)
         pnl_account_details.TabIndex = 23
         pnl_account_details.Visible = False
+        ' 
+        ' btn_open_website
+        ' 
+        btn_open_website.AutoSize = True
+        btn_open_website.BackColor = Color.Transparent
+        btn_open_website.Cursor = Cursors.Hand
+        btn_open_website.FlatAppearance.MouseDownBackColor = Color.White
+        btn_open_website.FlatAppearance.MouseOverBackColor = Color.White
+        btn_open_website.FlatStyle = FlatStyle.Flat
+        btn_open_website.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btn_open_website.ForeColor = Color.Black
+        btn_open_website.Image = CType(resources.GetObject("btn_open_website.Image"), Image)
+        btn_open_website.ImageAlign = ContentAlignment.MiddleLeft
+        btn_open_website.Location = New Point(0, 151)
+        btn_open_website.Name = "btn_open_website"
+        btn_open_website.Size = New Size(207, 45)
+        btn_open_website.TabIndex = 10
+        btn_open_website.Text = "      Open Website"
+        btn_open_website.TextAlign = ContentAlignment.MiddleLeft
+        btn_open_website.UseVisualStyleBackColor = False
+        ' 
+        ' btn_connect_to_mobile_app
+        ' 
+        btn_connect_to_mobile_app.AutoSize = True
+        btn_connect_to_mobile_app.BackColor = Color.Transparent
+        btn_connect_to_mobile_app.Cursor = Cursors.Hand
+        btn_connect_to_mobile_app.FlatAppearance.MouseDownBackColor = Color.White
+        btn_connect_to_mobile_app.FlatAppearance.MouseOverBackColor = Color.White
+        btn_connect_to_mobile_app.FlatStyle = FlatStyle.Flat
+        btn_connect_to_mobile_app.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btn_connect_to_mobile_app.ForeColor = Color.Black
+        btn_connect_to_mobile_app.Image = CType(resources.GetObject("btn_connect_to_mobile_app.Image"), Image)
+        btn_connect_to_mobile_app.ImageAlign = ContentAlignment.MiddleLeft
+        btn_connect_to_mobile_app.Location = New Point(0, 196)
+        btn_connect_to_mobile_app.Name = "btn_connect_to_mobile_app"
+        btn_connect_to_mobile_app.Size = New Size(207, 45)
+        btn_connect_to_mobile_app.TabIndex = 9
+        btn_connect_to_mobile_app.Text = "      Connect to Mobile App"
+        btn_connect_to_mobile_app.TextAlign = ContentAlignment.MiddleLeft
+        btn_connect_to_mobile_app.UseVisualStyleBackColor = False
         ' 
         ' btn_logout_2
         ' 
@@ -766,7 +810,7 @@ Partial Class Main
         btn_logout_2.ForeColor = Color.Black
         btn_logout_2.Image = CType(resources.GetObject("btn_logout_2.Image"), Image)
         btn_logout_2.ImageAlign = ContentAlignment.MiddleLeft
-        btn_logout_2.Location = New Point(0, 196)
+        btn_logout_2.Location = New Point(0, 286)
         btn_logout_2.Name = "btn_logout_2"
         btn_logout_2.Size = New Size(207, 45)
         btn_logout_2.TabIndex = 8
@@ -786,7 +830,7 @@ Partial Class Main
         btn_developers.ForeColor = Color.Black
         btn_developers.Image = CType(resources.GetObject("btn_developers.Image"), Image)
         btn_developers.ImageAlign = ContentAlignment.MiddleLeft
-        btn_developers.Location = New Point(0, 151)
+        btn_developers.Location = New Point(0, 241)
         btn_developers.Name = "btn_developers"
         btn_developers.Size = New Size(207, 45)
         btn_developers.TabIndex = 7
@@ -1016,4 +1060,6 @@ Partial Class Main
     Friend WithEvents btn_temp_notification As Button
     Friend WithEvents txt_search As TextBox
     Friend WithEvents Edit_Barangay_Case As Edit_Barangay_Case
+    Friend WithEvents btn_open_website As Button
+    Friend WithEvents btn_connect_to_mobile_app As Button
 End Class

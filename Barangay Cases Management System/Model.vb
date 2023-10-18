@@ -4,6 +4,7 @@ Imports MongoDB.Bson
 Imports BCrypt
 Imports MySql.Data.MySqlClient
 Imports System.Net.Http
+Imports System.Net
 
 Module Model
     Public connection As New MySqlConnection
@@ -11,8 +12,16 @@ Module Model
     Public adapter As New MySqlDataAdapter
     Public table As New DataTable
 
-    Public ReadOnly online_connection = "https://"
-    Public ReadOnly localhost_connection = "http://localhost/"
+    Public host_name As String = Dns.GetHostName()
+    Public host_entry As IPHostEntry = Dns.GetHostEntry(host_name)
+    Public ip_address As IPAddress = host_entry.AddressList(host_entry.AddressList.Length - 1)
+
+    Public online_connection As String = "https://"
+    Public offline_connection As String = "http://" & ip_address.ToString() & "/"
+    'Public offline_connection As String = "http://localhost/"
+
+    ' CHANGE THIS WHEN CONNECTING ONLINE
+    Public ReadOnly connection_type = offline_connection
 
     Public url As String = connection_type & "barangaycasesmanagement.ssystem.online/"
     Public primary_key As String = ""
@@ -24,12 +33,9 @@ Module Model
     Private tbl_barangaycasesmanagement_citizens As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_citizens")
     Private tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_useraccounts")
 
-    ' CHANGE THIS WHEN CONNECTING ONLINE
-    Public ReadOnly connection_type = online_connection
-
     '====================== MongoDB Functions ======================
     Public Function MongoDB_Database_Name()
-        Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net/?retryWrites=true&w=majority"
+        Dim online_connectionString As String = "mongodb+srv://admin:admin123@cluster0.aw3fjxd.mongodb.net"
         Dim offline_connectionString As String = "mongodb://localhost:27017"
         Dim connectionString As String
 
@@ -113,7 +119,9 @@ Module Model
             "connect timeout=" & connection_timeout & ";" &
             "old guids=" & old_guids & ";"
         Try
-            connection.Open()
+            If connection.State = ConnectionState.Closed Then
+                connection.Open()
+            End If
         Catch ex As Exception
             Splash_Screen.Timer1.Stop()
 
@@ -130,7 +138,9 @@ Module Model
     End Sub
 
     Public Sub Database_Close()
-        connection.Close()
+        If connection.State = ConnectionState.Open Then
+            connection.Close()
+        End If
     End Sub
 
     Public Sub Initialize()
@@ -406,7 +416,10 @@ Module Model
                     Dim imageBytes As Byte() = Await httpClient.GetByteArrayAsync(imageUrl)
                     File.WriteAllBytes(localImagePath, imageBytes)
                 Catch ex As Exception
-                    MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
+                    'MsgBox("Check your internet connection and try again!", MsgBoxStyle.Critical, "Connection Failed")
+                    MsgBox(ex.ToString(), MsgBoxStyle.Critical, "Connection Failed")
+
+                    Login.Close()
                     Application.Exit()
                 End Try
             End If

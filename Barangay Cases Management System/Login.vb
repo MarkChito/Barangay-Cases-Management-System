@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Net
 
 Public Class Login
     Public password_hidden As Boolean = True
@@ -171,7 +172,7 @@ Public Class Login
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterPanel()
-        Open_File()
+        'Open_File()
     End Sub
 
     Private Sub Login_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

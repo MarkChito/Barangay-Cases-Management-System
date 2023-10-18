@@ -1,5 +1,9 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Globalization
+Imports ZXing
+Imports ZXing.QrCode
+Imports ZXing.QrCode.Internal
+Imports ZXing.Windows.Compatibility
 
 Public Class Main
     Public sidebar_visible As Boolean = True
@@ -9,8 +13,6 @@ Public Class Main
     Public current_tab As String = ""
     Public employee_primary_key As String = ""
     Public is_image_capture_buttons_moved As Boolean = False
-
-    Private is_account_buttons_clicked As Boolean = False
 
     Private Sub Logout()
         btn_temp.Focus()
@@ -546,6 +548,7 @@ Public Class Main
         End If
 
         Hide_Account_Details()
+        Hide_Notification()
     End Sub
 
     Public Sub Hide_Account_Details()
@@ -579,6 +582,10 @@ Public Class Main
         End If
 
         lbl_account_position.Text = result("position")
+
+        If Not result("position") = "Employee" Then
+            lbl_account_position.Text = "Administrator"
+        End If
 
         With lbl_account_name
             pnl_account_details.Width = .Width
@@ -637,15 +644,21 @@ Public Class Main
     End Sub
 
     Private Sub btn_account_Click(sender As Object, e As EventArgs) Handles btn_account.Click
-        pnl_account_details_visible = True
+        Hide_Notification()
 
-        With pnl_account_details
-            .Visible = True
-            .Location = New Point(pnl_body.Width - pnl_account_details.Width - 5, btn_account.Location.Y + 35)
-            .BringToFront()
-        End With
+        If Not pnl_account_details_visible Then
+            pnl_account_details_visible = True
 
-        btn_temp_account.Focus()
+            With pnl_account_details
+                .Visible = True
+                .Location = New Point(pnl_body.Width - pnl_account_details.Width - 5, btn_account.Location.Y + 35)
+                .BringToFront()
+            End With
+        Else
+            Hide_Account_Details()
+        End If
+
+        btn_temp.Focus()
     End Sub
 
     Private Sub pnl_footer_outer_SizeChanged(sender As Object, e As EventArgs) Handles pnl_footer_outer.SizeChanged
@@ -792,6 +805,7 @@ Public Class Main
     End Sub
 
     Private Sub img_notification_Click(sender As Object, e As EventArgs) Handles img_notification.Click
+        Hide_Account_Details()
         btn_temp_notification.Focus()
 
         If Not pnl_account_notification_visible Then
@@ -843,22 +857,8 @@ Public Class Main
         btn_temp.Focus()
     End Sub
 
-    Private Sub btn_temp_account_LostFocus(sender As Object, e As EventArgs) Handles btn_temp_account.LostFocus
-        If Not is_account_buttons_clicked Then
-            Hide_Account_Details()
-        End If
-    End Sub
-
     Private Sub btn_temp_notification_LostFocus(sender As Object, e As EventArgs) Handles btn_temp_notification.LostFocus
         Hide_Notification()
-    End Sub
-
-    Private Sub account_btns_MouseEnter(sender As Object, e As EventArgs) Handles btn_my_profile.MouseEnter, btn_account_settings.MouseEnter, btn_developers.MouseEnter, btn_logout_2.MouseEnter, btn_my_profile.Enter, btn_account_settings.Enter, btn_developers.Enter, btn_logout_2.Enter
-        is_account_buttons_clicked = True
-    End Sub
-
-    Private Sub account_btns_MouseLeave(sender As Object, e As EventArgs) Handles btn_my_profile.MouseLeave, btn_account_settings.MouseLeave, btn_developers.MouseLeave, btn_logout_2.MouseLeave, btn_my_profile.Leave, btn_account_settings.Leave, btn_developers.Leave, btn_logout_2.Leave
-        is_account_buttons_clicked = False
     End Sub
 
     Private Sub txt_search_TextChanged(sender As Object, e As EventArgs) Handles txt_search.TextChanged
@@ -909,5 +909,48 @@ Public Class Main
 
             txt_search.Clear()
         End If
+    End Sub
+
+    Private Sub btn_open_website_Click(sender As Object, e As EventArgs) Handles btn_open_website.Click
+        Hide_Account_Details()
+
+        Dim chrome_path_x86 As String = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+        Dim chrome_path_x64 As String = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+        If IO.File.Exists(chrome_path_x86) Then
+            Process.Start(chrome_path_x86, url)
+        ElseIf IO.File.Exists(chrome_path_x64) Then
+            Process.Start(chrome_path_x64, url)
+        Else
+            MsgBox("Please install Google Chrome to enable this feature...", MsgBoxStyle.Critical, "No Google Chrome Installed")
+        End If
+
+        btn_temp.Focus()
+    End Sub
+
+    Private Sub btn_connect_to_mobile_app_Click(sender As Object, e As EventArgs) Handles btn_connect_to_mobile_app.Click
+        Hide_Account_Details()
+
+        Dim textToEncode As String = ip_address.ToString()
+        Dim qrCodeWriter As New BarcodeWriter(Of Bitmap) With {
+            .Format = BarcodeFormat.QR_CODE
+        }
+        Dim encodingOptions As New QrCodeEncodingOptions With {
+            .CharacterSet = "UTF-8",
+            .ErrorCorrection = ErrorCorrectionLevel.H
+        }
+
+        qrCodeWriter.Options = encodingOptions
+        qrCodeWriter.Renderer = New BitmapRenderer()
+
+        Dim qrCodeBitmap As Bitmap = qrCodeWriter.Write(textToEncode)
+
+        With Connect_to_Mobile_App
+            .PictureBox1.Image = qrCodeBitmap
+            .txt_ipaddress.Text = ip_address.ToString()
+            .ShowDialog()
+        End With
+
+        btn_temp.Focus()
     End Sub
 End Class

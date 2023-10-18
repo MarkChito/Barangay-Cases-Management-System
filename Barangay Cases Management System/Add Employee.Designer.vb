@@ -30,6 +30,7 @@ Partial Class Add_Employee
         Panel1 = New Panel()
         lbl_title = New Label()
         Panel3 = New Panel()
+        btn_temp = New Button()
         Label9 = New Label()
         Label10 = New Label()
         txt_confirm_password = New TextBox()
@@ -53,7 +54,6 @@ Partial Class Add_Employee
         txt_first_name = New TextBox()
         Label1 = New Label()
         Button1 = New Button()
-        btn_temp = New Button()
         CType(img_user, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         Panel1.SuspendLayout()
@@ -165,6 +165,15 @@ Partial Class Add_Employee
         Panel3.Size = New Size(1000, 610)
         Panel3.TabIndex = 4
         ' 
+        ' btn_temp
+        ' 
+        btn_temp.Location = New Point(103, -84)
+        btn_temp.Name = "btn_temp"
+        btn_temp.Size = New Size(75, 23)
+        btn_temp.TabIndex = 63
+        btn_temp.Text = "Button2"
+        btn_temp.UseVisualStyleBackColor = True
+        ' 
         ' Label9
         ' 
         Label9.AutoSize = True
@@ -254,7 +263,7 @@ Partial Class Add_Employee
         txt_position.DropDownStyle = ComboBoxStyle.DropDownList
         txt_position.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         txt_position.FormattingEnabled = True
-        txt_position.Items.AddRange(New Object() {"Barangay Captain", "Barangay Kagawad", "SK Chairman", "Barangay Secretary", "Barangay Treasurer", "Barangay Health Worker", "Barangay Tanod", "Barangay Health Officer"})
+        txt_position.Items.AddRange(New Object() {"Employee"})
         txt_position.Location = New Point(514, 395)
         txt_position.Name = "txt_position"
         txt_position.Size = New Size(465, 28)
@@ -404,15 +413,6 @@ Partial Class Add_Employee
         Button1.TabIndex = 11
         Button1.Text = "Choose &File"
         Button1.UseVisualStyleBackColor = False
-        ' 
-        ' btn_temp
-        ' 
-        btn_temp.Location = New Point(103, -84)
-        btn_temp.Name = "btn_temp"
-        btn_temp.Size = New Size(75, 23)
-        btn_temp.TabIndex = 63
-        btn_temp.Text = "Button2"
-        btn_temp.UseVisualStyleBackColor = True
         ' 
         ' Add_Employee
         ' 

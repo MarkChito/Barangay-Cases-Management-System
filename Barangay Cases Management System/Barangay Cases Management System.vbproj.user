@@ -28,6 +28,9 @@
     <Compile Update="Barangay News.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Connect to Mobile App.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Dashboard.vb">
       <SubType>UserControl</SubType>
     </Compile>

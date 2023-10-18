@@ -29,6 +29,8 @@
     <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.21.0" />
     <PackageReference Include="MySql.Data" Version="8.1.0" />
+    <PackageReference Include="ZXing.Net" Version="0.16.9" />
+    <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.12" />
   </ItemGroup>
 
   <ItemGroup>

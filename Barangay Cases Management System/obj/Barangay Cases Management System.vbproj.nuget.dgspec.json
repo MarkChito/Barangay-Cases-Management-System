@@ -59,6 +59,14 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[8.1.0, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.9, )"
+            },
+            "ZXing.Net.Bindings.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[0.16.12, )"
             }
           },
           "imports": [

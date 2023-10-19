@@ -94,20 +94,16 @@ Public Class Main
             With Pending_Cases
                 Dim lvi As ListViewItem
                 Dim parsedDate As DateTime
-                Dim parsedTime As DateTime
 
                 Dim inputDate = row("date").ToString()
-                Dim inputTime = row("time").ToString()
 
                 DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedDate)
-                DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
 
-                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
-                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
+                Dim formattedDate As String = parsedDate.ToString("MMMM d, yyyy")
 
                 lvi = .listview_employees.Items.Add(row("primary_key").ToString())
                 lvi.SubItems.Add(formattedDate)
-                lvi.SubItems.Add(formattedTime)
+                lvi.SubItems.Add(row("time").ToString())
                 lvi.SubItems.Add(row("name").ToString())
                 lvi.SubItems.Add(row("mobile_number").ToString())
                 lvi.SubItems.Add(row("address").ToString())
@@ -127,20 +123,16 @@ Public Class Main
             With Barangay_Cases
                 Dim lvi As ListViewItem
                 Dim parsedDate As DateTime
-                Dim parsedTime As DateTime
 
                 Dim inputDate = row("date").ToString()
-                Dim inputTime = row("time").ToString()
 
                 DateTime.TryParseExact(inputDate, "yyyy-MM-dd", Nothing, DateTimeStyles.None, parsedDate)
-                DateTime.TryParseExact(inputTime, "HH:mm:ss", Nothing, DateTimeStyles.None, parsedTime)
 
-                Dim formattedDate As String = parsedTime.ToString("MMMM d, yyyy")
-                Dim formattedTime As String = parsedTime.ToString("hh:mm tt")
+                Dim formattedDate As String = parsedDate.ToString("MMMM d, yyyy")
 
                 lvi = .listview_employees.Items.Add(row("primary_key").ToString())
                 lvi.SubItems.Add(formattedDate)
-                lvi.SubItems.Add(formattedTime)
+                lvi.SubItems.Add(row("time").ToString())
                 lvi.SubItems.Add(row("name").ToString())
                 lvi.SubItems.Add(row("mobile_number").ToString())
                 lvi.SubItems.Add(row("address").ToString())

@@ -50,7 +50,7 @@ Partial Class Connect_to_Mobile_App
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(btn_close)
         Panel4.Dock = DockStyle.Bottom
-        Panel4.Location = New Point(0, 415)
+        Panel4.Location = New Point(0, 433)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(374, 45)
         Panel4.TabIndex = 5
@@ -107,14 +107,14 @@ Partial Class Connect_to_Mobile_App
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(0, 45)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(374, 370)
+        Panel2.Size = New Size(374, 388)
         Panel2.TabIndex = 6
         ' 
         ' txt_ipaddress
         ' 
         txt_ipaddress.BackColor = Color.White
         txt_ipaddress.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        txt_ipaddress.Location = New Point(86, 329)
+        txt_ipaddress.Location = New Point(86, 349)
         txt_ipaddress.Name = "txt_ipaddress"
         txt_ipaddress.ReadOnly = True
         txt_ipaddress.Size = New Size(275, 26)
@@ -126,7 +126,7 @@ Partial Class Connect_to_Mobile_App
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label7.Location = New Point(83, 276)
+        Label7.Location = New Point(83, 296)
         Label7.Name = "Label7"
         Label7.Size = New Size(270, 40)
         Label7.TabIndex = 8
@@ -136,7 +136,7 @@ Partial Class Connect_to_Mobile_App
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.Location = New Point(10, 276)
+        Label8.Location = New Point(10, 296)
         Label8.Name = "Label8"
         Label8.Size = New Size(67, 20)
         Label8.TabIndex = 7
@@ -146,7 +146,7 @@ Partial Class Connect_to_Mobile_App
         ' 
         PictureBox1.BorderStyle = BorderStyle.FixedSingle
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(136, 163)
+        PictureBox1.Location = New Point(136, 183)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(100, 100)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
@@ -157,7 +157,7 @@ Partial Class Connect_to_Mobile_App
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(83, 110)
+        Label5.Location = New Point(83, 130)
         Label5.Name = "Label5"
         Label5.Size = New Size(278, 40)
         Label5.TabIndex = 5
@@ -167,7 +167,7 @@ Partial Class Connect_to_Mobile_App
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.Location = New Point(10, 110)
+        Label6.Location = New Point(10, 130)
         Label6.Name = "Label6"
         Label6.Size = New Size(67, 20)
         Label6.TabIndex = 4
@@ -179,9 +179,9 @@ Partial Class Connect_to_Mobile_App
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label4.Location = New Point(83, 60)
         Label4.Name = "Label4"
-        Label4.Size = New Size(255, 40)
+        Label4.Size = New Size(271, 60)
         Label4.TabIndex = 3
-        Label4.Text = "Click ""Scan QR Code"" or ""Enter IP " & vbCrLf & "Address Manually""."
+        Label4.Text = "Click ""Scan QR Code"" or ""Enter IP " & vbCrLf & "Address Manually"" if second option is" & vbCrLf & "selected."
         ' 
         ' Label3
         ' 
@@ -199,9 +199,9 @@ Partial Class Connect_to_Mobile_App
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label2.Location = New Point(83, 10)
         Label2.Name = "Label2"
-        Label2.Size = New Size(282, 40)
+        Label2.Size = New Size(285, 40)
         Label2.TabIndex = 1
-        Label2.Text = "Open your Mobile App and navigate to " & vbCrLf & """Offline Connection""."
+        Label2.Text = "Open your Mobile App and click ""Online" & vbCrLf & "Connection"" or ""Offline Connection"""
         ' 
         ' Label1
         ' 
@@ -218,7 +218,7 @@ Partial Class Connect_to_Mobile_App
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(374, 460)
+        ClientSize = New Size(374, 478)
         Controls.Add(Panel2)
         Controls.Add(Panel4)
         Controls.Add(Panel1)

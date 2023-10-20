@@ -5,6 +5,8 @@ Imports BCrypt
 Imports MySql.Data.MySqlClient
 Imports System.Net.Http
 Imports System.Net
+Imports System.Net.Sockets
+Imports System.Net.NetworkInformation
 
 Module Model
     Public connection As New MySqlConnection
@@ -12,13 +14,14 @@ Module Model
     Public adapter As New MySqlDataAdapter
     Public table As New DataTable
 
-    Public host_name As String = Dns.GetHostName()
-    Public host_entry As IPHostEntry = Dns.GetHostEntry(host_name)
-    Public ip_address As IPAddress = host_entry.AddressList(host_entry.AddressList.Length - 1)
+    'Public host_name As String = Dns.GetHostName()
+    'Public host_entry As IPHostEntry = Dns.GetHostEntry(host_name)
+    'Public ip_address As IPAddress = host_entry.AddressList.FirstOrDefault(Function(ip) ip.AddressFamily = AddressFamily.InterNetwork)
+
+    Public ip_address As IPAddress = GetIPv4WithDefaultGateway()
 
     Public online_connection As String = "https://"
     Public offline_connection As String = "http://" & ip_address.ToString() & "/"
-    'Public offline_connection As String = "http://localhost/"
 
     ' CHANGE THIS WHEN CONNECTING ONLINE
     Public ReadOnly connection_type = offline_connection
@@ -32,6 +35,27 @@ Module Model
     Private tbl_barangaycasesmanagement_barangaynews As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_barangaynews")
     Private tbl_barangaycasesmanagement_citizens As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_citizens")
     Private tbl_barangaycasesmanagement_useraccounts As IMongoCollection(Of BsonDocument) = MongoDB_Table_Name("tbl_barangaycasesmanagement_useraccounts")
+
+    Private Function GetIPv4WithDefaultGateway() As IPAddress
+        Dim networkInterfaces As NetworkInterface() = NetworkInterface.GetAllNetworkInterfaces()
+
+        For Each networkInterface As NetworkInterface In networkInterfaces
+            Dim ipProperties As IPInterfaceProperties = networkInterface.GetIPProperties()
+            Dim gateways As GatewayIPAddressInformationCollection = ipProperties.GatewayAddresses
+
+            ' Check if there is at least one gateway address (default gateway).
+            If gateways.Count > 0 Then
+                For Each unicastIPAddress In ipProperties.UnicastAddresses
+                    ' Check if it's an IPv4 address and return it.
+                    If unicastIPAddress.Address.AddressFamily = AddressFamily.InterNetwork Then
+                        Return unicastIPAddress.Address
+                    End If
+                Next
+            End If
+        Next
+
+        Return Nothing
+    End Function
 
     '====================== MongoDB Functions ======================
     Public Function MongoDB_Database_Name()

@@ -38,16 +38,18 @@ Partial Class Main
         PictureBox2 = New PictureBox()
         Timer1 = New Timer(components)
         pnl_sidebar = New Panel()
+        btn_logout = New Button()
+        Panel8 = New Panel()
+        Label3 = New Label()
+        btn_barangay_news = New Button()
+        Panel1 = New Panel()
         btn_temp_notification = New Button()
         btn_temp_account = New Button()
-        btn_logout = New Button()
-        Panel11 = New Panel()
-        Label6 = New Label()
-        btn_barangay_news = New Button()
-        Panel10 = New Panel()
         btn_announcements = New Button()
-        Panel9 = New Panel()
+        Panel10 = New Panel()
         btn_employees = New Button()
+        Panel9 = New Panel()
+        btn_citizens = New Button()
         pnl_spacer_btn_employees = New Panel()
         btn_pending_cases = New Button()
         Panel6 = New Panel()
@@ -96,7 +98,7 @@ Partial Class Main
         pnl_banner.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         pnl_sidebar.SuspendLayout()
-        Panel11.SuspendLayout()
+        Panel8.SuspendLayout()
         Panel5.SuspendLayout()
         pnl_footer_outer.SuspendLayout()
         pnl_footer_inner.SuspendLayout()
@@ -225,6 +227,7 @@ Partial Class Main
         ' 
         ' pnl_banner
         ' 
+        pnl_banner.BackColor = Color.White
         pnl_banner.Controls.Add(Label4)
         pnl_banner.Controls.Add(PictureBox2)
         pnl_banner.Dock = DockStyle.Left
@@ -261,16 +264,18 @@ Partial Class Main
         ' 
         ' pnl_sidebar
         ' 
-        pnl_sidebar.BackColor = Color.White
+        pnl_sidebar.BackColor = Color.FromArgb(CByte(52), CByte(58), CByte(64))
+        pnl_sidebar.Controls.Add(btn_logout)
+        pnl_sidebar.Controls.Add(Panel8)
+        pnl_sidebar.Controls.Add(btn_barangay_news)
+        pnl_sidebar.Controls.Add(Panel1)
         pnl_sidebar.Controls.Add(btn_temp_notification)
         pnl_sidebar.Controls.Add(btn_temp_account)
-        pnl_sidebar.Controls.Add(btn_logout)
-        pnl_sidebar.Controls.Add(Panel11)
-        pnl_sidebar.Controls.Add(btn_barangay_news)
-        pnl_sidebar.Controls.Add(Panel10)
         pnl_sidebar.Controls.Add(btn_announcements)
-        pnl_sidebar.Controls.Add(Panel9)
+        pnl_sidebar.Controls.Add(Panel10)
         pnl_sidebar.Controls.Add(btn_employees)
+        pnl_sidebar.Controls.Add(Panel9)
+        pnl_sidebar.Controls.Add(btn_citizens)
         pnl_sidebar.Controls.Add(pnl_spacer_btn_employees)
         pnl_sidebar.Controls.Add(btn_pending_cases)
         pnl_sidebar.Controls.Add(Panel6)
@@ -285,6 +290,77 @@ Partial Class Main
         pnl_sidebar.Name = "pnl_sidebar"
         pnl_sidebar.Size = New Size(288, 728)
         pnl_sidebar.TabIndex = 11
+        ' 
+        ' btn_logout
+        ' 
+        btn_logout.BackColor = Color.Transparent
+        btn_logout.Cursor = Cursors.Hand
+        btn_logout.Dock = DockStyle.Top
+        btn_logout.FlatAppearance.BorderSize = 0
+        btn_logout.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_logout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_logout.FlatStyle = FlatStyle.Flat
+        btn_logout.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_logout.ForeColor = Color.White
+        btn_logout.Image = CType(resources.GetObject("btn_logout.Image"), Image)
+        btn_logout.ImageAlign = ContentAlignment.MiddleLeft
+        btn_logout.Location = New Point(21, 448)
+        btn_logout.Name = "btn_logout"
+        btn_logout.Size = New Size(267, 44)
+        btn_logout.TabIndex = 40
+        btn_logout.Text = "      Logout"
+        btn_logout.TextAlign = ContentAlignment.MiddleLeft
+        btn_logout.UseVisualStyleBackColor = False
+        ' 
+        ' Panel8
+        ' 
+        Panel8.Controls.Add(Label3)
+        Panel8.Dock = DockStyle.Top
+        Panel8.Location = New Point(21, 408)
+        Panel8.Name = "Panel8"
+        Panel8.Size = New Size(267, 40)
+        Panel8.TabIndex = 39
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.BackColor = Color.Transparent
+        Label3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.ForeColor = SystemColors.ControlDark
+        Label3.Location = New Point(6, 21)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(62, 16)
+        Label3.TabIndex = 3
+        Label3.Text = "Account"
+        ' 
+        ' btn_barangay_news
+        ' 
+        btn_barangay_news.BackColor = Color.Transparent
+        btn_barangay_news.Cursor = Cursors.Hand
+        btn_barangay_news.Dock = DockStyle.Top
+        btn_barangay_news.FlatAppearance.BorderSize = 0
+        btn_barangay_news.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_barangay_news.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_barangay_news.FlatStyle = FlatStyle.Flat
+        btn_barangay_news.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_barangay_news.ForeColor = Color.White
+        btn_barangay_news.Image = CType(resources.GetObject("btn_barangay_news.Image"), Image)
+        btn_barangay_news.ImageAlign = ContentAlignment.MiddleLeft
+        btn_barangay_news.Location = New Point(21, 364)
+        btn_barangay_news.Name = "btn_barangay_news"
+        btn_barangay_news.Size = New Size(267, 44)
+        btn_barangay_news.TabIndex = 38
+        btn_barangay_news.Text = "      Barangay News"
+        btn_barangay_news.TextAlign = ContentAlignment.MiddleLeft
+        btn_barangay_news.UseVisualStyleBackColor = False
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Dock = DockStyle.Top
+        Panel1.Location = New Point(21, 354)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(267, 10)
+        Panel1.TabIndex = 37
         ' 
         ' btn_temp_notification
         ' 
@@ -304,68 +380,26 @@ Partial Class Main
         btn_temp_account.Text = "Button1"
         btn_temp_account.UseVisualStyleBackColor = True
         ' 
-        ' btn_logout
+        ' btn_announcements
         ' 
-        btn_logout.BackColor = Color.Transparent
-        btn_logout.Cursor = Cursors.Hand
-        btn_logout.Dock = DockStyle.Top
-        btn_logout.FlatAppearance.BorderSize = 0
-        btn_logout.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_logout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_logout.FlatStyle = FlatStyle.Flat
-        btn_logout.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_logout.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_logout.Image = CType(resources.GetObject("btn_logout.Image"), Image)
-        btn_logout.ImageAlign = ContentAlignment.MiddleLeft
-        btn_logout.Location = New Point(21, 389)
-        btn_logout.Name = "btn_logout"
-        btn_logout.Size = New Size(267, 44)
-        btn_logout.TabIndex = 34
-        btn_logout.Text = "      Logout"
-        btn_logout.TextAlign = ContentAlignment.MiddleLeft
-        btn_logout.UseVisualStyleBackColor = False
-        ' 
-        ' Panel11
-        ' 
-        Panel11.Controls.Add(Label6)
-        Panel11.Dock = DockStyle.Top
-        Panel11.Location = New Point(21, 354)
-        Panel11.Name = "Panel11"
-        Panel11.Size = New Size(267, 35)
-        Panel11.TabIndex = 33
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.BackColor = Color.Transparent
-        Label6.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.ForeColor = SystemColors.ControlDark
-        Label6.Location = New Point(6, 16)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(62, 16)
-        Label6.TabIndex = 9
-        Label6.Text = "Account"
-        ' 
-        ' btn_barangay_news
-        ' 
-        btn_barangay_news.BackColor = Color.Transparent
-        btn_barangay_news.Cursor = Cursors.Hand
-        btn_barangay_news.Dock = DockStyle.Top
-        btn_barangay_news.FlatAppearance.BorderSize = 0
-        btn_barangay_news.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_news.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_news.FlatStyle = FlatStyle.Flat
-        btn_barangay_news.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_barangay_news.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_barangay_news.Image = CType(resources.GetObject("btn_barangay_news.Image"), Image)
-        btn_barangay_news.ImageAlign = ContentAlignment.MiddleLeft
-        btn_barangay_news.Location = New Point(21, 310)
-        btn_barangay_news.Name = "btn_barangay_news"
-        btn_barangay_news.Size = New Size(267, 44)
-        btn_barangay_news.TabIndex = 32
-        btn_barangay_news.Text = "      Barangay News"
-        btn_barangay_news.TextAlign = ContentAlignment.MiddleLeft
-        btn_barangay_news.UseVisualStyleBackColor = False
+        btn_announcements.BackColor = Color.Transparent
+        btn_announcements.Cursor = Cursors.Hand
+        btn_announcements.Dock = DockStyle.Top
+        btn_announcements.FlatAppearance.BorderSize = 0
+        btn_announcements.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_announcements.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_announcements.FlatStyle = FlatStyle.Flat
+        btn_announcements.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_announcements.ForeColor = Color.White
+        btn_announcements.Image = CType(resources.GetObject("btn_announcements.Image"), Image)
+        btn_announcements.ImageAlign = ContentAlignment.MiddleLeft
+        btn_announcements.Location = New Point(21, 310)
+        btn_announcements.Name = "btn_announcements"
+        btn_announcements.Size = New Size(267, 44)
+        btn_announcements.TabIndex = 32
+        btn_announcements.Text = "      Announcements"
+        btn_announcements.TextAlign = ContentAlignment.MiddleLeft
+        btn_announcements.UseVisualStyleBackColor = False
         ' 
         ' Panel10
         ' 
@@ -375,26 +409,26 @@ Partial Class Main
         Panel10.Size = New Size(267, 10)
         Panel10.TabIndex = 31
         ' 
-        ' btn_announcements
+        ' btn_employees
         ' 
-        btn_announcements.BackColor = Color.Transparent
-        btn_announcements.Cursor = Cursors.Hand
-        btn_announcements.Dock = DockStyle.Top
-        btn_announcements.FlatAppearance.BorderSize = 0
-        btn_announcements.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_announcements.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_announcements.FlatStyle = FlatStyle.Flat
-        btn_announcements.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_announcements.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_announcements.Image = CType(resources.GetObject("btn_announcements.Image"), Image)
-        btn_announcements.ImageAlign = ContentAlignment.MiddleLeft
-        btn_announcements.Location = New Point(21, 256)
-        btn_announcements.Name = "btn_announcements"
-        btn_announcements.Size = New Size(267, 44)
-        btn_announcements.TabIndex = 30
-        btn_announcements.Text = "      Announcements"
-        btn_announcements.TextAlign = ContentAlignment.MiddleLeft
-        btn_announcements.UseVisualStyleBackColor = False
+        btn_employees.BackColor = Color.Transparent
+        btn_employees.Cursor = Cursors.Hand
+        btn_employees.Dock = DockStyle.Top
+        btn_employees.FlatAppearance.BorderSize = 0
+        btn_employees.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_employees.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_employees.FlatStyle = FlatStyle.Flat
+        btn_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_employees.ForeColor = Color.White
+        btn_employees.Image = CType(resources.GetObject("btn_employees.Image"), Image)
+        btn_employees.ImageAlign = ContentAlignment.MiddleLeft
+        btn_employees.Location = New Point(21, 256)
+        btn_employees.Name = "btn_employees"
+        btn_employees.Size = New Size(267, 44)
+        btn_employees.TabIndex = 30
+        btn_employees.Text = "      Employees"
+        btn_employees.TextAlign = ContentAlignment.MiddleLeft
+        btn_employees.UseVisualStyleBackColor = False
         ' 
         ' Panel9
         ' 
@@ -404,26 +438,26 @@ Partial Class Main
         Panel9.Size = New Size(267, 10)
         Panel9.TabIndex = 29
         ' 
-        ' btn_employees
+        ' btn_citizens
         ' 
-        btn_employees.BackColor = Color.Transparent
-        btn_employees.Cursor = Cursors.Hand
-        btn_employees.Dock = DockStyle.Top
-        btn_employees.FlatAppearance.BorderSize = 0
-        btn_employees.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_employees.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_employees.FlatStyle = FlatStyle.Flat
-        btn_employees.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_employees.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
-        btn_employees.Image = CType(resources.GetObject("btn_employees.Image"), Image)
-        btn_employees.ImageAlign = ContentAlignment.MiddleLeft
-        btn_employees.Location = New Point(21, 202)
-        btn_employees.Name = "btn_employees"
-        btn_employees.Size = New Size(267, 44)
-        btn_employees.TabIndex = 28
-        btn_employees.Text = "      Employees"
-        btn_employees.TextAlign = ContentAlignment.MiddleLeft
-        btn_employees.UseVisualStyleBackColor = False
+        btn_citizens.BackColor = Color.Transparent
+        btn_citizens.Cursor = Cursors.Hand
+        btn_citizens.Dock = DockStyle.Top
+        btn_citizens.FlatAppearance.BorderSize = 0
+        btn_citizens.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_citizens.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_citizens.FlatStyle = FlatStyle.Flat
+        btn_citizens.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_citizens.ForeColor = Color.White
+        btn_citizens.Image = CType(resources.GetObject("btn_citizens.Image"), Image)
+        btn_citizens.ImageAlign = ContentAlignment.MiddleLeft
+        btn_citizens.Location = New Point(21, 202)
+        btn_citizens.Name = "btn_citizens"
+        btn_citizens.Size = New Size(267, 44)
+        btn_citizens.TabIndex = 28
+        btn_citizens.Text = "      Citizens"
+        btn_citizens.TextAlign = ContentAlignment.MiddleLeft
+        btn_citizens.UseVisualStyleBackColor = False
         ' 
         ' pnl_spacer_btn_employees
         ' 
@@ -439,11 +473,11 @@ Partial Class Main
         btn_pending_cases.Cursor = Cursors.Hand
         btn_pending_cases.Dock = DockStyle.Top
         btn_pending_cases.FlatAppearance.BorderSize = 0
-        btn_pending_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_pending_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_pending_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_pending_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
         btn_pending_cases.FlatStyle = FlatStyle.Flat
         btn_pending_cases.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_pending_cases.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_pending_cases.ForeColor = Color.White
         btn_pending_cases.Image = CType(resources.GetObject("btn_pending_cases.Image"), Image)
         btn_pending_cases.ImageAlign = ContentAlignment.MiddleLeft
         btn_pending_cases.Location = New Point(21, 148)
@@ -468,11 +502,11 @@ Partial Class Main
         btn_barangay_cases.Cursor = Cursors.Hand
         btn_barangay_cases.Dock = DockStyle.Top
         btn_barangay_cases.FlatAppearance.BorderSize = 0
-        btn_barangay_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_barangay_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_barangay_cases.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_barangay_cases.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
         btn_barangay_cases.FlatStyle = FlatStyle.Flat
         btn_barangay_cases.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_barangay_cases.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_barangay_cases.ForeColor = Color.White
         btn_barangay_cases.Image = CType(resources.GetObject("btn_barangay_cases.Image"), Image)
         btn_barangay_cases.ImageAlign = ContentAlignment.MiddleLeft
         btn_barangay_cases.Location = New Point(21, 94)
@@ -493,15 +527,15 @@ Partial Class Main
         ' 
         ' btn_dashboard
         ' 
-        btn_dashboard.BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_dashboard.BackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
         btn_dashboard.Cursor = Cursors.Hand
         btn_dashboard.Dock = DockStyle.Top
         btn_dashboard.FlatAppearance.BorderSize = 0
-        btn_dashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
-        btn_dashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        btn_dashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
+        btn_dashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(0), CByte(123), CByte(255))
         btn_dashboard.FlatStyle = FlatStyle.Flat
         btn_dashboard.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_dashboard.ForeColor = Color.FromArgb(CByte(1), CByte(41), CByte(112))
+        btn_dashboard.ForeColor = Color.White
         btn_dashboard.Image = CType(resources.GetObject("btn_dashboard.Image"), Image)
         btn_dashboard.ImageAlign = ContentAlignment.MiddleLeft
         btn_dashboard.Location = New Point(21, 40)
@@ -985,8 +1019,8 @@ Partial Class Main
         pnl_banner.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         pnl_sidebar.ResumeLayout(False)
-        Panel11.ResumeLayout(False)
-        Panel11.PerformLayout()
+        Panel8.ResumeLayout(False)
+        Panel8.PerformLayout()
         Panel5.ResumeLayout(False)
         Panel5.PerformLayout()
         pnl_footer_outer.ResumeLayout(False)
@@ -1015,11 +1049,11 @@ Partial Class Main
     Friend WithEvents btn_logout As Button
     Friend WithEvents Panel11 As Panel
     Friend WithEvents Label6 As Label
-    Friend WithEvents btn_barangay_news As Button
-    Friend WithEvents Panel10 As Panel
     Friend WithEvents btn_announcements As Button
-    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Panel10 As Panel
     Friend WithEvents btn_employees As Button
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents btn_citizens As Button
     Friend WithEvents pnl_spacer_btn_employees As Panel
     Friend WithEvents btn_pending_cases As Button
     Friend WithEvents Panel6 As Panel
@@ -1062,4 +1096,9 @@ Partial Class Main
     Friend WithEvents Edit_Barangay_Case As Edit_Barangay_Case
     Friend WithEvents btn_open_website As Button
     Friend WithEvents btn_connect_to_mobile_app As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents btn_barangay_news As Button
+    Friend WithEvents Panel1 As Panel
 End Class

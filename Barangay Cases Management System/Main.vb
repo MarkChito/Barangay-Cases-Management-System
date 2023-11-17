@@ -413,11 +413,12 @@ Public Class Main
         current_tab = btn_name.Name
 
         btn_pending_cases.BackColor = Color.Transparent
-        btn_announcements.BackColor = Color.Transparent
-        btn_barangay_cases.BackColor = Color.Transparent
-        btn_barangay_news.BackColor = Color.Transparent
-        btn_dashboard.BackColor = Color.Transparent
         btn_employees.BackColor = Color.Transparent
+        btn_barangay_cases.BackColor = Color.Transparent
+        btn_announcements.BackColor = Color.Transparent
+        btn_dashboard.BackColor = Color.Transparent
+        btn_citizens.BackColor = Color.Transparent
+        btn_barangay_news.BackColor = Color.Transparent
         btn_logout.BackColor = Color.Transparent
 
         btn_my_profile.BackColor = Color.Transparent
@@ -456,7 +457,8 @@ Public Class Main
         End If
 
         If Not current_tab = "btn_new_case" And Not current_tab = "btn_edit_case" And Not current_tab = "btn_next" And Not current_tab = "btn_previous" Then
-            btn_name.BackColor = Color.FromArgb(246, 249, 255)
+            btn_name.BackColor = primary
+
             With img_loading
                 .Visible = True
                 .BringToFront()
@@ -559,10 +561,10 @@ Public Class Main
 
         If Not result("user_type") = "admin" Then
             pnl_spacer_btn_employees.Visible = False
-            btn_employees.Visible = False
+            btn_citizens.Visible = False
         Else
             pnl_spacer_btn_employees.Visible = True
-            btn_employees.Visible = True
+            btn_citizens.Visible = True
         End If
 
         btn_account.Text = Format_Name(result("first_name")) & result("last_name")
@@ -829,6 +831,10 @@ Public Class Main
         Mouse_Click(btn_pending_cases)
     End Sub
 
+    Private Sub btn_citizens_Click(sender As Object, e As EventArgs) Handles btn_citizens.Click, btn_citizens.Click
+        Mouse_Click(btn_citizens)
+    End Sub
+
     Private Sub btn_employees_Click(sender As Object, e As EventArgs) Handles btn_employees.Click
         Mouse_Click(btn_employees)
     End Sub
@@ -837,11 +843,7 @@ Public Class Main
         Mouse_Click(btn_announcements)
     End Sub
 
-    Private Sub btn_barangay_news_Click(sender As Object, e As EventArgs) Handles btn_barangay_news.Click
-        Mouse_Click(btn_barangay_news)
-    End Sub
-
-    Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
+    Private Sub btn_logout_Click(sender As Object, e As EventArgs)
         Logout()
     End Sub
 
@@ -879,19 +881,19 @@ Public Class Main
         End If
 
         If txt_search.Text = "Employees" Then
-            Mouse_Click(btn_employees)
+            Mouse_Click(btn_citizens)
 
             txt_search.Clear()
         End If
 
         If txt_search.Text = "Announcements" Then
-            Mouse_Click(btn_announcements)
+            Mouse_Click(btn_employees)
 
             txt_search.Clear()
         End If
 
         If txt_search.Text = "Barangay News" Then
-            Mouse_Click(btn_barangay_news)
+            Mouse_Click(btn_announcements)
 
             txt_search.Clear()
         End If
@@ -944,5 +946,13 @@ Public Class Main
         End With
 
         btn_temp.Focus()
+    End Sub
+
+    Private Sub btn_barangay_news_Click(sender As Object, e As EventArgs) Handles btn_barangay_news.Click
+        Mouse_Click(btn_barangay_news)
+    End Sub
+
+    Private Sub btn_logout_Click_1(sender As Object, e As EventArgs) Handles btn_logout.Click
+        Logout()
     End Sub
 End Class

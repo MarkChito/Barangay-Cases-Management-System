@@ -35,8 +35,8 @@ Partial Class Barangay_Cases
         case_mobile_number = New ColumnHeader()
         case_address = New ColumnHeader()
         case_nature_of_complaint = New ColumnHeader()
-        case_image = New ColumnHeader()
         case_description = New ColumnHeader()
+        case_image = New ColumnHeader()
         Panel5 = New Panel()
         Panel4 = New Panel()
         Panel1 = New Panel()
@@ -79,11 +79,11 @@ Partial Class Barangay_Cases
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(674, 23)
+        Label4.Location = New Point(581, 23)
         Label4.Name = "Label4"
-        Label4.Size = New Size(64, 20)
+        Label4.Size = New Size(157, 20)
         Label4.TabIndex = 6
-        Label4.Text = "Search:"
+        Label4.Text = "Search Complainant:"
         ' 
         ' txt_search
         ' 
@@ -129,7 +129,7 @@ Partial Class Barangay_Cases
         ' 
         ' case_name
         ' 
-        case_name.Text = "Name"
+        case_name.Text = "Complainant"
         case_name.Width = 150
         ' 
         ' case_mobile_number
@@ -147,15 +147,15 @@ Partial Class Barangay_Cases
         case_nature_of_complaint.Text = "Nature of Compliant"
         case_nature_of_complaint.Width = 150
         ' 
-        ' case_image
-        ' 
-        case_image.Text = ""
-        case_image.Width = 0
-        ' 
         ' case_description
         ' 
         case_description.Text = ""
         case_description.Width = 0
+        ' 
+        ' case_image
+        ' 
+        case_image.Text = ""
+        case_image.Width = 0
         ' 
         ' Panel5
         ' 

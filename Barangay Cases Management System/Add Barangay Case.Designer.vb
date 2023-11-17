@@ -295,9 +295,9 @@ Partial Class Add_Barangay_Case
         Label10.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Label10.Location = New Point(30, 305)
         Label10.Name = "Label10"
-        Label10.Size = New Size(89, 20)
+        Label10.Size = New Size(134, 20)
         Label10.TabIndex = 28
-        Label10.Text = "Description"
+        Label10.Text = "Event Description"
         ' 
         ' txt_description
         ' 

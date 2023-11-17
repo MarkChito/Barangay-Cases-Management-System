@@ -14,10 +14,6 @@ Module Model
     Public adapter As New MySqlDataAdapter
     Public table As New DataTable
 
-    'Public host_name As String = Dns.GetHostName()
-    'Public host_entry As IPHostEntry = Dns.GetHostEntry(host_name)
-    'Public ip_address As IPAddress = host_entry.AddressList.FirstOrDefault(Function(ip) ip.AddressFamily = AddressFamily.InterNetwork)
-
     Public ip_address As IPAddress = GetIPv4WithDefaultGateway()
 
     Public online_connection As String = "https://"
@@ -603,7 +599,57 @@ Module Model
         table.Clear()
 
         With command
-            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaynews` WHERE `title` LIKE '%" & inputted_data & "%' OR `body` LIKE '%" & inputted_data & "%' ORDER BY `primary_key` DESC"
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaynews` WHERE `title` LIKE '%" & inputted_data & "%' ORDER BY `primary_key` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Search_Barangay_Case_Data(inputted_data As String)
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaycases` WHERE `name` LIKE '%" & inputted_data & "%' AND `status`='0' ORDER BY `primary_key` DESC"
+            .Connection = connection
+            .ExecuteNonQuery()
+        End With
+
+        With adapter
+            .SelectCommand = command
+            .Fill(table)
+        End With
+
+        results = table
+
+        Database_Close()
+
+        Return results
+    End Function
+
+    Public Function Get_Search_Pending_Case_Data(inputted_data As String)
+        Dim results As New DataTable
+
+        Database_Open()
+
+        table.Clear()
+
+        With command
+            .CommandText = "SELECT * FROM `tbl_barangaycasesmanagement_barangaycases` WHERE `name` LIKE '%" & inputted_data & "%' AND `status`='1' ORDER BY `primary_key` DESC"
             .Connection = connection
             .ExecuteNonQuery()
         End With

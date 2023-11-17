@@ -105,7 +105,7 @@ Partial Class Pending_Cases
         ' 
         ' case_name
         ' 
-        case_name.Text = "Name"
+        case_name.Text = "Complainant"
         case_name.Width = 150
         ' 
         ' case_mobile_number
@@ -120,7 +120,7 @@ Partial Class Pending_Cases
         ' 
         ' case_nature_of_complaint
         ' 
-        case_nature_of_complaint.Text = "Nature of Compliant"
+        case_nature_of_complaint.Text = "Nature of Complaint"
         case_nature_of_complaint.Width = 150
         ' 
         ' case_description
@@ -139,11 +139,11 @@ Partial Class Pending_Cases
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(674, 23)
+        Label4.Location = New Point(581, 23)
         Label4.Name = "Label4"
-        Label4.Size = New Size(64, 20)
+        Label4.Size = New Size(157, 20)
         Label4.TabIndex = 4
-        Label4.Text = "Search:"
+        Label4.Text = "Search Complainant:"
         ' 
         ' txt_search
         ' 

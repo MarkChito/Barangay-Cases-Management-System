@@ -20,7 +20,7 @@ Public Class Add_Barangay_News
 
     Private Async Sub UploadImageToServerAsync(ByVal imagePath As String, ByVal uploadUrl As String)
         Dim errors As Integer = 0
-        Dim user_image As String = "default_user_image.png"
+        Dim user_image As String = "default_image.png"
 
         Main.btn_temp.Focus()
 
@@ -65,7 +65,7 @@ Public Class Add_Barangay_News
 
                 txt_barangay_news_title.Clear()
                 txt_barangay_news_body.Clear()
-                img_barangay_news_image.Image = Image.FromFile("dist/img/user_upload/default_user_image.png")
+                img_barangay_news_image.Image = Image.FromFile("dist/img/user_upload/default_image.png")
 
                 selected_image = ""
 
@@ -93,12 +93,13 @@ Public Class Add_Barangay_News
     End Sub
 
     Private Sub btn_close_Click(sender As Object, e As EventArgs) Handles btn_close.Click
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub btn_upload_Click(sender As Object, e As EventArgs) Handles btn_upload.Click
-        Dim openFileDialog As New OpenFileDialog()
-        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif|All Files|*.*"
+        Dim openFileDialog As New OpenFileDialog With {
+            .Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif|All Files|*.*"
+        }
 
         If openFileDialog.ShowDialog() = DialogResult.OK Then
             Dim imagePath As String = openFileDialog.FileName

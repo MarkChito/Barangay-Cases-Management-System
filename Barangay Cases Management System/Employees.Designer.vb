@@ -77,11 +77,11 @@ Partial Class Employees
         Label4.AutoSize = True
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label4.Location = New Point(674, 23)
+        Label4.Location = New Point(628, 23)
         Label4.Name = "Label4"
-        Label4.Size = New Size(64, 20)
+        Label4.Size = New Size(110, 20)
         Label4.TabIndex = 2
-        Label4.Text = "Search:"
+        Label4.Text = "Search Name:"
         ' 
         ' txt_search
         ' 

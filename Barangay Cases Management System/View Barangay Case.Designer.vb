@@ -163,9 +163,9 @@ Partial Class View_Barangay_Case
         Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.Location = New Point(11, 528)
         Label6.Name = "Label6"
-        Label6.Size = New Size(105, 20)
+        Label6.Size = New Size(156, 20)
         Label6.TabIndex = 13
-        Label6.Text = "Description:"
+        Label6.Text = "Event Description:"
         ' 
         ' Label5
         ' 

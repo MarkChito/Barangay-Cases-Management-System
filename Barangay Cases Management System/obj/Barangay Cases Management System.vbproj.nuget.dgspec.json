@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj": {}
+    "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj": {}
   },
   "projects": {
-    "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj": {
+    "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
         "projectName": "Barangay Cases Management System",
-        "projectPath": "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\Documents\\Visual Studio 2022\\Projects\\Barangay Cases Management System\\Barangay Cases Management System\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -88,7 +88,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

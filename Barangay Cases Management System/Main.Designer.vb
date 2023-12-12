@@ -458,6 +458,7 @@ Partial Class Main
         btn_citizens.Text = "      Citizens"
         btn_citizens.TextAlign = ContentAlignment.MiddleLeft
         btn_citizens.UseVisualStyleBackColor = False
+        btn_citizens.Visible = False
         ' 
         ' pnl_spacer_btn_employees
         ' 
@@ -466,6 +467,7 @@ Partial Class Main
         pnl_spacer_btn_employees.Name = "pnl_spacer_btn_employees"
         pnl_spacer_btn_employees.Size = New Size(267, 10)
         pnl_spacer_btn_employees.TabIndex = 27
+        pnl_spacer_btn_employees.Visible = False
         ' 
         ' btn_pending_cases
         ' 

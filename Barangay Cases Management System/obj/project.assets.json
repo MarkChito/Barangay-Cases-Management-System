@@ -2534,11 +2534,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Source\\Repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
       "projectName": "Barangay Cases Management System",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
+      "projectPath": "C:\\Users\\Admin\\Source\\Repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\Barangay Cases Management System.vbproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Source\\Repos\\Barangay-Cases-Management-System-Desktop-App\\Barangay Cases Management System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

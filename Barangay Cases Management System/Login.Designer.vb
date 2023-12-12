@@ -60,6 +60,7 @@ Partial Class Login
         img_loading.SizeMode = PictureBoxSizeMode.CenterImage
         img_loading.TabIndex = 0
         img_loading.TabStop = False
+        img_loading.Visible = False
         ' 
         ' pnl_login
         ' 
@@ -275,6 +276,8 @@ Partial Class Login
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(246), CByte(249), CByte(255))
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(534, 661)
         Controls.Add(pnl_login)
         Controls.Add(img_loading)
@@ -283,6 +286,7 @@ Partial Class Login
         Name = "Login"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Administrator Login"
+        WindowState = FormWindowState.Maximized
         CType(img_loading, ComponentModel.ISupportInitialize).EndInit()
         pnl_login.ResumeLayout(False)
         pnl_login.PerformLayout()

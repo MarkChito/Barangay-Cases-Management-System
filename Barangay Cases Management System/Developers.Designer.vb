@@ -57,7 +57,7 @@ Partial Class Developers
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(424, 45)
+        Panel1.Size = New Size(420, 45)
         Panel1.TabIndex = 0
         ' 
         ' img_close
@@ -90,9 +90,9 @@ Partial Class Developers
         Panel2.Controls.Add(LinkLabel1)
         Panel2.Controls.Add(Label3)
         Panel2.Dock = DockStyle.Bottom
-        Panel2.Location = New Point(0, 211)
+        Panel2.Location = New Point(0, 207)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(424, 48)
+        Panel2.Size = New Size(420, 48)
         Panel2.TabIndex = 1
         ' 
         ' Label2
@@ -147,7 +147,7 @@ Partial Class Developers
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(0, 45)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(424, 166)
+        Panel3.Size = New Size(420, 162)
         Panel3.TabIndex = 2
         ' 
         ' Label12
@@ -274,7 +274,7 @@ Partial Class Developers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(424, 259)
+        ClientSize = New Size(420, 255)
         ControlBox = False
         Controls.Add(Panel3)
         Controls.Add(Panel2)

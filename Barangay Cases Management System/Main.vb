@@ -559,13 +559,13 @@ Public Class Main
         Dim result = Get_User_Data(primary_key)
         Dim user_image As String = ""
 
-        If Not result("user_type") = "admin" Then
-            pnl_spacer_btn_employees.Visible = False
-            btn_citizens.Visible = False
-        Else
-            pnl_spacer_btn_employees.Visible = True
-            btn_citizens.Visible = True
-        End If
+        'If Not result("user_type") = "admin" Then
+        '    pnl_spacer_btn_employees.Visible = False
+        '    btn_citizens.Visible = False
+        'Else
+        '    pnl_spacer_btn_employees.Visible = True
+        '    btn_citizens.Visible = True
+        'End If
 
         btn_account.Text = Format_Name(result("first_name")) & result("last_name")
 
@@ -627,10 +627,6 @@ Public Class Main
         Image_Capture.Location = New Point(pnl_footer_outer.Location.X, Image_Capture.Location.Y)
 
         btn_temp.Focus()
-    End Sub
-
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        'Process.Start(url)
     End Sub
 
     Private Sub img_user_Click(sender As Object, e As EventArgs) Handles img_user.Click
